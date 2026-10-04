@@ -1,0 +1,117 @@
+// ============================================================================
+// Official TigerGraph Schema: OLYMPIC_BENCHMARK
+// Created for Hackathon Official Olympic Benchmark Evaluation Graph
+// IMPORTANT: Completely isolated from AGRI_EVIDENCE
+// ============================================================================
+
+CREATE GRAPH OLYMPIC_BENCHMARK ()
+
+USE GRAPH OLYMPIC_BENCHMARK
+
+DROP JOB schema_olympic
+
+CREATE SCHEMA_CHANGE JOB schema_olympic FOR GRAPH OLYMPIC_BENCHMARK {
+  // Vertex Types
+  ADD VERTEX Document (
+    PRIMARY_ID doc_id STRING,
+    title STRING,
+    url STRING,
+    wikidata_qid STRING,
+    wikipedia_pageid STRING,
+    approx_tokens INT
+  ) WITH primary_id_as_attribute="true";
+
+  ADD VERTEX Event (
+    PRIMARY_ID event_id STRING,
+    name STRING,
+    sport STRING,
+    competitors_count INT,
+    nations_count INT,
+    date_str STRING,
+    win_value STRING
+  ) WITH primary_id_as_attribute="true";
+
+  ADD VERTEX OlympicGames (
+    PRIMARY_ID games_id STRING,
+    name STRING,
+    year INT,
+    season STRING
+  ) WITH primary_id_as_attribute="true";
+
+  ADD VERTEX Sport (
+    PRIMARY_ID sport_id STRING,
+    name STRING
+  ) WITH primary_id_as_attribute="true";
+
+  ADD VERTEX Venue (
+    PRIMARY_ID venue_id STRING,
+    name STRING
+  ) WITH primary_id_as_attribute="true";
+
+  ADD VERTEX Athlete (
+    PRIMARY_ID athlete_id STRING,
+    name STRING,
+    noc STRING
+  ) WITH primary_id_as_attribute="true";
+
+  ADD VERTEX Country (
+    PRIMARY_ID noc_code STRING,
+    name STRING
+  ) WITH primary_id_as_attribute="true";
+
+  // Directed Edge Types
+  ADD DIRECTED EDGE DESCRIBES (
+    FROM Document,
+    TO Event
+  );
+
+  ADD DIRECTED EDGE PART_OF_GAMES (
+    FROM Event,
+    TO OlympicGames,
+    year INT
+  );
+
+  ADD DIRECTED EDGE BELONGS_TO_SPORT (
+    FROM Event,
+    TO Sport
+  );
+
+  ADD DIRECTED EDGE HELD_AT (
+    FROM Event,
+    TO Venue,
+    date_str STRING
+  );
+
+  ADD DIRECTED EDGE WON_GOLD (
+    FROM Event,
+    TO Athlete,
+    noc STRING,
+    win_value STRING
+  );
+
+  ADD DIRECTED EDGE WON_SILVER (
+    FROM Event,
+    TO Athlete,
+    noc STRING
+  );
+
+  ADD DIRECTED EDGE WON_BRONZE (
+    FROM Event,
+    TO Athlete,
+    noc STRING
+  );
+
+  ADD DIRECTED EDGE REPRESENTS (
+    FROM Athlete,
+    TO Country
+  );
+
+  ADD DIRECTED EDGE PRECEDED_BY (
+    FROM OlympicGames,
+    TO OlympicGames,
+    season STRING
+  );
+}
+
+RUN SCHEMA_CHANGE JOB schema_olympic
+DROP JOB schema_olympic

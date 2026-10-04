@@ -1,0 +1,11 @@
+edge_type,from_id,to_id
+HAS_SYMPTOM,animal_001,symptom_001
+HAS_SYMPTOM,animal_001,symptom_002
+HAS_SYMPTOM,animal_002,symptom_003
+HAS_TREATMENT,disease_001,treatment_001
+HAS_TREATMENT,disease_002,treatment_002
+ASSOCIATED_WITH,disease_001,outbreak_001
+ASSOCIATED_WITH,disease_002,outbreak_002
+AFFECTS,outbreak_001,market_001
+AFFECTS,outbreak_002,market_002
+SUPERSEDES,fact_002,fact_001

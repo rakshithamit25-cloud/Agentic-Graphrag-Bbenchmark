@@ -1,0 +1,39 @@
+event_id,name,sport,competitors_count,nations_count,date_str,win_value
+event_Q303623,Canoeing at the 2012 Summer Olympics – Men's K-2 1000 metres,Canoeing,24,12,6 to 8 August,3:09.646
+event_Q607635,Speed skating at the 2010 Winter Olympics – Men's 5000 metres,Speed skating,28,16,13 February 2010,6:14.60 speed skating
+event_Q939000,Cycling at the 2012 Summer Olympics – Women's road time trial,Cycling,24,16,1 August,37:34.82
+event_Q26233801,Gymnastics at the 2016 Summer Olympics – Women's artistic individual all-around,Gymnastics,24,14,11 August,62.198 points
+event_Q743905,Athletics at the 2008 Summer Olympics – Men's 110 metres hurdles,Athletics,43,33,August 18 (heats)August 20 (semifinals)August 21 (final),12.93
+event_Q1433269,Athletics at the 2004 Summer Olympics – Men's 400 metres hurdles,Athletics,35,24,23–26 August,47.63
+event_Q1005784,Athletics at the 2008 Summer Olympics – Men's decathlon,Athletics,40,27,August 21–22,8791
+event_Q1005641,Alpine skiing at the 1992 Winter Olympics – Men's slalom,Alpine skiing,119,44,"February 22, 1992",1:44.39
+event_Q3628768,Athletics at the 2000 Summer Olympics – Men's 400 metres,Athletics,68,44,22–25 September,
+event_Q7400295,Sailing at the 1988 Summer Olympics – Women's 470,Sailing,42,21,20–27 September,
+event_Q15506518,Short-track speed skating at the 2014 Winter Olympics – Men's 5000 metre relay,Short-track speed skating,32,8,13 February 2014 (semifinal) 21 February 2014 (final),6:42.100
+event_Q4951829,Boxing at the 1996 Summer Olympics – Bantamweight,Boxing,31,31,20 July – 3 August 1996,
+event_Q26212143,Weightlifting at the 2016 Summer Olympics – Men's +105 kg,Weightlifting,23,19,16 August 2016,473 kg Olympic weightlifting
+event_Q250187,Swimming at the 2008 Summer Olympics – Men's 200 metre breaststroke,Swimming,53,39,"August 12, 2008 (heats)August 13, 2008 (semifinals)August 14, 2008 (final)",2:07.64 swimming
+event_Q1221945,Cross-country skiing at the 1994 Winter Olympics – Women's 15 kilometre freestyle,Cross-country skiing,54,19,13 February 1994,39:44.5
+event_Q3879591,Swimming at the 2000 Summer Olympics – Women's 200 metre backstroke,Swimming,36,29,"September 21, 2000 (heats &semifinals)September 22, 2000 (final)",2:08.16
+event_Q25239321,Weightlifting at the 1988 Summer Olympics – Men's 56 kg,Weightlifting,23,17,19 September 1988,
+event_Q1205250,Shooting at the 2008 Summer Olympics – Men's 50 metre pistol,Shooting,45,32,"August 12, 2008",660.4
+event_Q766586,Speed skating at the 2002 Winter Olympics – Women's 3000 metres,Speed skating,32,16,"February 10, 2002",3:57.70 WR
+event_Q850246,Short-track speed skating at the 2006 Winter Olympics – Women's 500 metres,Short-track speed skating,28,17,12–15 February 2006,
+event_Q2071152,Swimming at the 2012 Summer Olympics – Women's 200 metre freestyle,Swimming,37,31,"July 30, 2012 (heats &semifinals)July 31, 2012 (final)",1:53.61 swimming
+event_Q2071160,Swimming at the 2012 Summer Olympics – Men's 200 metre backstroke,Swimming,35,27,"August 1, 2012 (heats & semifinals)August 2, 2012 (final)",1:53.41 swimming
+event_Q1204722,Shooting at the 2008 Summer Olympics – Women's 10 metre air rifle,Shooting,47,31,"August 9, 2008",503.5 (OR)
+event_Q26208755,Athletics at the 2016 Summer Olympics – Men's javelin throw,Athletics,37,23,17 August 2016 (qualifications)20 August 2016 (final),90.30 m
+event_Q2500292,Sailing at the 2012 Summer Olympics – Star,Sailing,32,16,29 July – 5 August,
+event_Q870647,Nordic combined at the 1992 Winter Olympics – Team,Nordic combined,33,11,17–18 February,Team jump: 645.1Ski time: 1:23:36.5Final time: 1:23:36.5
+event_Q7662173,Synchronized swimming at the 2000 Summer Olympics – Women's duet,Synchronized swimming,48,24,24–26 September,99.580
+event_Q15619183,Figure skating at the 2014 Winter Olympics – Women's singles,Figure skating,30,20,19–20 February 2014,224.59 points
+event_Q25239533,Weightlifting at the 1988 Summer Olympics – Men's 67.5 kg,Weightlifting,30,25,21 September 1988,
+event_Q4951830,Boxing at the 1996 Summer Olympics – Featherweight,Boxing,31,31,22 July – 4 August 1996,
+event_Q1005783,Taekwondo at the 2008 Summer Olympics – Men's 80 kg,Taekwondo,16,16,22 August 2008,
+event_Q7372012,Rowing at the 2000 Summer Olympics – Women's single sculls,Rowing,19,19,17–23 September 2000,7:28.14
+event_Q3879590,Swimming at the 2000 Summer Olympics – Men's 1500 metre freestyle,Swimming,41,32,"September 22, 2000 (heats)September 23, 2000 (final)",14:48.33
+event_Q1221969,Cross-country skiing at the 1988 Winter Olympics – Women's 20 kilometre freestyle,Cross-country skiing,55,18,25 February 1988,55:53.6
+event_Q3628769,Athletics at the 2000 Summer Olympics – Women's 5000 metres,Athletics,49,31,22 September 2000 (heats)25 September 2000 (final),14:40.79 athletics
+event_Q1005640,Alpine skiing at the 1994 Winter Olympics – Men's slalom,Alpine skiing,57,25,"February 27, 1994",2:02.02
+event_Q744487,Athletics at the 2008 Summer Olympics – Men's high jump,Athletics,40,28,17 August 2008 (qualifying)19 August 2008 (final),2.36
+event_Q26233821,Athletics at the 2016 Summer Olympics – Women's high jump,Athletics,36,27,18 August 2016 (qualification)20 August 2016 (final),1.97 m

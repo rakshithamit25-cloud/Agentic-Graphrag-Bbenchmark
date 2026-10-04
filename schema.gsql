@@ -1,0 +1,61 @@
+USE GRAPH AGRI_EVIDENCE
+
+CREATE VERTEX Animal (
+  PRIMARY_ID id STRING,
+  name STRING
+) WITH primary_id_as_attribute="true";
+
+CREATE VERTEX Symptom (
+  PRIMARY_ID id STRING,
+  name STRING
+) WITH primary_id_as_attribute="true";
+
+CREATE VERTEX Disease (
+  PRIMARY_ID id STRING,
+  name STRING
+) WITH primary_id_as_attribute="true";
+
+CREATE VERTEX Treatment (
+  PRIMARY_ID id STRING,
+  name STRING
+) WITH primary_id_as_attribute="true";
+
+CREATE VERTEX Outbreak (
+  PRIMARY_ID id STRING,
+  name STRING
+) WITH primary_id_as_attribute="true";
+
+CREATE VERTEX Market (
+  PRIMARY_ID id STRING,
+  name STRING
+) WITH primary_id_as_attribute="true";
+
+CREATE VERTEX FactVersion (
+  PRIMARY_ID id STRING,
+  version STRING
+) WITH primary_id_as_attribute="true";
+
+CREATE DIRECTED EDGE HAS_SYMPTOM (
+  FROM Animal,
+  TO Symptom
+);
+
+CREATE DIRECTED EDGE HAS_TREATMENT (
+  FROM Disease,
+  TO Treatment
+);
+
+CREATE DIRECTED EDGE ASSOCIATED_WITH (
+  FROM Disease,
+  TO Outbreak
+);
+
+CREATE DIRECTED EDGE AFFECTS (
+  FROM Outbreak,
+  TO Market
+);
+
+CREATE DIRECTED EDGE SUPERSEDES (
+  FROM FactVersion,
+  TO FactVersion
+);

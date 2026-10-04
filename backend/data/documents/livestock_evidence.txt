@@ -1,0 +1,23 @@
+Livestock Disease Evidence
+
+Foot and Mouth Disease (FMD)
+
+Foot and Mouth Disease is a contagious livestock disease.
+Common signs can include fever, reduced appetite, and lesions
+affecting the mouth and feet.
+
+The sample graph associates Foot and Mouth Disease with the
+Tamil Nadu FMD Outbreak.
+
+The sample graph associates this outbreak with the
+Tamil Nadu Livestock Market.
+
+Pneumonia
+
+Pneumonia is a respiratory disease affecting livestock.
+
+The sample graph associates Pneumonia with the
+Karnataka Pneumonia Outbreak.
+
+The sample graph associates this outbreak with the
+Karnataka Livestock Market.

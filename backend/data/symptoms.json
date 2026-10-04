@@ -1,0 +1,18 @@
+[
+    {
+        "id": "symptom_001",
+        "name": "Fever"
+    },
+    {
+        "id": "symptom_002",
+        "name": "Cough"
+    },
+    {
+        "id": "symptom_003",
+        "name": "Loss of appetite"
+    },
+    {
+        "id": "symptom_004",
+        "name": "Nasal discharge"
+    }
+]

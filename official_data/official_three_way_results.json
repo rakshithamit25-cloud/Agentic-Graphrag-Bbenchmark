@@ -1,0 +1,445 @@
+{
+  "benchmark": "Official TigerGraph Agentic GraphRAG Benchmark",
+  "mode": "official",
+  "total_questions": 5,
+  "question_distribution": {
+    "aggregation": 21,
+    "temporal": 22,
+    "superlative": 10,
+    "multi_hop": 28,
+    "lookup": 19
+  },
+  "summary": {
+    "llm_model": "openai/gpt-oss-120b",
+    "rag": {
+      "correct": 1,
+      "total": 5,
+      "accuracy": 0.2,
+      "avg_latency": 0.3544245719909668,
+      "avg_tokens": 261.4
+    },
+    "graphrag": {
+      "correct": 5,
+      "total": 5,
+      "accuracy": 1.0,
+      "avg_latency": 0.0,
+      "avg_tokens": 0.0
+    },
+    "agentic_graphrag": {
+      "correct": 5,
+      "total": 5,
+      "accuracy": 1.0,
+      "avg_latency": 0.0,
+      "avg_tokens": 0.0
+    }
+  },
+  "results": [
+    {
+      "qid": "pub-001",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many biathlon events at the 2018 Winter Olympics had more than 73 competitors?",
+      "gold_answer": [
+        "5"
+      ],
+      "rag": {
+        "answer": [
+          "5"
+        ],
+        "correct": true,
+        "estimated_evidence_tokens": 41249,
+        "gold_doc_coverage": 1.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 1307,
+        "llm_latency": 1.772122859954834
+      },
+      "graphrag": {
+        "answer": [
+          "5"
+        ],
+        "correct": true,
+        "estimated_evidence_tokens": 160,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "2018 Winter",
+          "sport_search": "Biathlon",
+          "threshold": 73
+        },
+        "results": [
+          {
+            "event_id": "event_Q47155425",
+            "event_name": "Biathlon at the 2018 Winter Olympics – Women's individual",
+            "competitors_count": 87,
+            "games_name": "2018 Winter Olympics",
+            "sport_name": "Biathlon",
+            "source_doc_id": "Q47155425",
+            "source_doc_title": "Biathlon at the 2018 Winter Olympics – Women's individual"
+          },
+          {
+            "event_id": "event_Q47155408",
+            "event_name": "Biathlon at the 2018 Winter Olympics – Men's individual",
+            "competitors_count": 86,
+            "games_name": "2018 Winter Olympics",
+            "sport_name": "Biathlon",
+            "source_doc_id": "Q47155408",
+            "source_doc_title": "Biathlon at the 2018 Winter Olympics – Men's individual"
+          },
+          {
+            "event_id": "event_Q47105341",
+            "event_name": "Biathlon at the 2018 Winter Olympics – Men's sprint",
+            "competitors_count": 87,
+            "games_name": "2018 Winter Olympics",
+            "sport_name": "Biathlon",
+            "source_doc_id": "Q47105341",
+            "source_doc_title": "Biathlon at the 2018 Winter Olympics – Men's sprint"
+          },
+          {
+            "event_id": "event_Q47155555",
+            "event_name": "Biathlon at the 2018 Winter Olympics – Mixed relay",
+            "competitors_count": 80,
+            "games_name": "2018 Winter Olympics",
+            "sport_name": "Biathlon",
+            "source_doc_id": "Q47155555",
+            "source_doc_title": "Biathlon at the 2018 Winter Olympics – Mixed relay"
+          },
+          {
+            "event_id": "event_Q47091419",
+            "event_name": "Biathlon at the 2018 Winter Olympics – Women's sprint",
+            "competitors_count": 87,
+            "games_name": "2018 Winter Olympics",
+            "sport_name": "Biathlon",
+            "source_doc_id": "Q47091419",
+            "source_doc_title": "Biathlon at the 2018 Winter Olympics – Women's sprint"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "5"
+        ],
+        "correct": true,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 160,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "pub-002",
+      "qtype": "temporal",
+      "question": "Who won the gold medal in the men's 20 kilometres walk athletics event at the Summer Olympics held immediately before 2016?",
+      "gold_answer": [
+        "Chen Ding"
+      ],
+      "rag": {
+        "answer": [],
+        "correct": false,
+        "estimated_evidence_tokens": 12285,
+        "gold_doc_coverage": 1.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Chen Ding"
+        ],
+        "correct": true,
+        "estimated_evidence_tokens": 50,
+        "query": "previous_olympics_gold",
+        "parameters": {
+          "games_year": 2016,
+          "season": "Summer",
+          "event_search": "Athletics"
+        },
+        "results": [
+          {
+            "current_games_id": "games_2016_summer",
+            "current_games_name": "2016 Summer Olympics",
+            "previous_games_id": "games_2012_summer",
+            "previous_games_name": "2012 Summer Olympics",
+            "previous_year": 2012,
+            "event_id": "event_Q1050909",
+            "event_name": "Athletics at the 2012 Summer Olympics – Men's 20 kilometres walk",
+            "gold_winner_name": "Chen Ding",
+            "gold_winner_noc": "CHN",
+            "win_value": "1:18:46 OR",
+            "source_doc_id": "Q1050909",
+            "source_doc_title": "Athletics at the 2012 Summer Olympics – Men's 20 kilometres walk"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Chen Ding"
+        ],
+        "correct": true,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 50,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "pub-003",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many shooting events at the 2004 Summer Olympics had more than 37 competitors?",
+      "gold_answer": [
+        "8"
+      ],
+      "rag": {
+        "answer": [],
+        "correct": false,
+        "estimated_evidence_tokens": 51373,
+        "gold_doc_coverage": 1.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "8"
+        ],
+        "correct": true,
+        "estimated_evidence_tokens": 298,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "2004 Summer",
+          "sport_search": "Shooting",
+          "threshold": 37
+        },
+        "results": [
+          {
+            "event_id": "event_Q7500834",
+            "event_name": "Shooting at the 2004 Summer Olympics – Men's skeet",
+            "competitors_count": 41,
+            "games_name": "2004 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q7500834",
+            "source_doc_title": "Shooting at the 2004 Summer Olympics – Men's skeet"
+          },
+          {
+            "event_id": "event_Q5481589",
+            "event_name": "Shooting at the 2004 Summer Olympics – Women's 10 metre air pistol",
+            "competitors_count": 41,
+            "games_name": "2004 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q5481589",
+            "source_doc_title": "Shooting at the 2004 Summer Olympics – Women's 10 metre air pistol"
+          },
+          {
+            "event_id": "event_Q4354074",
+            "event_name": "Shooting at the 2004 Summer Olympics – Women's 10 metre air rifle",
+            "competitors_count": 44,
+            "games_name": "2004 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q4354074",
+            "source_doc_title": "Shooting at the 2004 Summer Olympics – Women's 10 metre air rifle"
+          },
+          {
+            "event_id": "event_Q7500829",
+            "event_name": "Shooting at the 2004 Summer Olympics – Men's 10 metre air rifle",
+            "competitors_count": 47,
+            "games_name": "2004 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q7500829",
+            "source_doc_title": "Shooting at the 2004 Summer Olympics – Men's 10 metre air rifle"
+          },
+          {
+            "event_id": "event_Q7500832",
+            "event_name": "Shooting at the 2004 Summer Olympics – Men's 50 metre rifle prone",
+            "competitors_count": 46,
+            "games_name": "2004 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q7500832",
+            "source_doc_title": "Shooting at the 2004 Summer Olympics – Men's 50 metre rifle prone"
+          },
+          {
+            "event_id": "event_Q5395306",
+            "event_name": "Shooting at the 2004 Summer Olympics – Men's 50 metre rifle three positions",
+            "competitors_count": 40,
+            "games_name": "2004 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q5395306",
+            "source_doc_title": "Shooting at the 2004 Summer Olympics – Men's 50 metre rifle three positions"
+          },
+          {
+            "event_id": "event_Q4354615",
+            "event_name": "Shooting at the 2004 Summer Olympics – Men's 10 metre air pistol",
+            "competitors_count": 47,
+            "games_name": "2004 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q4354615",
+            "source_doc_title": "Shooting at the 2004 Summer Olympics – Men's 10 metre air pistol"
+          },
+          {
+            "event_id": "event_Q7500827",
+            "event_name": "Shooting at the 2004 Summer Olympics – Men's 50 metre pistol",
+            "competitors_count": 42,
+            "games_name": "2004 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q7500827",
+            "source_doc_title": "Shooting at the 2004 Summer Olympics – Men's 50 metre pistol"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "8"
+        ],
+        "correct": true,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 298,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "pub-004",
+      "qtype": "superlative",
+      "question": "According to the provided corpus, which athletics event at the 2008 Summer Olympics had the highest number of competitors?",
+      "gold_answer": [
+        "Athletics at the 2008 Summer Olympics – Men's marathon"
+      ],
+      "rag": {
+        "answer": [],
+        "correct": false,
+        "estimated_evidence_tokens": 43709,
+        "gold_doc_coverage": 0.46511627906976744,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Athletics at the 2008 Summer Olympics – Men's marathon"
+        ],
+        "correct": true,
+        "estimated_evidence_tokens": 32,
+        "query": "max_competitor_event",
+        "parameters": {
+          "games_search": "2008 Summer",
+          "sport_search": "Athletics"
+        },
+        "results": [
+          {
+            "event_id": "event_Q693595",
+            "event_name": "Athletics at the 2008 Summer Olympics – Men's marathon",
+            "competitors_count": 95,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q693595",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Men's marathon"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Athletics at the 2008 Summer Olympics – Men's marathon"
+        ],
+        "correct": true,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 32,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "pub-005",
+      "qtype": "multi_hop",
+      "question": "Who won the gold medal in the event held at Olympic Weightlifting Gymnasium on 20 September 1988?",
+      "gold_answer": [
+        "Naim Süleymanoğlu"
+      ],
+      "rag": {
+        "answer": [],
+        "correct": false,
+        "estimated_evidence_tokens": 7659,
+        "gold_doc_coverage": 1.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Naim Süleymanoğlu"
+        ],
+        "correct": true,
+        "estimated_evidence_tokens": 43,
+        "query": "event_by_venue_date",
+        "parameters": {
+          "venue_search": "Olympic Weightlifting Gymnasium",
+          "date_search": "20 September 1988"
+        },
+        "results": [
+          {
+            "event_id": "event_Q25239316",
+            "event_name": "Weightlifting at the 1988 Summer Olympics – Men's 60 kg",
+            "venue_name": "Olympic Weightlifting Gymnasium",
+            "date_str": "20 September 1988",
+            "gold_winner_id": "athlete_naim_süleymanoğlu",
+            "gold_winner_name": "Naim Süleymanoğlu",
+            "gold_winner_noc": "TUR",
+            "win_value": "",
+            "source_doc_id": "Q25239316",
+            "source_doc_title": "Weightlifting at the 1988 Summer Olympics – Men's 60 kg"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Naim Süleymanoğlu"
+        ],
+        "correct": true,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 43,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    }
+  ]
+}

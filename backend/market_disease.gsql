@@ -1,0 +1,19 @@
+USE GRAPH AGRI_EVIDENCE
+
+CREATE QUERY market_disease_path(VERTEX<Market> market)
+FOR GRAPH AGRI_EVIDENCE {
+
+    StartMarket = {market};
+
+    Outbreaks =
+        SELECT o
+        FROM StartMarket:m -(AFFECTS:e)-> Outbreak:o;
+
+    Diseases =
+        SELECT d
+        FROM Outbreaks:o -(ASSOCIATED_WITH:e)-> Disease:d;
+
+    PRINT StartMarket;
+    PRINT Outbreaks;
+    PRINT Diseases;
+}

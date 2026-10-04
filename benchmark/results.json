@@ -1,0 +1,123 @@
+{
+    "benchmark_type": "Custom demo benchmark",
+    "total_questions": 8,
+    "correct": 8,
+    "accuracy": 1.0,
+    "completeness": 1.0,
+    "average_estimated_tokens": 29.5,
+    "total_estimated_tokens": 236,
+    "results": [
+        {
+            "id": "q1",
+            "question": "Which disease is associated with the Tamil Nadu livestock market?",
+            "expected": "Foot and Mouth Disease",
+            "correct": true,
+            "completeness": 1.0,
+            "estimated_tokens": 37,
+            "actions": [
+                "MARKET_GRAPH",
+                "VECTOR",
+                "EVALUATE"
+            ],
+            "confidence": 0.85
+        },
+        {
+            "id": "q2",
+            "question": "Which disease is associated with the Karnataka livestock market?",
+            "expected": "Pneumonia",
+            "correct": true,
+            "completeness": 1.0,
+            "estimated_tokens": 26,
+            "actions": [
+                "MARKET_GRAPH",
+                "VECTOR",
+                "EVALUATE"
+            ],
+            "confidence": 0.85
+        },
+        {
+            "id": "q3",
+            "question": "Which outbreak is connected to Foot and Mouth Disease?",
+            "expected": "Tamil Nadu FMD Outbreak",
+            "correct": true,
+            "completeness": 1.0,
+            "estimated_tokens": 31,
+            "actions": [
+                "GRAPH",
+                "VECTOR",
+                "EVALUATE"
+            ],
+            "confidence": 0.85
+        },
+        {
+            "id": "q4",
+            "question": "Which market is affected by the Tamil Nadu FMD outbreak?",
+            "expected": "Tamil Nadu Livestock Market",
+            "correct": true,
+            "completeness": 1.0,
+            "estimated_tokens": 37,
+            "actions": [
+                "GRAPH",
+                "VECTOR",
+                "EVALUATE"
+            ],
+            "confidence": 0.85
+        },
+        {
+            "id": "q5",
+            "question": "Which treatment is associated with Foot and Mouth Disease?",
+            "expected": "Supportive care and vaccination",
+            "correct": true,
+            "completeness": 1.0,
+            "estimated_tokens": 31,
+            "actions": [
+                "GRAPH",
+                "VECTOR",
+                "EVALUATE"
+            ],
+            "confidence": 0.85
+        },
+        {
+            "id": "q6",
+            "question": "Which outbreak is connected to Pneumonia?",
+            "expected": "Karnataka Pneumonia Outbreak",
+            "correct": true,
+            "completeness": 1.0,
+            "estimated_tokens": 20,
+            "actions": [
+                "GRAPH",
+                "VECTOR",
+                "EVALUATE"
+            ],
+            "confidence": 0.85
+        },
+        {
+            "id": "q7",
+            "question": "Which market is affected by the Karnataka Pneumonia outbreak?",
+            "expected": "Karnataka Livestock Market",
+            "correct": true,
+            "completeness": 1.0,
+            "estimated_tokens": 28,
+            "actions": [
+                "GRAPH",
+                "VECTOR",
+                "EVALUATE"
+            ],
+            "confidence": 0.85
+        },
+        {
+            "id": "q8",
+            "question": "Which treatment is associated with Pneumonia?",
+            "expected": "Antibiotic therapy and supportive care",
+            "correct": true,
+            "completeness": 1.0,
+            "estimated_tokens": 26,
+            "actions": [
+                "GRAPH",
+                "VECTOR",
+                "EVALUATE"
+            ],
+            "confidence": 0.85
+        }
+    ]
+}

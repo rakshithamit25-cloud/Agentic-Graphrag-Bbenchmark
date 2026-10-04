@@ -1,0 +1,21 @@
+{
+    "benchmark_type": "Custom demonstration benchmark",
+    "official": false,
+    "models": {
+        "RAG": {
+            "accuracy": null,
+            "completeness": null,
+            "average_tokens": null
+        },
+        "GraphRAG": {
+            "accuracy": null,
+            "completeness": null,
+            "average_tokens": null
+        },
+        "Agentic GraphRAG": {
+            "accuracy": 1.0,
+            "completeness": 1.0,
+            "average_tokens": 29.5
+        }
+    }
+}

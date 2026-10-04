@@ -1,0 +1,2794 @@
+{
+  "describes": [
+    {
+      "source": "Q303623",
+      "target": "event_Q303623",
+      "source_doc_id": "Q303623",
+      "evidence_text": "Document 'Canoeing at the 2012 Summer Olympics – Men's K-2 1000 metres' describes event 'Men's canoe sprint K-2 1,000 metres'"
+    },
+    {
+      "source": "Q607635",
+      "target": "event_Q607635",
+      "source_doc_id": "Q607635",
+      "evidence_text": "Document 'Speed skating at the 2010 Winter Olympics – Men's 5000 metres' describes event 'Men's 5000 metres'"
+    },
+    {
+      "source": "Q939000",
+      "target": "event_Q939000",
+      "source_doc_id": "Q939000",
+      "evidence_text": "Document 'Cycling at the 2012 Summer Olympics – Women's road time trial' describes event 'Women's road time trial'"
+    },
+    {
+      "source": "Q26233801",
+      "target": "event_Q26233801",
+      "source_doc_id": "Q26233801",
+      "evidence_text": "Document 'Gymnastics at the 2016 Summer Olympics – Women's artistic individual all-around' describes event 'Women's artistic individual all-around'"
+    },
+    {
+      "source": "Q743905",
+      "target": "event_Q743905",
+      "source_doc_id": "Q743905",
+      "evidence_text": "Document 'Athletics at the 2008 Summer Olympics – Men's 110 metres hurdles' describes event 'Men's 110 metres hurdles'"
+    },
+    {
+      "source": "Q1433269",
+      "target": "event_Q1433269",
+      "source_doc_id": "Q1433269",
+      "evidence_text": "Document 'Athletics at the 2004 Summer Olympics – Men's 400 metres hurdles' describes event 'Men's 400 metres hurdles'"
+    },
+    {
+      "source": "Q1005784",
+      "target": "event_Q1005784",
+      "source_doc_id": "Q1005784",
+      "evidence_text": "Document 'Athletics at the 2008 Summer Olympics – Men's decathlon' describes event 'Men's decathlon'"
+    },
+    {
+      "source": "Q1005641",
+      "target": "event_Q1005641",
+      "source_doc_id": "Q1005641",
+      "evidence_text": "Document 'Alpine skiing at the 1992 Winter Olympics – Men's slalom' describes event 'Men's slalom'"
+    },
+    {
+      "source": "Q3628768",
+      "target": "event_Q3628768",
+      "source_doc_id": "Q3628768",
+      "evidence_text": "Document 'Athletics at the 2000 Summer Olympics – Men's 400 metres' describes event 'Men's 400 metres'"
+    },
+    {
+      "source": "Q7400295",
+      "target": "event_Q7400295",
+      "source_doc_id": "Q7400295",
+      "evidence_text": "Document 'Sailing at the 1988 Summer Olympics – Women's 470' describes event 'Women's 470'"
+    },
+    {
+      "source": "Q15506518",
+      "target": "event_Q15506518",
+      "source_doc_id": "Q15506518",
+      "evidence_text": "Document 'Short-track speed skating at the 2014 Winter Olympics – Men's 5000 metre relay' describes event 'Men's 5000 metre relay'"
+    },
+    {
+      "source": "Q4951829",
+      "target": "event_Q4951829",
+      "source_doc_id": "Q4951829",
+      "evidence_text": "Document 'Boxing at the 1996 Summer Olympics – Bantamweight' describes event 'Bantamweight boxing'"
+    },
+    {
+      "source": "Q26212143",
+      "target": "event_Q26212143",
+      "source_doc_id": "Q26212143",
+      "evidence_text": "Document 'Weightlifting at the 2016 Summer Olympics – Men's +105 kg' describes event 'Men's +105 kg'"
+    },
+    {
+      "source": "Q250187",
+      "target": "event_Q250187",
+      "source_doc_id": "Q250187",
+      "evidence_text": "Document 'Swimming at the 2008 Summer Olympics – Men's 200 metre breaststroke' describes event 'Men's 200 metre breaststroke'"
+    },
+    {
+      "source": "Q1221945",
+      "target": "event_Q1221945",
+      "source_doc_id": "Q1221945",
+      "evidence_text": "Document 'Cross-country skiing at the 1994 Winter Olympics – Women's 15 kilometre freestyle' describes event 'Women's 15 kilometre freestyle'"
+    },
+    {
+      "source": "Q3879591",
+      "target": "event_Q3879591",
+      "source_doc_id": "Q3879591",
+      "evidence_text": "Document 'Swimming at the 2000 Summer Olympics – Women's 200 metre backstroke' describes event 'Women's 200 metre backstroke'"
+    },
+    {
+      "source": "Q25239321",
+      "target": "event_Q25239321",
+      "source_doc_id": "Q25239321",
+      "evidence_text": "Document 'Weightlifting at the 1988 Summer Olympics – Men's 56 kg' describes event 'Men's 56 kg'"
+    },
+    {
+      "source": "Q1205250",
+      "target": "event_Q1205250",
+      "source_doc_id": "Q1205250",
+      "evidence_text": "Document 'Shooting at the 2008 Summer Olympics – Men's 50 metre pistol' describes event 'Men's 50 metre pistol'"
+    },
+    {
+      "source": "Q766586",
+      "target": "event_Q766586",
+      "source_doc_id": "Q766586",
+      "evidence_text": "Document 'Speed skating at the 2002 Winter Olympics – Women's 3000 metres' describes event 'Women's 3000 metres'"
+    },
+    {
+      "source": "Q850246",
+      "target": "event_Q850246",
+      "source_doc_id": "Q850246",
+      "evidence_text": "Document 'Short-track speed skating at the 2006 Winter Olympics – Women's 500 metres' describes event 'Women's 500 metres'"
+    },
+    {
+      "source": "Q2071152",
+      "target": "event_Q2071152",
+      "source_doc_id": "Q2071152",
+      "evidence_text": "Document 'Swimming at the 2012 Summer Olympics – Women's 200 metre freestyle' describes event 'Women's 200 metre freestyle'"
+    },
+    {
+      "source": "Q2071160",
+      "target": "event_Q2071160",
+      "source_doc_id": "Q2071160",
+      "evidence_text": "Document 'Swimming at the 2012 Summer Olympics – Men's 200 metre backstroke' describes event 'Men's 200 metre backstroke'"
+    },
+    {
+      "source": "Q1204722",
+      "target": "event_Q1204722",
+      "source_doc_id": "Q1204722",
+      "evidence_text": "Document 'Shooting at the 2008 Summer Olympics – Women's 10 metre air rifle' describes event 'Women's 10 metre air rifle'"
+    },
+    {
+      "source": "Q26208755",
+      "target": "event_Q26208755",
+      "source_doc_id": "Q26208755",
+      "evidence_text": "Document 'Athletics at the 2016 Summer Olympics – Men's javelin throw' describes event 'Men's javelin throw'"
+    },
+    {
+      "source": "Q2500292",
+      "target": "event_Q2500292",
+      "source_doc_id": "Q2500292",
+      "evidence_text": "Document 'Sailing at the 2012 Summer Olympics – Star' describes event 'Men’s Star'"
+    },
+    {
+      "source": "Q870647",
+      "target": "event_Q870647",
+      "source_doc_id": "Q870647",
+      "evidence_text": "Document 'Nordic combined at the 1992 Winter Olympics – Team' describes event 'Team'"
+    },
+    {
+      "source": "Q7662173",
+      "target": "event_Q7662173",
+      "source_doc_id": "Q7662173",
+      "evidence_text": "Document 'Synchronized swimming at the 2000 Summer Olympics – Women's duet' describes event 'Women's duet'"
+    },
+    {
+      "source": "Q15619183",
+      "target": "event_Q15619183",
+      "source_doc_id": "Q15619183",
+      "evidence_text": "Document 'Figure skating at the 2014 Winter Olympics – Women's singles' describes event 'Women's singles'"
+    },
+    {
+      "source": "Q25239533",
+      "target": "event_Q25239533",
+      "source_doc_id": "Q25239533",
+      "evidence_text": "Document 'Weightlifting at the 1988 Summer Olympics – Men's 67.5 kg' describes event 'Men's 67.5 kg'"
+    },
+    {
+      "source": "Q4951830",
+      "target": "event_Q4951830",
+      "source_doc_id": "Q4951830",
+      "evidence_text": "Document 'Boxing at the 1996 Summer Olympics – Featherweight' describes event 'Featherweight boxing'"
+    },
+    {
+      "source": "Q1005783",
+      "target": "event_Q1005783",
+      "source_doc_id": "Q1005783",
+      "evidence_text": "Document 'Taekwondo at the 2008 Summer Olympics – Men's 80 kg' describes event 'Men's 80 kg'"
+    },
+    {
+      "source": "Q7372012",
+      "target": "event_Q7372012",
+      "source_doc_id": "Q7372012",
+      "evidence_text": "Document 'Rowing at the 2000 Summer Olympics – Women's single sculls' describes event 'Women's single sculls'"
+    },
+    {
+      "source": "Q3879590",
+      "target": "event_Q3879590",
+      "source_doc_id": "Q3879590",
+      "evidence_text": "Document 'Swimming at the 2000 Summer Olympics – Men's 1500 metre freestyle' describes event 'Men's 1500 metre freestyle'"
+    },
+    {
+      "source": "Q1221969",
+      "target": "event_Q1221969",
+      "source_doc_id": "Q1221969",
+      "evidence_text": "Document 'Cross-country skiing at the 1988 Winter Olympics – Women's 20 kilometre freestyle' describes event 'Women's 20 km'"
+    },
+    {
+      "source": "Q3628769",
+      "target": "event_Q3628769",
+      "source_doc_id": "Q3628769",
+      "evidence_text": "Document 'Athletics at the 2000 Summer Olympics – Women's 5000 metres' describes event 'Women's 5000 metres'"
+    },
+    {
+      "source": "Q1005640",
+      "target": "event_Q1005640",
+      "source_doc_id": "Q1005640",
+      "evidence_text": "Document 'Alpine skiing at the 1994 Winter Olympics – Men's slalom' describes event 'Men's slalom'"
+    },
+    {
+      "source": "Q744487",
+      "target": "event_Q744487",
+      "source_doc_id": "Q744487",
+      "evidence_text": "Document 'Athletics at the 2008 Summer Olympics – Men's high jump' describes event 'Men's high jump'"
+    },
+    {
+      "source": "Q26233821",
+      "target": "event_Q26233821",
+      "source_doc_id": "Q26233821",
+      "evidence_text": "Document 'Athletics at the 2016 Summer Olympics – Women's high jump' describes event 'Women's high jump'"
+    }
+  ],
+  "part_of_games": [
+    {
+      "source": "event_Q303623",
+      "target": "games_2012_summer",
+      "year": 2012,
+      "source_doc_id": "Q303623",
+      "evidence_text": "games: 2012 Summer"
+    },
+    {
+      "source": "event_Q607635",
+      "target": "games_2010_winter",
+      "year": 2010,
+      "source_doc_id": "Q607635",
+      "evidence_text": "games: 2010 Winter"
+    },
+    {
+      "source": "event_Q939000",
+      "target": "games_2012_summer",
+      "year": 2012,
+      "source_doc_id": "Q939000",
+      "evidence_text": "games: 2012 Summer"
+    },
+    {
+      "source": "event_Q26233801",
+      "target": "games_2016_summer",
+      "year": 2016,
+      "source_doc_id": "Q26233801",
+      "evidence_text": "games: 2016 Summer"
+    },
+    {
+      "source": "event_Q743905",
+      "target": "games_2008_summer",
+      "year": 2008,
+      "source_doc_id": "Q743905",
+      "evidence_text": "games: 2008 Summer"
+    },
+    {
+      "source": "event_Q1433269",
+      "target": "games_2004_summer",
+      "year": 2004,
+      "source_doc_id": "Q1433269",
+      "evidence_text": "games: 2004 Summer"
+    },
+    {
+      "source": "event_Q1005784",
+      "target": "games_2008_summer",
+      "year": 2008,
+      "source_doc_id": "Q1005784",
+      "evidence_text": "games: 2008 Summer"
+    },
+    {
+      "source": "event_Q1005641",
+      "target": "games_1992_winter",
+      "year": 1992,
+      "source_doc_id": "Q1005641",
+      "evidence_text": "games: 1992 Winter"
+    },
+    {
+      "source": "event_Q3628768",
+      "target": "games_2000_summer",
+      "year": 2000,
+      "source_doc_id": "Q3628768",
+      "evidence_text": "games: 2000 Summer"
+    },
+    {
+      "source": "event_Q7400295",
+      "target": "games_1984_summer",
+      "year": 1984,
+      "source_doc_id": "Q7400295",
+      "evidence_text": "games: 1984 Summer"
+    },
+    {
+      "source": "event_Q15506518",
+      "target": "games_2014_winter",
+      "year": 2014,
+      "source_doc_id": "Q15506518",
+      "evidence_text": "games: 2014 Winter"
+    },
+    {
+      "source": "event_Q4951829",
+      "target": "games_1996_summer",
+      "year": 1996,
+      "source_doc_id": "Q4951829",
+      "evidence_text": "games: 1996 Summer"
+    },
+    {
+      "source": "event_Q26212143",
+      "target": "games_2016_summer",
+      "year": 2016,
+      "source_doc_id": "Q26212143",
+      "evidence_text": "games: 2016 Summer"
+    },
+    {
+      "source": "event_Q250187",
+      "target": "games_2008_summer",
+      "year": 2008,
+      "source_doc_id": "Q250187",
+      "evidence_text": "games: 2008 Summer"
+    },
+    {
+      "source": "event_Q1221945",
+      "target": "games_1994_winter",
+      "year": 1994,
+      "source_doc_id": "Q1221945",
+      "evidence_text": "games: 1994 Winter"
+    },
+    {
+      "source": "event_Q3879591",
+      "target": "games_2000_summer",
+      "year": 2000,
+      "source_doc_id": "Q3879591",
+      "evidence_text": "games: 2000 Summer"
+    },
+    {
+      "source": "event_Q25239321",
+      "target": "games_1988_summer",
+      "year": 1988,
+      "source_doc_id": "Q25239321",
+      "evidence_text": "games: 1988 Summer"
+    },
+    {
+      "source": "event_Q1205250",
+      "target": "games_2008_summer",
+      "year": 2008,
+      "source_doc_id": "Q1205250",
+      "evidence_text": "games: 2008 Summer"
+    },
+    {
+      "source": "event_Q766586",
+      "target": "games_2002_winter",
+      "year": 2002,
+      "source_doc_id": "Q766586",
+      "evidence_text": "games: 2002 Winter"
+    },
+    {
+      "source": "event_Q850246",
+      "target": "games_2006_winter",
+      "year": 2006,
+      "source_doc_id": "Q850246",
+      "evidence_text": "games: 2006 Winter"
+    },
+    {
+      "source": "event_Q2071152",
+      "target": "games_2012_summer",
+      "year": 2012,
+      "source_doc_id": "Q2071152",
+      "evidence_text": "games: 2012 Summer"
+    },
+    {
+      "source": "event_Q2071160",
+      "target": "games_2012_summer",
+      "year": 2012,
+      "source_doc_id": "Q2071160",
+      "evidence_text": "games: 2012 Summer"
+    },
+    {
+      "source": "event_Q1204722",
+      "target": "games_2008_summer",
+      "year": 2008,
+      "source_doc_id": "Q1204722",
+      "evidence_text": "games: 2008 Summer"
+    },
+    {
+      "source": "event_Q26208755",
+      "target": "games_2016_summer",
+      "year": 2016,
+      "source_doc_id": "Q26208755",
+      "evidence_text": "games: 2016 Summer"
+    },
+    {
+      "source": "event_Q2500292",
+      "target": "games_2012_summer",
+      "year": 2012,
+      "source_doc_id": "Q2500292",
+      "evidence_text": "games: 2012 Summer"
+    },
+    {
+      "source": "event_Q870647",
+      "target": "games_1992_winter",
+      "year": 1992,
+      "source_doc_id": "Q870647",
+      "evidence_text": "games: 1992 Winter"
+    },
+    {
+      "source": "event_Q7662173",
+      "target": "games_2000_summer",
+      "year": 2000,
+      "source_doc_id": "Q7662173",
+      "evidence_text": "games: 2000 Summer"
+    },
+    {
+      "source": "event_Q15619183",
+      "target": "games_2014_winter",
+      "year": 2014,
+      "source_doc_id": "Q15619183",
+      "evidence_text": "games: 2014 Winter"
+    },
+    {
+      "source": "event_Q25239533",
+      "target": "games_1988_summer",
+      "year": 1988,
+      "source_doc_id": "Q25239533",
+      "evidence_text": "games: 1988 Summer"
+    },
+    {
+      "source": "event_Q4951830",
+      "target": "games_1996_summer",
+      "year": 1996,
+      "source_doc_id": "Q4951830",
+      "evidence_text": "games: 1996 Summer"
+    },
+    {
+      "source": "event_Q1005783",
+      "target": "games_2008_summer",
+      "year": 2008,
+      "source_doc_id": "Q1005783",
+      "evidence_text": "games: 2008 Summer"
+    },
+    {
+      "source": "event_Q7372012",
+      "target": "games_2000_summer",
+      "year": 2000,
+      "source_doc_id": "Q7372012",
+      "evidence_text": "games: 2000 Summer"
+    },
+    {
+      "source": "event_Q3879590",
+      "target": "games_2000_summer",
+      "year": 2000,
+      "source_doc_id": "Q3879590",
+      "evidence_text": "games: 2000 Summer"
+    },
+    {
+      "source": "event_Q1221969",
+      "target": "games_1988_winter",
+      "year": 1988,
+      "source_doc_id": "Q1221969",
+      "evidence_text": "games: 1988 Winter"
+    },
+    {
+      "source": "event_Q3628769",
+      "target": "games_2000_summer",
+      "year": 2000,
+      "source_doc_id": "Q3628769",
+      "evidence_text": "games: 2000 Summer"
+    },
+    {
+      "source": "event_Q1005640",
+      "target": "games_1994_winter",
+      "year": 1994,
+      "source_doc_id": "Q1005640",
+      "evidence_text": "games: 1994 Winter"
+    },
+    {
+      "source": "event_Q744487",
+      "target": "games_2008_summer",
+      "year": 2008,
+      "source_doc_id": "Q744487",
+      "evidence_text": "games: 2008 Summer"
+    },
+    {
+      "source": "event_Q26233821",
+      "target": "games_2016_summer",
+      "year": 2016,
+      "source_doc_id": "Q26233821",
+      "evidence_text": "games: 2016 Summer"
+    }
+  ],
+  "belongs_to_sport": [
+    {
+      "source": "event_Q303623",
+      "target": "sport_canoeing",
+      "source_doc_id": "Q303623",
+      "evidence_text": "Title 'Canoeing at the 2012 Summer Olympics – Men's K-2 1000 metres' establishes sport 'Canoeing'"
+    },
+    {
+      "source": "event_Q607635",
+      "target": "sport_speed_skating",
+      "source_doc_id": "Q607635",
+      "evidence_text": "Title 'Speed skating at the 2010 Winter Olympics – Men's 5000 metres' establishes sport 'Speed skating'"
+    },
+    {
+      "source": "event_Q939000",
+      "target": "sport_cycling",
+      "source_doc_id": "Q939000",
+      "evidence_text": "Title 'Cycling at the 2012 Summer Olympics – Women's road time trial' establishes sport 'Cycling'"
+    },
+    {
+      "source": "event_Q26233801",
+      "target": "sport_gymnastics",
+      "source_doc_id": "Q26233801",
+      "evidence_text": "Title 'Gymnastics at the 2016 Summer Olympics – Women's artistic individual all-around' establishes sport 'Gymnastics'"
+    },
+    {
+      "source": "event_Q743905",
+      "target": "sport_athletics",
+      "source_doc_id": "Q743905",
+      "evidence_text": "Title 'Athletics at the 2008 Summer Olympics – Men's 110 metres hurdles' establishes sport 'Athletics'"
+    },
+    {
+      "source": "event_Q1433269",
+      "target": "sport_athletics",
+      "source_doc_id": "Q1433269",
+      "evidence_text": "Title 'Athletics at the 2004 Summer Olympics – Men's 400 metres hurdles' establishes sport 'Athletics'"
+    },
+    {
+      "source": "event_Q1005784",
+      "target": "sport_athletics",
+      "source_doc_id": "Q1005784",
+      "evidence_text": "Title 'Athletics at the 2008 Summer Olympics – Men's decathlon' establishes sport 'Athletics'"
+    },
+    {
+      "source": "event_Q1005641",
+      "target": "sport_alpine_skiing",
+      "source_doc_id": "Q1005641",
+      "evidence_text": "Title 'Alpine skiing at the 1992 Winter Olympics – Men's slalom' establishes sport 'Alpine skiing'"
+    },
+    {
+      "source": "event_Q3628768",
+      "target": "sport_athletics",
+      "source_doc_id": "Q3628768",
+      "evidence_text": "Title 'Athletics at the 2000 Summer Olympics – Men's 400 metres' establishes sport 'Athletics'"
+    },
+    {
+      "source": "event_Q7400295",
+      "target": "sport_sailing",
+      "source_doc_id": "Q7400295",
+      "evidence_text": "Title 'Sailing at the 1988 Summer Olympics – Women's 470' establishes sport 'Sailing'"
+    },
+    {
+      "source": "event_Q15506518",
+      "target": "sport_short_track_speed_skating",
+      "source_doc_id": "Q15506518",
+      "evidence_text": "Title 'Short-track speed skating at the 2014 Winter Olympics – Men's 5000 metre relay' establishes sport 'Short-track speed skating'"
+    },
+    {
+      "source": "event_Q4951829",
+      "target": "sport_boxing",
+      "source_doc_id": "Q4951829",
+      "evidence_text": "Title 'Boxing at the 1996 Summer Olympics – Bantamweight' establishes sport 'Boxing'"
+    },
+    {
+      "source": "event_Q26212143",
+      "target": "sport_weightlifting",
+      "source_doc_id": "Q26212143",
+      "evidence_text": "Title 'Weightlifting at the 2016 Summer Olympics – Men's +105 kg' establishes sport 'Weightlifting'"
+    },
+    {
+      "source": "event_Q250187",
+      "target": "sport_swimming",
+      "source_doc_id": "Q250187",
+      "evidence_text": "Title 'Swimming at the 2008 Summer Olympics – Men's 200 metre breaststroke' establishes sport 'Swimming'"
+    },
+    {
+      "source": "event_Q1221945",
+      "target": "sport_cross_country_skiing",
+      "source_doc_id": "Q1221945",
+      "evidence_text": "Title 'Cross-country skiing at the 1994 Winter Olympics – Women's 15 kilometre freestyle' establishes sport 'Cross-country skiing'"
+    },
+    {
+      "source": "event_Q3879591",
+      "target": "sport_swimming",
+      "source_doc_id": "Q3879591",
+      "evidence_text": "Title 'Swimming at the 2000 Summer Olympics – Women's 200 metre backstroke' establishes sport 'Swimming'"
+    },
+    {
+      "source": "event_Q25239321",
+      "target": "sport_weightlifting",
+      "source_doc_id": "Q25239321",
+      "evidence_text": "Title 'Weightlifting at the 1988 Summer Olympics – Men's 56 kg' establishes sport 'Weightlifting'"
+    },
+    {
+      "source": "event_Q1205250",
+      "target": "sport_shooting",
+      "source_doc_id": "Q1205250",
+      "evidence_text": "Title 'Shooting at the 2008 Summer Olympics – Men's 50 metre pistol' establishes sport 'Shooting'"
+    },
+    {
+      "source": "event_Q766586",
+      "target": "sport_speed_skating",
+      "source_doc_id": "Q766586",
+      "evidence_text": "Title 'Speed skating at the 2002 Winter Olympics – Women's 3000 metres' establishes sport 'Speed skating'"
+    },
+    {
+      "source": "event_Q850246",
+      "target": "sport_short_track_speed_skating",
+      "source_doc_id": "Q850246",
+      "evidence_text": "Title 'Short-track speed skating at the 2006 Winter Olympics – Women's 500 metres' establishes sport 'Short-track speed skating'"
+    },
+    {
+      "source": "event_Q2071152",
+      "target": "sport_swimming",
+      "source_doc_id": "Q2071152",
+      "evidence_text": "Title 'Swimming at the 2012 Summer Olympics – Women's 200 metre freestyle' establishes sport 'Swimming'"
+    },
+    {
+      "source": "event_Q2071160",
+      "target": "sport_swimming",
+      "source_doc_id": "Q2071160",
+      "evidence_text": "Title 'Swimming at the 2012 Summer Olympics – Men's 200 metre backstroke' establishes sport 'Swimming'"
+    },
+    {
+      "source": "event_Q1204722",
+      "target": "sport_shooting",
+      "source_doc_id": "Q1204722",
+      "evidence_text": "Title 'Shooting at the 2008 Summer Olympics – Women's 10 metre air rifle' establishes sport 'Shooting'"
+    },
+    {
+      "source": "event_Q26208755",
+      "target": "sport_athletics",
+      "source_doc_id": "Q26208755",
+      "evidence_text": "Title 'Athletics at the 2016 Summer Olympics – Men's javelin throw' establishes sport 'Athletics'"
+    },
+    {
+      "source": "event_Q2500292",
+      "target": "sport_sailing",
+      "source_doc_id": "Q2500292",
+      "evidence_text": "Title 'Sailing at the 2012 Summer Olympics – Star' establishes sport 'Sailing'"
+    },
+    {
+      "source": "event_Q870647",
+      "target": "sport_nordic_combined",
+      "source_doc_id": "Q870647",
+      "evidence_text": "Title 'Nordic combined at the 1992 Winter Olympics – Team' establishes sport 'Nordic combined'"
+    },
+    {
+      "source": "event_Q7662173",
+      "target": "sport_synchronized_swimming",
+      "source_doc_id": "Q7662173",
+      "evidence_text": "Title 'Synchronized swimming at the 2000 Summer Olympics – Women's duet' establishes sport 'Synchronized swimming'"
+    },
+    {
+      "source": "event_Q15619183",
+      "target": "sport_figure_skating",
+      "source_doc_id": "Q15619183",
+      "evidence_text": "Title 'Figure skating at the 2014 Winter Olympics – Women's singles' establishes sport 'Figure skating'"
+    },
+    {
+      "source": "event_Q25239533",
+      "target": "sport_weightlifting",
+      "source_doc_id": "Q25239533",
+      "evidence_text": "Title 'Weightlifting at the 1988 Summer Olympics – Men's 67.5 kg' establishes sport 'Weightlifting'"
+    },
+    {
+      "source": "event_Q4951830",
+      "target": "sport_boxing",
+      "source_doc_id": "Q4951830",
+      "evidence_text": "Title 'Boxing at the 1996 Summer Olympics – Featherweight' establishes sport 'Boxing'"
+    },
+    {
+      "source": "event_Q1005783",
+      "target": "sport_taekwondo",
+      "source_doc_id": "Q1005783",
+      "evidence_text": "Title 'Taekwondo at the 2008 Summer Olympics – Men's 80 kg' establishes sport 'Taekwondo'"
+    },
+    {
+      "source": "event_Q7372012",
+      "target": "sport_rowing",
+      "source_doc_id": "Q7372012",
+      "evidence_text": "Title 'Rowing at the 2000 Summer Olympics – Women's single sculls' establishes sport 'Rowing'"
+    },
+    {
+      "source": "event_Q3879590",
+      "target": "sport_swimming",
+      "source_doc_id": "Q3879590",
+      "evidence_text": "Title 'Swimming at the 2000 Summer Olympics – Men's 1500 metre freestyle' establishes sport 'Swimming'"
+    },
+    {
+      "source": "event_Q1221969",
+      "target": "sport_cross_country_skiing",
+      "source_doc_id": "Q1221969",
+      "evidence_text": "Title 'Cross-country skiing at the 1988 Winter Olympics – Women's 20 kilometre freestyle' establishes sport 'Cross-country skiing'"
+    },
+    {
+      "source": "event_Q3628769",
+      "target": "sport_athletics",
+      "source_doc_id": "Q3628769",
+      "evidence_text": "Title 'Athletics at the 2000 Summer Olympics – Women's 5000 metres' establishes sport 'Athletics'"
+    },
+    {
+      "source": "event_Q1005640",
+      "target": "sport_alpine_skiing",
+      "source_doc_id": "Q1005640",
+      "evidence_text": "Title 'Alpine skiing at the 1994 Winter Olympics – Men's slalom' establishes sport 'Alpine skiing'"
+    },
+    {
+      "source": "event_Q744487",
+      "target": "sport_athletics",
+      "source_doc_id": "Q744487",
+      "evidence_text": "Title 'Athletics at the 2008 Summer Olympics – Men's high jump' establishes sport 'Athletics'"
+    },
+    {
+      "source": "event_Q26233821",
+      "target": "sport_athletics",
+      "source_doc_id": "Q26233821",
+      "evidence_text": "Title 'Athletics at the 2016 Summer Olympics – Women's high jump' establishes sport 'Athletics'"
+    }
+  ],
+  "held_at": [
+    {
+      "source": "event_Q303623",
+      "target": "venue_eton_dorney",
+      "date_str": "6 to 8 August",
+      "source_doc_id": "Q303623",
+      "evidence_text": "venue: Eton Dorney"
+    },
+    {
+      "source": "event_Q607635",
+      "target": "venue_richmond_olympic_oval",
+      "date_str": "13 February 2010",
+      "source_doc_id": "Q607635",
+      "evidence_text": "venue: Richmond Olympic Oval"
+    },
+    {
+      "source": "event_Q939000",
+      "target": "venue_london_and_surrey",
+      "date_str": "1 August",
+      "source_doc_id": "Q939000",
+      "evidence_text": "venue: London and Surrey"
+    },
+    {
+      "source": "event_Q26233801",
+      "target": "venue_arena_olímpica_do_rio",
+      "date_str": "11 August",
+      "source_doc_id": "Q26233801",
+      "evidence_text": "venue: Arena Olímpica do Rio"
+    },
+    {
+      "source": "event_Q743905",
+      "target": "venue_beijing_national_stadium",
+      "date_str": "August 18 (heats)August 20 (semifinals)August 21 (final)",
+      "source_doc_id": "Q743905",
+      "evidence_text": "venue: Beijing National Stadium"
+    },
+    {
+      "source": "event_Q1433269",
+      "target": "venue_athens_olympic_stadium",
+      "date_str": "23–26 August",
+      "source_doc_id": "Q1433269",
+      "evidence_text": "venue: Athens Olympic Stadium"
+    },
+    {
+      "source": "event_Q1005784",
+      "target": "venue_beijing_national_stadium",
+      "date_str": "August 21–22",
+      "source_doc_id": "Q1005784",
+      "evidence_text": "venue: Beijing National Stadium"
+    },
+    {
+      "source": "event_Q1005641",
+      "target": "venue_les_ménuires",
+      "date_str": "February 22, 1992",
+      "source_doc_id": "Q1005641",
+      "evidence_text": "venue: Les Ménuires"
+    },
+    {
+      "source": "event_Q3628768",
+      "target": "venue_stadium_australia",
+      "date_str": "22–25 September",
+      "source_doc_id": "Q3628768",
+      "evidence_text": "venue: Stadium Australia"
+    },
+    {
+      "source": "event_Q7400295",
+      "target": "venue_busan부산釜山",
+      "date_str": "20–27 September",
+      "source_doc_id": "Q7400295",
+      "evidence_text": "venue: Busan부산釜山"
+    },
+    {
+      "source": "event_Q15506518",
+      "target": "venue_iceberg_skating_palace_sochi_russia",
+      "date_str": "13 February 2014 (semifinal) 21 February 2014 (final)",
+      "source_doc_id": "Q15506518",
+      "evidence_text": "venue: Iceberg Skating Palace Sochi, Russia"
+    },
+    {
+      "source": "event_Q4951829",
+      "target": "venue_alexander_memorial_coliseum",
+      "date_str": "20 July – 3 August 1996",
+      "source_doc_id": "Q4951829",
+      "evidence_text": "venue: Alexander Memorial Coliseum"
+    },
+    {
+      "source": "event_Q26212143",
+      "target": "venue_riocentro",
+      "date_str": "16 August 2016",
+      "source_doc_id": "Q26212143",
+      "evidence_text": "venue: Riocentro"
+    },
+    {
+      "source": "event_Q250187",
+      "target": "venue_beijing_national_aquatics_center",
+      "date_str": "August 12, 2008 (heats)August 13, 2008 (semifinals)August 14, 2008 (final)",
+      "source_doc_id": "Q250187",
+      "evidence_text": "venue: Beijing National Aquatics Center"
+    },
+    {
+      "source": "event_Q1221945",
+      "target": "venue_birkebeineren_ski_stadium",
+      "date_str": "13 February 1994",
+      "source_doc_id": "Q1221945",
+      "evidence_text": "venue: Birkebeineren Ski Stadium"
+    },
+    {
+      "source": "event_Q3879591",
+      "target": "venue_sydney_international_aquatic_centre",
+      "date_str": "September 21, 2000 (heats &semifinals)September 22, 2000 (final)",
+      "source_doc_id": "Q3879591",
+      "evidence_text": "venue: Sydney International Aquatic Centre"
+    },
+    {
+      "source": "event_Q25239321",
+      "target": "venue_olympic_weightlifting_gymnasium",
+      "date_str": "19 September 1988",
+      "source_doc_id": "Q25239321",
+      "evidence_text": "venue: Olympic Weightlifting Gymnasium"
+    },
+    {
+      "source": "event_Q1205250",
+      "target": "venue_beijing_shooting_range_hall",
+      "date_str": "August 12, 2008",
+      "source_doc_id": "Q1205250",
+      "evidence_text": "venue: Beijing Shooting Range Hall"
+    },
+    {
+      "source": "event_Q766586",
+      "target": "venue_utah_olympic_oval",
+      "date_str": "February 10, 2002",
+      "source_doc_id": "Q766586",
+      "evidence_text": "venue: Utah Olympic Oval"
+    },
+    {
+      "source": "event_Q850246",
+      "target": "venue_torino_palavela",
+      "date_str": "12–15 February 2006",
+      "source_doc_id": "Q850246",
+      "evidence_text": "venue: Torino Palavela"
+    },
+    {
+      "source": "event_Q2071152",
+      "target": "venue_london_aquatics_centre",
+      "date_str": "July 30, 2012 (heats &semifinals)July 31, 2012 (final)",
+      "source_doc_id": "Q2071152",
+      "evidence_text": "venue: London Aquatics Centre"
+    },
+    {
+      "source": "event_Q2071160",
+      "target": "venue_london_aquatics_centre",
+      "date_str": "August 1, 2012 (heats & semifinals)August 2, 2012 (final)",
+      "source_doc_id": "Q2071160",
+      "evidence_text": "venue: London Aquatics Centre"
+    },
+    {
+      "source": "event_Q1204722",
+      "target": "venue_beijing_shooting_range_hall",
+      "date_str": "August 9, 2008",
+      "source_doc_id": "Q1204722",
+      "evidence_text": "venue: Beijing Shooting Range Hall"
+    },
+    {
+      "source": "event_Q26208755",
+      "target": "venue_olympic_stadium",
+      "date_str": "17 August 2016 (qualifications)20 August 2016 (final)",
+      "source_doc_id": "Q26208755",
+      "evidence_text": "venue: Olympic Stadium"
+    },
+    {
+      "source": "event_Q2500292",
+      "target": "venue_weymouth_and_portland_national_sailing_academy",
+      "date_str": "29 July – 5 August",
+      "source_doc_id": "Q2500292",
+      "evidence_text": "venue: Weymouth and Portland National Sailing Academy"
+    },
+    {
+      "source": "event_Q870647",
+      "target": "venue_courchevel_ski_jumpingles_saisies_cross_country_skiing",
+      "date_str": "17–18 February",
+      "source_doc_id": "Q870647",
+      "evidence_text": "venue: Courchevel (ski jumping)Les Saisies (cross-country skiing)"
+    },
+    {
+      "source": "event_Q7662173",
+      "target": "venue_sydney_international_aquatic_centre",
+      "date_str": "24–26 September",
+      "source_doc_id": "Q7662173",
+      "evidence_text": "venue: Sydney International Aquatic Centre"
+    },
+    {
+      "source": "event_Q15619183",
+      "target": "venue_iceberg_skating_palacesochi_russia",
+      "date_str": "19–20 February 2014",
+      "source_doc_id": "Q15619183",
+      "evidence_text": "venue: Iceberg Skating PalaceSochi, Russia"
+    },
+    {
+      "source": "event_Q25239533",
+      "target": "venue_olympic_weightlifting_gymnasium",
+      "date_str": "21 September 1988",
+      "source_doc_id": "Q25239533",
+      "evidence_text": "venue: Olympic Weightlifting Gymnasium"
+    },
+    {
+      "source": "event_Q4951830",
+      "target": "venue_alexander_memorial_coliseum",
+      "date_str": "22 July – 4 August 1996",
+      "source_doc_id": "Q4951830",
+      "evidence_text": "venue: Alexander Memorial Coliseum"
+    },
+    {
+      "source": "event_Q1005783",
+      "target": "venue_beijing_science_and_technology_university_gymnasium",
+      "date_str": "22 August 2008",
+      "source_doc_id": "Q1005783",
+      "evidence_text": "venue: Beijing Science and Technology University Gymnasium"
+    },
+    {
+      "source": "event_Q7372012",
+      "target": "venue_sydney_international_regatta_centre",
+      "date_str": "17–23 September 2000",
+      "source_doc_id": "Q7372012",
+      "evidence_text": "venue: Sydney International Regatta Centre"
+    },
+    {
+      "source": "event_Q3879590",
+      "target": "venue_sydney_international_aquatic_centre",
+      "date_str": "September 22, 2000 (heats)September 23, 2000 (final)",
+      "source_doc_id": "Q3879590",
+      "evidence_text": "venue: Sydney International Aquatic Centre"
+    },
+    {
+      "source": "event_Q1221969",
+      "target": "venue_canmore_nordic_centre",
+      "date_str": "25 February 1988",
+      "source_doc_id": "Q1221969",
+      "evidence_text": "venue: Canmore Nordic Centre"
+    },
+    {
+      "source": "event_Q3628769",
+      "target": "venue_anz_stadium",
+      "date_str": "22 September 2000 (heats)25 September 2000 (final)",
+      "source_doc_id": "Q3628769",
+      "evidence_text": "venue: ANZ Stadium"
+    },
+    {
+      "source": "event_Q1005640",
+      "target": "venue_hafjell",
+      "date_str": "February 27, 1994",
+      "source_doc_id": "Q1005640",
+      "evidence_text": "venue: Hafjell"
+    },
+    {
+      "source": "event_Q744487",
+      "target": "venue_beijing_olympic_stadium",
+      "date_str": "17 August 2008 (qualifying)19 August 2008 (final)",
+      "source_doc_id": "Q744487",
+      "evidence_text": "venue: Beijing Olympic Stadium"
+    },
+    {
+      "source": "event_Q26233821",
+      "target": "venue_olympic_stadium",
+      "date_str": "18 August 2016 (qualification)20 August 2016 (final)",
+      "source_doc_id": "Q26233821",
+      "evidence_text": "venue: Olympic Stadium"
+    }
+  ],
+  "won_gold": [
+    {
+      "source": "event_Q303623",
+      "target": "athlete_rudolf_dombiroland_kökény",
+      "noc": "HUN",
+      "win_value": "3:09.646",
+      "source_doc_id": "Q303623",
+      "evidence_text": "gold: Rudolf DombiRoland Kökény"
+    },
+    {
+      "source": "event_Q607635",
+      "target": "athlete_sven_kramer",
+      "noc": "NED",
+      "win_value": "6:14.60 speed skating",
+      "source_doc_id": "Q607635",
+      "evidence_text": "gold: Sven Kramer"
+    },
+    {
+      "source": "event_Q939000",
+      "target": "athlete_kristin_armstrong",
+      "noc": "USA",
+      "win_value": "37:34.82",
+      "source_doc_id": "Q939000",
+      "evidence_text": "gold: Kristin Armstrong"
+    },
+    {
+      "source": "event_Q26233801",
+      "target": "athlete_simone_biles",
+      "noc": "USA",
+      "win_value": "62.198 points",
+      "source_doc_id": "Q26233801",
+      "evidence_text": "gold: Simone Biles"
+    },
+    {
+      "source": "event_Q743905",
+      "target": "athlete_dayron_robles",
+      "noc": "CUB",
+      "win_value": "12.93",
+      "source_doc_id": "Q743905",
+      "evidence_text": "gold: Dayron Robles"
+    },
+    {
+      "source": "event_Q1433269",
+      "target": "athlete_félix_sánchez",
+      "noc": "DOM",
+      "win_value": "47.63",
+      "source_doc_id": "Q1433269",
+      "evidence_text": "gold: Félix Sánchez"
+    },
+    {
+      "source": "event_Q1005784",
+      "target": "athlete_bryan_clay",
+      "noc": "USA",
+      "win_value": "8791",
+      "source_doc_id": "Q1005784",
+      "evidence_text": "gold: Bryan Clay"
+    },
+    {
+      "source": "event_Q1005641",
+      "target": "athlete_finn_christian_jagge",
+      "noc": "NOR",
+      "win_value": "1:44.39",
+      "source_doc_id": "Q1005641",
+      "evidence_text": "gold: Finn Christian Jagge"
+    },
+    {
+      "source": "event_Q3628768",
+      "target": "athlete_michael_johnson",
+      "noc": "USA",
+      "win_value": "",
+      "source_doc_id": "Q3628768",
+      "evidence_text": "gold: Michael Johnson"
+    },
+    {
+      "source": "event_Q7400295",
+      "target": "athlete_allison_jolly_lynne_jewell",
+      "noc": "USA",
+      "win_value": "",
+      "source_doc_id": "Q7400295",
+      "evidence_text": "gold: Allison Jolly Lynne Jewell"
+    },
+    {
+      "source": "event_Q15506518",
+      "target": "athlete_viktor_ahn_semion_elistratov_vladimir_grigorev_ruslan_zakharov",
+      "noc": "RUS",
+      "win_value": "6:42.100",
+      "source_doc_id": "Q15506518",
+      "evidence_text": "gold: Viktor Ahn Semion Elistratov Vladimir Grigorev Ruslan Zakharov"
+    },
+    {
+      "source": "event_Q4951829",
+      "target": "athlete_istván_kovács",
+      "noc": "HUN",
+      "win_value": "",
+      "source_doc_id": "Q4951829",
+      "evidence_text": "gold: István Kovács"
+    },
+    {
+      "source": "event_Q26212143",
+      "target": "athlete_lasha_talakhadze",
+      "noc": "GEO",
+      "win_value": "473 kg Olympic weightlifting",
+      "source_doc_id": "Q26212143",
+      "evidence_text": "gold: Lasha Talakhadze"
+    },
+    {
+      "source": "event_Q250187",
+      "target": "athlete_kosuke_kitajima",
+      "noc": "JPN",
+      "win_value": "2:07.64 swimming",
+      "source_doc_id": "Q250187",
+      "evidence_text": "gold: Kosuke Kitajima"
+    },
+    {
+      "source": "event_Q1221945",
+      "target": "athlete_manuela_di_centa",
+      "noc": "ITA",
+      "win_value": "39:44.5",
+      "source_doc_id": "Q1221945",
+      "evidence_text": "gold: Manuela Di Centa"
+    },
+    {
+      "source": "event_Q3879591",
+      "target": "athlete_diana_mocanu",
+      "noc": "ROM",
+      "win_value": "2:08.16",
+      "source_doc_id": "Q3879591",
+      "evidence_text": "gold: Diana Mocanu"
+    },
+    {
+      "source": "event_Q25239321",
+      "target": "athlete_oksen_mirzoyan",
+      "noc": "URS",
+      "win_value": "",
+      "source_doc_id": "Q25239321",
+      "evidence_text": "gold: Oksen Mirzoyan"
+    },
+    {
+      "source": "event_Q1205250",
+      "target": "athlete_jin_jong_oh",
+      "noc": "KOR",
+      "win_value": "660.4",
+      "source_doc_id": "Q1205250",
+      "evidence_text": "gold: Jin Jong-oh"
+    },
+    {
+      "source": "event_Q766586",
+      "target": "athlete_claudia_pechstein",
+      "noc": "GER",
+      "win_value": "3:57.70 WR",
+      "source_doc_id": "Q766586",
+      "evidence_text": "gold: Claudia Pechstein"
+    },
+    {
+      "source": "event_Q850246",
+      "target": "athlete_wang_meng",
+      "noc": "CHN",
+      "win_value": "",
+      "source_doc_id": "Q850246",
+      "evidence_text": "gold: Wang Meng"
+    },
+    {
+      "source": "event_Q2071152",
+      "target": "athlete_allison_schmitt",
+      "noc": "USA",
+      "win_value": "1:53.61 swimming",
+      "source_doc_id": "Q2071152",
+      "evidence_text": "gold: Allison Schmitt"
+    },
+    {
+      "source": "event_Q2071160",
+      "target": "athlete_tyler_clary",
+      "noc": "USA",
+      "win_value": "1:53.41 swimming",
+      "source_doc_id": "Q2071160",
+      "evidence_text": "gold: Tyler Clary"
+    },
+    {
+      "source": "event_Q1204722",
+      "target": "athlete_kateřina_emmons",
+      "noc": "CZE",
+      "win_value": "503.5 (OR)",
+      "source_doc_id": "Q1204722",
+      "evidence_text": "gold: Kateřina Emmons"
+    },
+    {
+      "source": "event_Q26208755",
+      "target": "athlete_thomas_röhler",
+      "noc": "GER",
+      "win_value": "90.30 m",
+      "source_doc_id": "Q26208755",
+      "evidence_text": "gold: Thomas Röhler"
+    },
+    {
+      "source": "event_Q2500292",
+      "target": "athlete_fredrik_lööfmax_salminen",
+      "noc": "SWE",
+      "win_value": "",
+      "source_doc_id": "Q2500292",
+      "evidence_text": "gold: Fredrik LööfMax Salminen"
+    },
+    {
+      "source": "event_Q870647",
+      "target": "athlete_reiichi_mikatatakanori_konokenji_ogiwara",
+      "noc": "JPN",
+      "win_value": "Team jump: 645.1Ski time: 1:23:36.5Final time: 1:23:36.5",
+      "source_doc_id": "Q870647",
+      "evidence_text": "gold: Reiichi MikataTakanori KonoKenji Ogiwara"
+    },
+    {
+      "source": "event_Q7662173",
+      "target": "athlete_olga_brusnikinamaria_kisseleva",
+      "noc": "RUS",
+      "win_value": "99.580",
+      "source_doc_id": "Q7662173",
+      "evidence_text": "gold: Olga BrusnikinaMaria Kisseleva"
+    },
+    {
+      "source": "event_Q15619183",
+      "target": "athlete_adelina_sotnikova",
+      "noc": "RUS",
+      "win_value": "224.59 points",
+      "source_doc_id": "Q15619183",
+      "evidence_text": "gold: Adelina Sotnikova"
+    },
+    {
+      "source": "event_Q25239533",
+      "target": "athlete_joachim_kunz",
+      "noc": "GDR",
+      "win_value": "",
+      "source_doc_id": "Q25239533",
+      "evidence_text": "gold: Joachim Kunz"
+    },
+    {
+      "source": "event_Q4951830",
+      "target": "athlete_somluck_kamsing",
+      "noc": "THA",
+      "win_value": "",
+      "source_doc_id": "Q4951830",
+      "evidence_text": "gold: Somluck Kamsing"
+    },
+    {
+      "source": "event_Q1005783",
+      "target": "athlete_hadi_saei",
+      "noc": "IRI",
+      "win_value": "",
+      "source_doc_id": "Q1005783",
+      "evidence_text": "gold: Hadi Saei"
+    },
+    {
+      "source": "event_Q7372012",
+      "target": "athlete_ekaterina_karsten",
+      "noc": "BLR",
+      "win_value": "7:28.14",
+      "source_doc_id": "Q7372012",
+      "evidence_text": "gold: Ekaterina Karsten"
+    },
+    {
+      "source": "event_Q3879590",
+      "target": "athlete_grant_hackett",
+      "noc": "AUS",
+      "win_value": "14:48.33",
+      "source_doc_id": "Q3879590",
+      "evidence_text": "gold: Grant Hackett"
+    },
+    {
+      "source": "event_Q1221969",
+      "target": "athlete_tamara_tikhonova",
+      "noc": "URS",
+      "win_value": "55:53.6",
+      "source_doc_id": "Q1221969",
+      "evidence_text": "gold: Tamara Tikhonova"
+    },
+    {
+      "source": "event_Q3628769",
+      "target": "athlete_gabriela_szabo",
+      "noc": "ROM",
+      "win_value": "14:40.79 athletics",
+      "source_doc_id": "Q3628769",
+      "evidence_text": "gold: Gabriela Szabo"
+    },
+    {
+      "source": "event_Q1005640",
+      "target": "athlete_thomas_stangassinger",
+      "noc": "AUT",
+      "win_value": "2:02.02",
+      "source_doc_id": "Q1005640",
+      "evidence_text": "gold: Thomas Stangassinger"
+    },
+    {
+      "source": "event_Q744487",
+      "target": "athlete_andrey_silnov",
+      "noc": "RUS",
+      "win_value": "2.36",
+      "source_doc_id": "Q744487",
+      "evidence_text": "gold: Andrey Silnov"
+    },
+    {
+      "source": "event_Q26233821",
+      "target": "athlete_ruth_beitia",
+      "noc": "ESP",
+      "win_value": "1.97 m",
+      "source_doc_id": "Q26233821",
+      "evidence_text": "gold: Ruth Beitia"
+    }
+  ],
+  "won_silver": [
+    {
+      "source": "event_Q303623",
+      "target": "athlete_fernando_pimentaemanuel_silva",
+      "noc": "POR",
+      "source_doc_id": "Q303623",
+      "evidence_text": "silver: Fernando PimentaEmanuel Silva"
+    },
+    {
+      "source": "event_Q607635",
+      "target": "athlete_lee_seung_hoon",
+      "noc": "KOR",
+      "source_doc_id": "Q607635",
+      "evidence_text": "silver: Lee Seung-hoon"
+    },
+    {
+      "source": "event_Q939000",
+      "target": "athlete_judith_arndt",
+      "noc": "GER",
+      "source_doc_id": "Q939000",
+      "evidence_text": "silver: Judith Arndt"
+    },
+    {
+      "source": "event_Q26233801",
+      "target": "athlete_aly_raisman",
+      "noc": "USA",
+      "source_doc_id": "Q26233801",
+      "evidence_text": "silver: Aly Raisman"
+    },
+    {
+      "source": "event_Q743905",
+      "target": "athlete_david_payne",
+      "noc": "USA",
+      "source_doc_id": "Q743905",
+      "evidence_text": "silver: David Payne"
+    },
+    {
+      "source": "event_Q1433269",
+      "target": "athlete_danny_mcfarlane",
+      "noc": "JAM",
+      "source_doc_id": "Q1433269",
+      "evidence_text": "silver: Danny McFarlane"
+    },
+    {
+      "source": "event_Q1005784",
+      "target": "athlete_andrei_krauchanka",
+      "noc": "BLR",
+      "source_doc_id": "Q1005784",
+      "evidence_text": "silver: Andrei Krauchanka"
+    },
+    {
+      "source": "event_Q1005641",
+      "target": "athlete_alberto_tomba",
+      "noc": "ITA",
+      "source_doc_id": "Q1005641",
+      "evidence_text": "silver: Alberto Tomba"
+    },
+    {
+      "source": "event_Q3628768",
+      "target": "athlete_alvin_harrison",
+      "noc": "USA",
+      "source_doc_id": "Q3628768",
+      "evidence_text": "silver: Alvin Harrison"
+    },
+    {
+      "source": "event_Q7400295",
+      "target": "athlete_marit_söderström_birgitta_bengtsson",
+      "noc": "SWE",
+      "source_doc_id": "Q7400295",
+      "evidence_text": "silver: Marit Söderström Birgitta Bengtsson"
+    },
+    {
+      "source": "event_Q15506518",
+      "target": "athlete_eddy_alvarez_j_r_celski_chris_creveling_jordan_malone",
+      "noc": "USA",
+      "source_doc_id": "Q15506518",
+      "evidence_text": "silver: Eddy Alvarez J. R. Celski Chris Creveling Jordan Malone"
+    },
+    {
+      "source": "event_Q4951829",
+      "target": "athlete_arnaldo_mesa",
+      "noc": "CUB",
+      "source_doc_id": "Q4951829",
+      "evidence_text": "silver: Arnaldo Mesa"
+    },
+    {
+      "source": "event_Q26212143",
+      "target": "athlete_gor_minasyan",
+      "noc": "ARM",
+      "source_doc_id": "Q26212143",
+      "evidence_text": "silver: Gor Minasyan"
+    },
+    {
+      "source": "event_Q250187",
+      "target": "athlete_brenton_rickard",
+      "noc": "AUS",
+      "source_doc_id": "Q250187",
+      "evidence_text": "silver: Brenton Rickard"
+    },
+    {
+      "source": "event_Q1221945",
+      "target": "athlete_lyubov_yegorova",
+      "noc": "RUS",
+      "source_doc_id": "Q1221945",
+      "evidence_text": "silver: Lyubov Yegorova"
+    },
+    {
+      "source": "event_Q3879591",
+      "target": "athlete_roxana_maracineanu",
+      "noc": "FRA",
+      "source_doc_id": "Q3879591",
+      "evidence_text": "silver: Roxana Maracineanu"
+    },
+    {
+      "source": "event_Q25239321",
+      "target": "athlete_he_yingqiang",
+      "noc": "CHN",
+      "source_doc_id": "Q25239321",
+      "evidence_text": "silver: He Yingqiang"
+    },
+    {
+      "source": "event_Q1205250",
+      "target": "athlete_tan_zongliang",
+      "noc": "CHN",
+      "source_doc_id": "Q1205250",
+      "evidence_text": "silver: Tan Zongliang"
+    },
+    {
+      "source": "event_Q766586",
+      "target": "athlete_renate_groenewold",
+      "noc": "NED",
+      "source_doc_id": "Q766586",
+      "evidence_text": "silver: Renate Groenewold"
+    },
+    {
+      "source": "event_Q850246",
+      "target": "athlete_evgenia_radanova",
+      "noc": "BUL",
+      "source_doc_id": "Q850246",
+      "evidence_text": "silver: Evgenia Radanova"
+    },
+    {
+      "source": "event_Q2071152",
+      "target": "athlete_camille_muffat",
+      "noc": "FRA",
+      "source_doc_id": "Q2071152",
+      "evidence_text": "silver: Camille Muffat"
+    },
+    {
+      "source": "event_Q2071160",
+      "target": "athlete_ryosuke_irie",
+      "noc": "JPN",
+      "source_doc_id": "Q2071160",
+      "evidence_text": "silver: Ryosuke Irie"
+    },
+    {
+      "source": "event_Q1204722",
+      "target": "athlete_lioubov_galkina",
+      "noc": "RUS",
+      "source_doc_id": "Q1204722",
+      "evidence_text": "silver: Lioubov Galkina"
+    },
+    {
+      "source": "event_Q26208755",
+      "target": "athlete_julius_yego",
+      "noc": "KEN",
+      "source_doc_id": "Q26208755",
+      "evidence_text": "silver: Julius Yego"
+    },
+    {
+      "source": "event_Q2500292",
+      "target": "athlete_iain_percyandrew_simpson",
+      "noc": "GBR",
+      "source_doc_id": "Q2500292",
+      "evidence_text": "silver: Iain PercyAndrew Simpson"
+    },
+    {
+      "source": "event_Q870647",
+      "target": "athlete_knut_tore_apelandfred_børre_lundbergtrond_einar_elden",
+      "noc": "NOR",
+      "source_doc_id": "Q870647",
+      "evidence_text": "silver: Knut Tore ApelandFred Børre LundbergTrond Einar Elden"
+    },
+    {
+      "source": "event_Q7662173",
+      "target": "athlete_miya_tachibanamiho_takeda",
+      "noc": "JPN",
+      "source_doc_id": "Q7662173",
+      "evidence_text": "silver: Miya TachibanaMiho Takeda"
+    },
+    {
+      "source": "event_Q15619183",
+      "target": "athlete_yuna_kim",
+      "noc": "KOR",
+      "source_doc_id": "Q15619183",
+      "evidence_text": "silver: Yuna Kim"
+    },
+    {
+      "source": "event_Q25239533",
+      "target": "athlete_israel_militosyan",
+      "noc": "URS",
+      "source_doc_id": "Q25239533",
+      "evidence_text": "silver: Israel Militosyan"
+    },
+    {
+      "source": "event_Q4951830",
+      "target": "athlete_serafim_todorov",
+      "noc": "BUL",
+      "source_doc_id": "Q4951830",
+      "evidence_text": "silver: Serafim Todorov"
+    },
+    {
+      "source": "event_Q1005783",
+      "target": "athlete_mauro_sarmiento",
+      "noc": "ITA",
+      "source_doc_id": "Q1005783",
+      "evidence_text": "silver: Mauro Sarmiento"
+    },
+    {
+      "source": "event_Q7372012",
+      "target": "athlete_rumyana_neykova",
+      "noc": "BUL",
+      "source_doc_id": "Q7372012",
+      "evidence_text": "silver: Rumyana Neykova"
+    },
+    {
+      "source": "event_Q3879590",
+      "target": "athlete_kieren_perkins",
+      "noc": "AUS",
+      "source_doc_id": "Q3879590",
+      "evidence_text": "silver: Kieren Perkins"
+    },
+    {
+      "source": "event_Q1221969",
+      "target": "athlete_anfisa_reztsova",
+      "noc": "URS",
+      "source_doc_id": "Q1221969",
+      "evidence_text": "silver: Anfisa Reztsova"
+    },
+    {
+      "source": "event_Q3628769",
+      "target": "athlete_sonia_osullivan",
+      "noc": "IRL",
+      "source_doc_id": "Q3628769",
+      "evidence_text": "silver: Sonia O'Sullivan"
+    },
+    {
+      "source": "event_Q1005640",
+      "target": "athlete_alberto_tomba",
+      "noc": "ITA",
+      "source_doc_id": "Q1005640",
+      "evidence_text": "silver: Alberto Tomba"
+    },
+    {
+      "source": "event_Q744487",
+      "target": "athlete_germaine_mason",
+      "noc": "GBR",
+      "source_doc_id": "Q744487",
+      "evidence_text": "silver: Germaine Mason"
+    },
+    {
+      "source": "event_Q26233821",
+      "target": "athlete_mirela_demireva",
+      "noc": "BUL",
+      "source_doc_id": "Q26233821",
+      "evidence_text": "silver: Mirela Demireva"
+    }
+  ],
+  "won_bronze": [
+    {
+      "source": "event_Q303623",
+      "target": "athlete_martin_hollsteinandreas_ihle",
+      "noc": "GER",
+      "source_doc_id": "Q303623",
+      "evidence_text": "bronze: Martin HollsteinAndreas Ihle"
+    },
+    {
+      "source": "event_Q607635",
+      "target": "athlete_ivan_skobrev",
+      "noc": "RUS",
+      "source_doc_id": "Q607635",
+      "evidence_text": "bronze: Ivan Skobrev"
+    },
+    {
+      "source": "event_Q939000",
+      "target": "athlete_olga_zabelinskaya",
+      "noc": "RUS",
+      "source_doc_id": "Q939000",
+      "evidence_text": "bronze: Olga Zabelinskaya"
+    },
+    {
+      "source": "event_Q26233801",
+      "target": "athlete_aliya_mustafina",
+      "noc": "RUS",
+      "source_doc_id": "Q26233801",
+      "evidence_text": "bronze: Aliya Mustafina"
+    },
+    {
+      "source": "event_Q743905",
+      "target": "athlete_david_oliver",
+      "noc": "USA",
+      "source_doc_id": "Q743905",
+      "evidence_text": "bronze: David Oliver"
+    },
+    {
+      "source": "event_Q1433269",
+      "target": "athlete_naman_keïta",
+      "noc": "FRA",
+      "source_doc_id": "Q1433269",
+      "evidence_text": "bronze: Naman Keïta"
+    },
+    {
+      "source": "event_Q1005784",
+      "target": "athlete_leonel_suárez",
+      "noc": "CUB",
+      "source_doc_id": "Q1005784",
+      "evidence_text": "bronze: Leonel Suárez"
+    },
+    {
+      "source": "event_Q1005641",
+      "target": "athlete_michael_tritscher",
+      "noc": "AUT",
+      "source_doc_id": "Q1005641",
+      "evidence_text": "bronze: Michael Tritscher"
+    },
+    {
+      "source": "event_Q3628768",
+      "target": "athlete_gregory_haughton",
+      "noc": "JAM",
+      "source_doc_id": "Q3628768",
+      "evidence_text": "bronze: Gregory Haughton"
+    },
+    {
+      "source": "event_Q7400295",
+      "target": "athlete_larisa_moskalenko_iryna_chunykhovska",
+      "noc": "URS",
+      "source_doc_id": "Q7400295",
+      "evidence_text": "bronze: Larisa Moskalenko Iryna Chunykhovska"
+    },
+    {
+      "source": "event_Q15506518",
+      "target": "athlete_chen_dequan_han_tianyu_shi_jingnan_wu_dajing",
+      "noc": "CHN",
+      "source_doc_id": "Q15506518",
+      "evidence_text": "bronze: Chen Dequan Han Tianyu Shi Jingnan Wu Dajing"
+    },
+    {
+      "source": "event_Q4951829",
+      "target": "athlete_vichairachanon_khadpo",
+      "noc": "THA",
+      "source_doc_id": "Q4951829",
+      "evidence_text": "bronze: Vichairachanon Khadpo"
+    },
+    {
+      "source": "event_Q26212143",
+      "target": "athlete_irakli_turmanidze",
+      "noc": "GEO",
+      "source_doc_id": "Q26212143",
+      "evidence_text": "bronze: Irakli Turmanidze"
+    },
+    {
+      "source": "event_Q250187",
+      "target": "athlete_hugues_duboscq",
+      "noc": "FRA",
+      "source_doc_id": "Q250187",
+      "evidence_text": "bronze: Hugues Duboscq"
+    },
+    {
+      "source": "event_Q1221945",
+      "target": "athlete_nina_gavrylyuk",
+      "noc": "RUS",
+      "source_doc_id": "Q1221945",
+      "evidence_text": "bronze: Nina Gavrylyuk"
+    },
+    {
+      "source": "event_Q3879591",
+      "target": "athlete_miki_nakao",
+      "noc": "JPN",
+      "source_doc_id": "Q3879591",
+      "evidence_text": "bronze: Miki Nakao"
+    },
+    {
+      "source": "event_Q25239321",
+      "target": "athlete_liu_shoubin",
+      "noc": "CHN",
+      "source_doc_id": "Q25239321",
+      "evidence_text": "bronze: Liu Shoubin"
+    },
+    {
+      "source": "event_Q1205250",
+      "target": "athlete_vladimir_isakov",
+      "noc": "RUS",
+      "source_doc_id": "Q1205250",
+      "evidence_text": "bronze: Vladimir Isakov"
+    },
+    {
+      "source": "event_Q766586",
+      "target": "athlete_cindy_klassen",
+      "noc": "CAN",
+      "source_doc_id": "Q766586",
+      "evidence_text": "bronze: Cindy Klassen"
+    },
+    {
+      "source": "event_Q850246",
+      "target": "athlete_anouk_leblanc_boucher",
+      "noc": "CAN",
+      "source_doc_id": "Q850246",
+      "evidence_text": "bronze: Anouk Leblanc-Boucher"
+    },
+    {
+      "source": "event_Q2071152",
+      "target": "athlete_bronte_barratt",
+      "noc": "AUS",
+      "source_doc_id": "Q2071152",
+      "evidence_text": "bronze: Bronte Barratt"
+    },
+    {
+      "source": "event_Q2071160",
+      "target": "athlete_ryan_lochte",
+      "noc": "USA",
+      "source_doc_id": "Q2071160",
+      "evidence_text": "bronze: Ryan Lochte"
+    },
+    {
+      "source": "event_Q1204722",
+      "target": "athlete_snježana_pejčić",
+      "noc": "CRO",
+      "source_doc_id": "Q1204722",
+      "evidence_text": "bronze: Snježana Pejčić"
+    },
+    {
+      "source": "event_Q26208755",
+      "target": "athlete_keshorn_walcott",
+      "noc": "TTO",
+      "source_doc_id": "Q26208755",
+      "evidence_text": "bronze: Keshorn Walcott"
+    },
+    {
+      "source": "event_Q2500292",
+      "target": "athlete_robert_scheidtbruno_prada",
+      "noc": "BRA",
+      "source_doc_id": "Q2500292",
+      "evidence_text": "bronze: Robert ScheidtBruno Prada"
+    },
+    {
+      "source": "event_Q870647",
+      "target": "athlete_klaus_ofnerstefan_kreinerklaus_sulzenbacher",
+      "noc": "AUT",
+      "source_doc_id": "Q870647",
+      "evidence_text": "bronze: Klaus OfnerStefan KreinerKlaus Sulzenbacher"
+    },
+    {
+      "source": "event_Q7662173",
+      "target": "athlete_virginie_dedieumyriam_lignot",
+      "noc": "FRA",
+      "source_doc_id": "Q7662173",
+      "evidence_text": "bronze: Virginie DedieuMyriam Lignot"
+    },
+    {
+      "source": "event_Q15619183",
+      "target": "athlete_carolina_kostner",
+      "noc": "ITA",
+      "source_doc_id": "Q15619183",
+      "evidence_text": "bronze: Carolina Kostner"
+    },
+    {
+      "source": "event_Q25239533",
+      "target": "athlete_li_jinhe",
+      "noc": "CHN",
+      "source_doc_id": "Q25239533",
+      "evidence_text": "bronze: Li Jinhe"
+    },
+    {
+      "source": "event_Q4951830",
+      "target": "athlete_pablo_chacón",
+      "noc": "ARG",
+      "source_doc_id": "Q4951830",
+      "evidence_text": "bronze: Pablo Chacón"
+    },
+    {
+      "source": "event_Q1005783",
+      "target": "athlete_zhu_guo",
+      "noc": "CHN",
+      "source_doc_id": "Q1005783",
+      "evidence_text": "bronze: Zhu Guo"
+    },
+    {
+      "source": "event_Q7372012",
+      "target": "athlete_katrin_rutschow_stomporowski",
+      "noc": "GER",
+      "source_doc_id": "Q7372012",
+      "evidence_text": "bronze: Katrin Rutschow-Stomporowski"
+    },
+    {
+      "source": "event_Q3879590",
+      "target": "athlete_chris_thompson",
+      "noc": "USA",
+      "source_doc_id": "Q3879590",
+      "evidence_text": "bronze: Chris Thompson"
+    },
+    {
+      "source": "event_Q1221969",
+      "target": "athlete_raisa_smetanina",
+      "noc": "URS",
+      "source_doc_id": "Q1221969",
+      "evidence_text": "bronze: Raisa Smetanina"
+    },
+    {
+      "source": "event_Q3628769",
+      "target": "athlete_gete_wami",
+      "noc": "ETH",
+      "source_doc_id": "Q3628769",
+      "evidence_text": "bronze: Gete Wami"
+    },
+    {
+      "source": "event_Q1005640",
+      "target": "athlete_jure_košir",
+      "noc": "SLO",
+      "source_doc_id": "Q1005640",
+      "evidence_text": "bronze: Jure Košir"
+    },
+    {
+      "source": "event_Q744487",
+      "target": "athlete_yaroslav_rybakov",
+      "noc": "RUS",
+      "source_doc_id": "Q744487",
+      "evidence_text": "bronze: Yaroslav Rybakov"
+    },
+    {
+      "source": "event_Q26233821",
+      "target": "athlete_blanka_vlašić",
+      "noc": "CRO",
+      "source_doc_id": "Q26233821",
+      "evidence_text": "bronze: Blanka Vlašić"
+    }
+  ],
+  "represents": [
+    {
+      "source": "athlete_rudolf_dombiroland_kökény",
+      "target": "noc_hun",
+      "source_doc_id": "Q303623",
+      "evidence_text": "goldNOC: HUN"
+    },
+    {
+      "source": "athlete_fernando_pimentaemanuel_silva",
+      "target": "noc_por",
+      "source_doc_id": "Q303623",
+      "evidence_text": "silverNOC: POR"
+    },
+    {
+      "source": "athlete_martin_hollsteinandreas_ihle",
+      "target": "noc_ger",
+      "source_doc_id": "Q303623",
+      "evidence_text": "bronzeNOC: GER"
+    },
+    {
+      "source": "athlete_sven_kramer",
+      "target": "noc_ned",
+      "source_doc_id": "Q607635",
+      "evidence_text": "goldNOC: NED"
+    },
+    {
+      "source": "athlete_lee_seung_hoon",
+      "target": "noc_kor",
+      "source_doc_id": "Q607635",
+      "evidence_text": "silverNOC: KOR"
+    },
+    {
+      "source": "athlete_ivan_skobrev",
+      "target": "noc_rus",
+      "source_doc_id": "Q607635",
+      "evidence_text": "bronzeNOC: RUS"
+    },
+    {
+      "source": "athlete_kristin_armstrong",
+      "target": "noc_usa",
+      "source_doc_id": "Q939000",
+      "evidence_text": "goldNOC: USA"
+    },
+    {
+      "source": "athlete_judith_arndt",
+      "target": "noc_ger",
+      "source_doc_id": "Q939000",
+      "evidence_text": "silverNOC: GER"
+    },
+    {
+      "source": "athlete_olga_zabelinskaya",
+      "target": "noc_rus",
+      "source_doc_id": "Q939000",
+      "evidence_text": "bronzeNOC: RUS"
+    },
+    {
+      "source": "athlete_simone_biles",
+      "target": "noc_usa",
+      "source_doc_id": "Q26233801",
+      "evidence_text": "goldNOC: USA"
+    },
+    {
+      "source": "athlete_aly_raisman",
+      "target": "noc_usa",
+      "source_doc_id": "Q26233801",
+      "evidence_text": "silverNOC: USA"
+    },
+    {
+      "source": "athlete_aliya_mustafina",
+      "target": "noc_rus",
+      "source_doc_id": "Q26233801",
+      "evidence_text": "bronzeNOC: RUS"
+    },
+    {
+      "source": "athlete_dayron_robles",
+      "target": "noc_cub",
+      "source_doc_id": "Q743905",
+      "evidence_text": "goldNOC: CUB"
+    },
+    {
+      "source": "athlete_david_payne",
+      "target": "noc_usa",
+      "source_doc_id": "Q743905",
+      "evidence_text": "silverNOC: USA"
+    },
+    {
+      "source": "athlete_david_oliver",
+      "target": "noc_usa",
+      "source_doc_id": "Q743905",
+      "evidence_text": "bronzeNOC: USA"
+    },
+    {
+      "source": "athlete_félix_sánchez",
+      "target": "noc_dom",
+      "source_doc_id": "Q1433269",
+      "evidence_text": "goldNOC: DOM"
+    },
+    {
+      "source": "athlete_danny_mcfarlane",
+      "target": "noc_jam",
+      "source_doc_id": "Q1433269",
+      "evidence_text": "silverNOC: JAM"
+    },
+    {
+      "source": "athlete_naman_keïta",
+      "target": "noc_fra",
+      "source_doc_id": "Q1433269",
+      "evidence_text": "bronzeNOC: FRA"
+    },
+    {
+      "source": "athlete_bryan_clay",
+      "target": "noc_usa",
+      "source_doc_id": "Q1005784",
+      "evidence_text": "goldNOC: USA"
+    },
+    {
+      "source": "athlete_andrei_krauchanka",
+      "target": "noc_blr",
+      "source_doc_id": "Q1005784",
+      "evidence_text": "silverNOC: BLR"
+    },
+    {
+      "source": "athlete_leonel_suárez",
+      "target": "noc_cub",
+      "source_doc_id": "Q1005784",
+      "evidence_text": "bronzeNOC: CUB"
+    },
+    {
+      "source": "athlete_finn_christian_jagge",
+      "target": "noc_nor",
+      "source_doc_id": "Q1005641",
+      "evidence_text": "goldNOC: NOR"
+    },
+    {
+      "source": "athlete_alberto_tomba",
+      "target": "noc_ita",
+      "source_doc_id": "Q1005641",
+      "evidence_text": "silverNOC: ITA"
+    },
+    {
+      "source": "athlete_michael_tritscher",
+      "target": "noc_aut",
+      "source_doc_id": "Q1005641",
+      "evidence_text": "bronzeNOC: AUT"
+    },
+    {
+      "source": "athlete_michael_johnson",
+      "target": "noc_usa",
+      "source_doc_id": "Q3628768",
+      "evidence_text": "goldNOC: USA"
+    },
+    {
+      "source": "athlete_alvin_harrison",
+      "target": "noc_usa",
+      "source_doc_id": "Q3628768",
+      "evidence_text": "silverNOC: USA"
+    },
+    {
+      "source": "athlete_gregory_haughton",
+      "target": "noc_jam",
+      "source_doc_id": "Q3628768",
+      "evidence_text": "bronzeNOC: JAM"
+    },
+    {
+      "source": "athlete_allison_jolly_lynne_jewell",
+      "target": "noc_usa",
+      "source_doc_id": "Q7400295",
+      "evidence_text": "goldNOC: USA"
+    },
+    {
+      "source": "athlete_marit_söderström_birgitta_bengtsson",
+      "target": "noc_swe",
+      "source_doc_id": "Q7400295",
+      "evidence_text": "silverNOC: SWE"
+    },
+    {
+      "source": "athlete_larisa_moskalenko_iryna_chunykhovska",
+      "target": "noc_urs",
+      "source_doc_id": "Q7400295",
+      "evidence_text": "bronzeNOC: URS"
+    },
+    {
+      "source": "athlete_viktor_ahn_semion_elistratov_vladimir_grigorev_ruslan_zakharov",
+      "target": "noc_rus",
+      "source_doc_id": "Q15506518",
+      "evidence_text": "goldNOC: RUS"
+    },
+    {
+      "source": "athlete_eddy_alvarez_j_r_celski_chris_creveling_jordan_malone",
+      "target": "noc_usa",
+      "source_doc_id": "Q15506518",
+      "evidence_text": "silverNOC: USA"
+    },
+    {
+      "source": "athlete_chen_dequan_han_tianyu_shi_jingnan_wu_dajing",
+      "target": "noc_chn",
+      "source_doc_id": "Q15506518",
+      "evidence_text": "bronzeNOC: CHN"
+    },
+    {
+      "source": "athlete_istván_kovács",
+      "target": "noc_hun",
+      "source_doc_id": "Q4951829",
+      "evidence_text": "goldNOC: HUN"
+    },
+    {
+      "source": "athlete_arnaldo_mesa",
+      "target": "noc_cub",
+      "source_doc_id": "Q4951829",
+      "evidence_text": "silverNOC: CUB"
+    },
+    {
+      "source": "athlete_vichairachanon_khadpo",
+      "target": "noc_tha",
+      "source_doc_id": "Q4951829",
+      "evidence_text": "bronzeNOC: THA"
+    },
+    {
+      "source": "athlete_lasha_talakhadze",
+      "target": "noc_geo",
+      "source_doc_id": "Q26212143",
+      "evidence_text": "goldNOC: GEO"
+    },
+    {
+      "source": "athlete_gor_minasyan",
+      "target": "noc_arm",
+      "source_doc_id": "Q26212143",
+      "evidence_text": "silverNOC: ARM"
+    },
+    {
+      "source": "athlete_irakli_turmanidze",
+      "target": "noc_geo",
+      "source_doc_id": "Q26212143",
+      "evidence_text": "bronzeNOC: GEO"
+    },
+    {
+      "source": "athlete_kosuke_kitajima",
+      "target": "noc_jpn",
+      "source_doc_id": "Q250187",
+      "evidence_text": "goldNOC: JPN"
+    },
+    {
+      "source": "athlete_brenton_rickard",
+      "target": "noc_aus",
+      "source_doc_id": "Q250187",
+      "evidence_text": "silverNOC: AUS"
+    },
+    {
+      "source": "athlete_hugues_duboscq",
+      "target": "noc_fra",
+      "source_doc_id": "Q250187",
+      "evidence_text": "bronzeNOC: FRA"
+    },
+    {
+      "source": "athlete_manuela_di_centa",
+      "target": "noc_ita",
+      "source_doc_id": "Q1221945",
+      "evidence_text": "goldNOC: ITA"
+    },
+    {
+      "source": "athlete_lyubov_yegorova",
+      "target": "noc_rus",
+      "source_doc_id": "Q1221945",
+      "evidence_text": "silverNOC: RUS"
+    },
+    {
+      "source": "athlete_nina_gavrylyuk",
+      "target": "noc_rus",
+      "source_doc_id": "Q1221945",
+      "evidence_text": "bronzeNOC: RUS"
+    },
+    {
+      "source": "athlete_diana_mocanu",
+      "target": "noc_rom",
+      "source_doc_id": "Q3879591",
+      "evidence_text": "goldNOC: ROM"
+    },
+    {
+      "source": "athlete_roxana_maracineanu",
+      "target": "noc_fra",
+      "source_doc_id": "Q3879591",
+      "evidence_text": "silverNOC: FRA"
+    },
+    {
+      "source": "athlete_miki_nakao",
+      "target": "noc_jpn",
+      "source_doc_id": "Q3879591",
+      "evidence_text": "bronzeNOC: JPN"
+    },
+    {
+      "source": "athlete_oksen_mirzoyan",
+      "target": "noc_urs",
+      "source_doc_id": "Q25239321",
+      "evidence_text": "goldNOC: URS"
+    },
+    {
+      "source": "athlete_he_yingqiang",
+      "target": "noc_chn",
+      "source_doc_id": "Q25239321",
+      "evidence_text": "silverNOC: CHN"
+    },
+    {
+      "source": "athlete_liu_shoubin",
+      "target": "noc_chn",
+      "source_doc_id": "Q25239321",
+      "evidence_text": "bronzeNOC: CHN"
+    },
+    {
+      "source": "athlete_jin_jong_oh",
+      "target": "noc_kor",
+      "source_doc_id": "Q1205250",
+      "evidence_text": "goldNOC: KOR"
+    },
+    {
+      "source": "athlete_tan_zongliang",
+      "target": "noc_chn",
+      "source_doc_id": "Q1205250",
+      "evidence_text": "silverNOC: CHN"
+    },
+    {
+      "source": "athlete_vladimir_isakov",
+      "target": "noc_rus",
+      "source_doc_id": "Q1205250",
+      "evidence_text": "bronzeNOC: RUS"
+    },
+    {
+      "source": "athlete_claudia_pechstein",
+      "target": "noc_ger",
+      "source_doc_id": "Q766586",
+      "evidence_text": "goldNOC: GER"
+    },
+    {
+      "source": "athlete_renate_groenewold",
+      "target": "noc_ned",
+      "source_doc_id": "Q766586",
+      "evidence_text": "silverNOC: NED"
+    },
+    {
+      "source": "athlete_cindy_klassen",
+      "target": "noc_can",
+      "source_doc_id": "Q766586",
+      "evidence_text": "bronzeNOC: CAN"
+    },
+    {
+      "source": "athlete_wang_meng",
+      "target": "noc_chn",
+      "source_doc_id": "Q850246",
+      "evidence_text": "goldNOC: CHN"
+    },
+    {
+      "source": "athlete_evgenia_radanova",
+      "target": "noc_bul",
+      "source_doc_id": "Q850246",
+      "evidence_text": "silverNOC: BUL"
+    },
+    {
+      "source": "athlete_anouk_leblanc_boucher",
+      "target": "noc_can",
+      "source_doc_id": "Q850246",
+      "evidence_text": "bronzeNOC: CAN"
+    },
+    {
+      "source": "athlete_allison_schmitt",
+      "target": "noc_usa",
+      "source_doc_id": "Q2071152",
+      "evidence_text": "goldNOC: USA"
+    },
+    {
+      "source": "athlete_camille_muffat",
+      "target": "noc_fra",
+      "source_doc_id": "Q2071152",
+      "evidence_text": "silverNOC: FRA"
+    },
+    {
+      "source": "athlete_bronte_barratt",
+      "target": "noc_aus",
+      "source_doc_id": "Q2071152",
+      "evidence_text": "bronzeNOC: AUS"
+    },
+    {
+      "source": "athlete_tyler_clary",
+      "target": "noc_usa",
+      "source_doc_id": "Q2071160",
+      "evidence_text": "goldNOC: USA"
+    },
+    {
+      "source": "athlete_ryosuke_irie",
+      "target": "noc_jpn",
+      "source_doc_id": "Q2071160",
+      "evidence_text": "silverNOC: JPN"
+    },
+    {
+      "source": "athlete_ryan_lochte",
+      "target": "noc_usa",
+      "source_doc_id": "Q2071160",
+      "evidence_text": "bronzeNOC: USA"
+    },
+    {
+      "source": "athlete_kateřina_emmons",
+      "target": "noc_cze",
+      "source_doc_id": "Q1204722",
+      "evidence_text": "goldNOC: CZE"
+    },
+    {
+      "source": "athlete_lioubov_galkina",
+      "target": "noc_rus",
+      "source_doc_id": "Q1204722",
+      "evidence_text": "silverNOC: RUS"
+    },
+    {
+      "source": "athlete_snježana_pejčić",
+      "target": "noc_cro",
+      "source_doc_id": "Q1204722",
+      "evidence_text": "bronzeNOC: CRO"
+    },
+    {
+      "source": "athlete_thomas_röhler",
+      "target": "noc_ger",
+      "source_doc_id": "Q26208755",
+      "evidence_text": "goldNOC: GER"
+    },
+    {
+      "source": "athlete_julius_yego",
+      "target": "noc_ken",
+      "source_doc_id": "Q26208755",
+      "evidence_text": "silverNOC: KEN"
+    },
+    {
+      "source": "athlete_keshorn_walcott",
+      "target": "noc_tto",
+      "source_doc_id": "Q26208755",
+      "evidence_text": "bronzeNOC: TTO"
+    },
+    {
+      "source": "athlete_fredrik_lööfmax_salminen",
+      "target": "noc_swe",
+      "source_doc_id": "Q2500292",
+      "evidence_text": "goldNOC: SWE"
+    },
+    {
+      "source": "athlete_iain_percyandrew_simpson",
+      "target": "noc_gbr",
+      "source_doc_id": "Q2500292",
+      "evidence_text": "silverNOC: GBR"
+    },
+    {
+      "source": "athlete_robert_scheidtbruno_prada",
+      "target": "noc_bra",
+      "source_doc_id": "Q2500292",
+      "evidence_text": "bronzeNOC: BRA"
+    },
+    {
+      "source": "athlete_reiichi_mikatatakanori_konokenji_ogiwara",
+      "target": "noc_jpn",
+      "source_doc_id": "Q870647",
+      "evidence_text": "goldNOC: JPN"
+    },
+    {
+      "source": "athlete_knut_tore_apelandfred_børre_lundbergtrond_einar_elden",
+      "target": "noc_nor",
+      "source_doc_id": "Q870647",
+      "evidence_text": "silverNOC: NOR"
+    },
+    {
+      "source": "athlete_klaus_ofnerstefan_kreinerklaus_sulzenbacher",
+      "target": "noc_aut",
+      "source_doc_id": "Q870647",
+      "evidence_text": "bronzeNOC: AUT"
+    },
+    {
+      "source": "athlete_olga_brusnikinamaria_kisseleva",
+      "target": "noc_rus",
+      "source_doc_id": "Q7662173",
+      "evidence_text": "goldNOC: RUS"
+    },
+    {
+      "source": "athlete_miya_tachibanamiho_takeda",
+      "target": "noc_jpn",
+      "source_doc_id": "Q7662173",
+      "evidence_text": "silverNOC: JPN"
+    },
+    {
+      "source": "athlete_virginie_dedieumyriam_lignot",
+      "target": "noc_fra",
+      "source_doc_id": "Q7662173",
+      "evidence_text": "bronzeNOC: FRA"
+    },
+    {
+      "source": "athlete_adelina_sotnikova",
+      "target": "noc_rus",
+      "source_doc_id": "Q15619183",
+      "evidence_text": "goldNOC: RUS"
+    },
+    {
+      "source": "athlete_yuna_kim",
+      "target": "noc_kor",
+      "source_doc_id": "Q15619183",
+      "evidence_text": "silverNOC: KOR"
+    },
+    {
+      "source": "athlete_carolina_kostner",
+      "target": "noc_ita",
+      "source_doc_id": "Q15619183",
+      "evidence_text": "bronzeNOC: ITA"
+    },
+    {
+      "source": "athlete_joachim_kunz",
+      "target": "noc_gdr",
+      "source_doc_id": "Q25239533",
+      "evidence_text": "goldNOC: GDR"
+    },
+    {
+      "source": "athlete_israel_militosyan",
+      "target": "noc_urs",
+      "source_doc_id": "Q25239533",
+      "evidence_text": "silverNOC: URS"
+    },
+    {
+      "source": "athlete_li_jinhe",
+      "target": "noc_chn",
+      "source_doc_id": "Q25239533",
+      "evidence_text": "bronzeNOC: CHN"
+    },
+    {
+      "source": "athlete_somluck_kamsing",
+      "target": "noc_tha",
+      "source_doc_id": "Q4951830",
+      "evidence_text": "goldNOC: THA"
+    },
+    {
+      "source": "athlete_serafim_todorov",
+      "target": "noc_bul",
+      "source_doc_id": "Q4951830",
+      "evidence_text": "silverNOC: BUL"
+    },
+    {
+      "source": "athlete_pablo_chacón",
+      "target": "noc_arg",
+      "source_doc_id": "Q4951830",
+      "evidence_text": "bronzeNOC: ARG"
+    },
+    {
+      "source": "athlete_hadi_saei",
+      "target": "noc_iri",
+      "source_doc_id": "Q1005783",
+      "evidence_text": "goldNOC: IRI"
+    },
+    {
+      "source": "athlete_mauro_sarmiento",
+      "target": "noc_ita",
+      "source_doc_id": "Q1005783",
+      "evidence_text": "silverNOC: ITA"
+    },
+    {
+      "source": "athlete_zhu_guo",
+      "target": "noc_chn",
+      "source_doc_id": "Q1005783",
+      "evidence_text": "bronzeNOC: CHN"
+    },
+    {
+      "source": "athlete_ekaterina_karsten",
+      "target": "noc_blr",
+      "source_doc_id": "Q7372012",
+      "evidence_text": "goldNOC: BLR"
+    },
+    {
+      "source": "athlete_rumyana_neykova",
+      "target": "noc_bul",
+      "source_doc_id": "Q7372012",
+      "evidence_text": "silverNOC: BUL"
+    },
+    {
+      "source": "athlete_katrin_rutschow_stomporowski",
+      "target": "noc_ger",
+      "source_doc_id": "Q7372012",
+      "evidence_text": "bronzeNOC: GER"
+    },
+    {
+      "source": "athlete_grant_hackett",
+      "target": "noc_aus",
+      "source_doc_id": "Q3879590",
+      "evidence_text": "goldNOC: AUS"
+    },
+    {
+      "source": "athlete_kieren_perkins",
+      "target": "noc_aus",
+      "source_doc_id": "Q3879590",
+      "evidence_text": "silverNOC: AUS"
+    },
+    {
+      "source": "athlete_chris_thompson",
+      "target": "noc_usa",
+      "source_doc_id": "Q3879590",
+      "evidence_text": "bronzeNOC: USA"
+    },
+    {
+      "source": "athlete_tamara_tikhonova",
+      "target": "noc_urs",
+      "source_doc_id": "Q1221969",
+      "evidence_text": "goldNOC: URS"
+    },
+    {
+      "source": "athlete_anfisa_reztsova",
+      "target": "noc_urs",
+      "source_doc_id": "Q1221969",
+      "evidence_text": "silverNOC: URS"
+    },
+    {
+      "source": "athlete_raisa_smetanina",
+      "target": "noc_urs",
+      "source_doc_id": "Q1221969",
+      "evidence_text": "bronzeNOC: URS"
+    },
+    {
+      "source": "athlete_gabriela_szabo",
+      "target": "noc_rom",
+      "source_doc_id": "Q3628769",
+      "evidence_text": "goldNOC: ROM"
+    },
+    {
+      "source": "athlete_sonia_osullivan",
+      "target": "noc_irl",
+      "source_doc_id": "Q3628769",
+      "evidence_text": "silverNOC: IRL"
+    },
+    {
+      "source": "athlete_gete_wami",
+      "target": "noc_eth",
+      "source_doc_id": "Q3628769",
+      "evidence_text": "bronzeNOC: ETH"
+    },
+    {
+      "source": "athlete_thomas_stangassinger",
+      "target": "noc_aut",
+      "source_doc_id": "Q1005640",
+      "evidence_text": "goldNOC: AUT"
+    },
+    {
+      "source": "athlete_alberto_tomba",
+      "target": "noc_ita",
+      "source_doc_id": "Q1005640",
+      "evidence_text": "silverNOC: ITA"
+    },
+    {
+      "source": "athlete_jure_košir",
+      "target": "noc_slo",
+      "source_doc_id": "Q1005640",
+      "evidence_text": "bronzeNOC: SLO"
+    },
+    {
+      "source": "athlete_andrey_silnov",
+      "target": "noc_rus",
+      "source_doc_id": "Q744487",
+      "evidence_text": "goldNOC: RUS"
+    },
+    {
+      "source": "athlete_germaine_mason",
+      "target": "noc_gbr",
+      "source_doc_id": "Q744487",
+      "evidence_text": "silverNOC: GBR"
+    },
+    {
+      "source": "athlete_yaroslav_rybakov",
+      "target": "noc_rus",
+      "source_doc_id": "Q744487",
+      "evidence_text": "bronzeNOC: RUS"
+    },
+    {
+      "source": "athlete_ruth_beitia",
+      "target": "noc_esp",
+      "source_doc_id": "Q26233821",
+      "evidence_text": "goldNOC: ESP"
+    },
+    {
+      "source": "athlete_mirela_demireva",
+      "target": "noc_bul",
+      "source_doc_id": "Q26233821",
+      "evidence_text": "silverNOC: BUL"
+    },
+    {
+      "source": "athlete_blanka_vlašić",
+      "target": "noc_cro",
+      "source_doc_id": "Q26233821",
+      "evidence_text": "bronzeNOC: CRO"
+    }
+  ],
+  "preceded_by": [
+    {
+      "source": "games_2012_summer",
+      "target": "games_2008_summer",
+      "season": "Summer",
+      "source_doc_id": "Q303623",
+      "evidence_text": "prev: 2008"
+    },
+    {
+      "source": "games_2010_winter",
+      "target": "games_2006_winter",
+      "season": "Winter",
+      "source_doc_id": "Q607635",
+      "evidence_text": "prev: 2006"
+    },
+    {
+      "source": "games_2012_summer",
+      "target": "games_2008_summer",
+      "season": "Summer",
+      "source_doc_id": "Q939000",
+      "evidence_text": "prev: 2008"
+    },
+    {
+      "source": "games_2016_summer",
+      "target": "games_2012_summer",
+      "season": "Summer",
+      "source_doc_id": "Q26233801",
+      "evidence_text": "prev: 2012"
+    },
+    {
+      "source": "games_2008_summer",
+      "target": "games_2004_summer",
+      "season": "Summer",
+      "source_doc_id": "Q743905",
+      "evidence_text": "prev: 2004"
+    },
+    {
+      "source": "games_2004_summer",
+      "target": "games_2000_summer",
+      "season": "Summer",
+      "source_doc_id": "Q1433269",
+      "evidence_text": "prev: 2000"
+    },
+    {
+      "source": "games_2008_summer",
+      "target": "games_2004_summer",
+      "season": "Summer",
+      "source_doc_id": "Q1005784",
+      "evidence_text": "prev: 2004"
+    },
+    {
+      "source": "games_1992_winter",
+      "target": "games_1988_winter",
+      "season": "Winter",
+      "source_doc_id": "Q1005641",
+      "evidence_text": "prev: 1988"
+    },
+    {
+      "source": "games_2000_summer",
+      "target": "games_1996_summer",
+      "season": "Summer",
+      "source_doc_id": "Q3628768",
+      "evidence_text": "prev: 1996"
+    },
+    {
+      "source": "games_1984_summer",
+      "target": "games_1984_summer",
+      "season": "Summer",
+      "source_doc_id": "Q7400295",
+      "evidence_text": "prev: 1984"
+    },
+    {
+      "source": "games_2014_winter",
+      "target": "games_2010_winter",
+      "season": "Winter",
+      "source_doc_id": "Q15506518",
+      "evidence_text": "prev: 2010"
+    },
+    {
+      "source": "games_1996_summer",
+      "target": "games_1992_summer",
+      "season": "Summer",
+      "source_doc_id": "Q4951829",
+      "evidence_text": "prev: 1992"
+    },
+    {
+      "source": "games_2016_summer",
+      "target": "games_2012_summer",
+      "season": "Summer",
+      "source_doc_id": "Q26212143",
+      "evidence_text": "prev: 2012"
+    },
+    {
+      "source": "games_2008_summer",
+      "target": "games_2004_summer",
+      "season": "Summer",
+      "source_doc_id": "Q250187",
+      "evidence_text": "prev: 2004"
+    },
+    {
+      "source": "games_1994_winter",
+      "target": "games_1992_winter",
+      "season": "Winter",
+      "source_doc_id": "Q1221945",
+      "evidence_text": "prev: 1992"
+    },
+    {
+      "source": "games_2000_summer",
+      "target": "games_1996_summer",
+      "season": "Summer",
+      "source_doc_id": "Q3879591",
+      "evidence_text": "prev: 1996"
+    },
+    {
+      "source": "games_1988_summer",
+      "target": "games_1984_summer",
+      "season": "Summer",
+      "source_doc_id": "Q25239321",
+      "evidence_text": "prev: 1984"
+    },
+    {
+      "source": "games_2008_summer",
+      "target": "games_2004_summer",
+      "season": "Summer",
+      "source_doc_id": "Q1205250",
+      "evidence_text": "prev: 2004"
+    },
+    {
+      "source": "games_2002_winter",
+      "target": "games_1998_winter",
+      "season": "Winter",
+      "source_doc_id": "Q766586",
+      "evidence_text": "prev: 1998"
+    },
+    {
+      "source": "games_2006_winter",
+      "target": "games_2002_winter",
+      "season": "Winter",
+      "source_doc_id": "Q850246",
+      "evidence_text": "prev: 2002"
+    },
+    {
+      "source": "games_2012_summer",
+      "target": "games_2008_summer",
+      "season": "Summer",
+      "source_doc_id": "Q2071152",
+      "evidence_text": "prev: 2008"
+    },
+    {
+      "source": "games_2012_summer",
+      "target": "games_2008_summer",
+      "season": "Summer",
+      "source_doc_id": "Q2071160",
+      "evidence_text": "prev: 2008"
+    },
+    {
+      "source": "games_2008_summer",
+      "target": "games_2004_summer",
+      "season": "Summer",
+      "source_doc_id": "Q1204722",
+      "evidence_text": "prev: 2004"
+    },
+    {
+      "source": "games_2016_summer",
+      "target": "games_2012_summer",
+      "season": "Summer",
+      "source_doc_id": "Q26208755",
+      "evidence_text": "prev: 2012"
+    },
+    {
+      "source": "games_2012_summer",
+      "target": "games_2008_summer",
+      "season": "Summer",
+      "source_doc_id": "Q2500292",
+      "evidence_text": "prev: 2008"
+    },
+    {
+      "source": "games_1992_winter",
+      "target": "games_1988_winter",
+      "season": "Winter",
+      "source_doc_id": "Q870647",
+      "evidence_text": "prev: 1988"
+    },
+    {
+      "source": "games_2000_summer",
+      "target": "games_1992_summer",
+      "season": "Summer",
+      "source_doc_id": "Q7662173",
+      "evidence_text": "prev: 1992"
+    },
+    {
+      "source": "games_2014_winter",
+      "target": "games_2010_winter",
+      "season": "Winter",
+      "source_doc_id": "Q15619183",
+      "evidence_text": "prev: 2010"
+    },
+    {
+      "source": "games_1988_summer",
+      "target": "games_1984_summer",
+      "season": "Summer",
+      "source_doc_id": "Q25239533",
+      "evidence_text": "prev: 1984"
+    },
+    {
+      "source": "games_1996_summer",
+      "target": "games_1992_summer",
+      "season": "Summer",
+      "source_doc_id": "Q4951830",
+      "evidence_text": "prev: 1992"
+    },
+    {
+      "source": "games_2008_summer",
+      "target": "games_2004_summer",
+      "season": "Summer",
+      "source_doc_id": "Q1005783",
+      "evidence_text": "prev: 2004"
+    },
+    {
+      "source": "games_2000_summer",
+      "target": "games_1996_summer",
+      "season": "Summer",
+      "source_doc_id": "Q7372012",
+      "evidence_text": "prev: 1996"
+    },
+    {
+      "source": "games_2000_summer",
+      "target": "games_1996_summer",
+      "season": "Summer",
+      "source_doc_id": "Q3879590",
+      "evidence_text": "prev: 1996"
+    },
+    {
+      "source": "games_1988_winter",
+      "target": "games_1984_winter",
+      "season": "Winter",
+      "source_doc_id": "Q1221969",
+      "evidence_text": "prev: 1984"
+    },
+    {
+      "source": "games_2000_summer",
+      "target": "games_1996_summer",
+      "season": "Summer",
+      "source_doc_id": "Q3628769",
+      "evidence_text": "prev: 1996"
+    },
+    {
+      "source": "games_1994_winter",
+      "target": "games_1992_winter",
+      "season": "Winter",
+      "source_doc_id": "Q1005640",
+      "evidence_text": "prev: 1992"
+    },
+    {
+      "source": "games_2008_summer",
+      "target": "games_2004_summer",
+      "season": "Summer",
+      "source_doc_id": "Q744487",
+      "evidence_text": "prev: 2004"
+    },
+    {
+      "source": "games_2016_summer",
+      "target": "games_2012_summer",
+      "season": "Summer",
+      "source_doc_id": "Q26233821",
+      "evidence_text": "prev: 2012"
+    }
+  ]
+}

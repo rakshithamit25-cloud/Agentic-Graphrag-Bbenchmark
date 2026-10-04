@@ -1,0 +1,43 @@
+sport_id,name
+sport_canoeing,Canoeing
+sport_speed_skating,Speed skating
+sport_cycling,Cycling
+sport_gymnastics,Gymnastics
+sport_athletics,Athletics
+sport_alpine_skiing,Alpine skiing
+sport_sailing,Sailing
+sport_short_track_speed_skating,Short-track speed skating
+sport_boxing,Boxing
+sport_weightlifting,Weightlifting
+sport_swimming,Swimming
+sport_cross_country_skiing,Cross-country skiing
+sport_shooting,Shooting
+sport_nordic_combined,Nordic combined
+sport_synchronized_swimming,Synchronized swimming
+sport_figure_skating,Figure skating
+sport_taekwondo,Taekwondo
+sport_rowing,Rowing
+sport_fencing,Fencing
+sport_diving,Diving
+sport_ice_hockey,Ice hockey
+sport_judo,Judo
+sport_triathlon,Triathlon
+sport_marathon_swimming,Marathon swimming
+sport_badminton,Badminton
+sport_skateboarding,Skateboarding
+sport_bobsleigh,Bobsleigh
+sport_beach_volleyball,Beach volleyball
+sport_archery,Archery
+sport_biathlon,Biathlon
+sport_freestyle_skiing,Freestyle skiing
+sport_tennis,Tennis
+sport_skeleton,Skeleton
+sport_wrestling,Wrestling
+sport_equestrian,Equestrian
+sport_modern_pentathlon,Modern pentathlon
+sport_snowboarding,Snowboarding
+sport_table_tennis,Table tennis
+sport_golf,Golf
+sport_ski_jumping,Ski jumping
+sport_luge,Luge
+sport_curling,Curling

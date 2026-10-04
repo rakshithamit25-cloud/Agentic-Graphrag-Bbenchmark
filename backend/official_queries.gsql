@@ -1,0 +1,368 @@
+// ============================================================================
+// Official TigerGraph Benchmark Queries: OLYMPIC_BENCHMARK
+// Implements the 5 core benchmark query patterns:
+// 1. EVENT_BY_VENUE_DATE (Multi-hop)
+// 2. PREVIOUS_OLYMPICS_GOLD (Temporal)
+// 3. COUNT_EVENTS_ABOVE_COMPETITORS (Aggregation)
+// 4. MAX_COMPETITOR_EVENT (Superlative)
+// 5. EVENT_NATIONS (Lookup)
+// ============================================================================
+
+USE GRAPH OLYMPIC_BENCHMARK
+
+// ----------------------------------------------------------------------------
+// QUERY 1: EVENT_BY_VENUE_DATE
+// Multi-hop retrieval: Venue + Date -> Event -> Gold Winner + Source Doc
+// ----------------------------------------------------------------------------
+DROP QUERY event_by_venue_date
+
+CREATE QUERY event_by_venue_date(STRING venue_search, STRING date_search) FOR GRAPH OLYMPIC_BENCHMARK {
+  TYPEDEF TUPLE<
+    STRING event_id,
+    STRING event_name,
+    STRING venue_name,
+    STRING date_str,
+    STRING gold_winner_id,
+    STRING gold_winner_name,
+    STRING gold_winner_noc,
+    STRING win_value,
+    STRING source_doc_id,
+    STRING source_doc_title
+  > EventResult;
+
+  ListAccum<EventResult> @@results;
+  SumAccum<STRING> @venue_name;
+  SumAccum<STRING> @date_str;
+  SumAccum<STRING> @source_doc_id;
+  SumAccum<STRING> @source_doc_title;
+
+  // Step 1: Pre-populate source document details onto events
+  Docs =
+    SELECT d
+    FROM Document:d -(DESCRIBES:rel)-> Event:e
+    ACCUM
+      e.@source_doc_id += d.doc_id,
+      e.@source_doc_title += d.title;
+
+  // Step 2: Filter events connected to matching venue and date
+  TargetEvents =
+    SELECT e
+    FROM Event:e -(HELD_AT:h)-> Venue:v
+    WHERE (venue_search == "" OR v.name == venue_search OR v.venue_id == venue_search OR v.name LIKE ("%" + venue_search + "%"))
+      AND (date_search == "" OR h.date_str == date_search OR e.date_str == date_search OR e.date_str LIKE ("%" + date_search + "%"))
+    ACCUM
+      e.@venue_name += v.name,
+      e.@date_str += e.date_str;
+
+  // Step 3: Traverse to Gold Winner and collect final results
+  WithWinners =
+    SELECT a
+    FROM TargetEvents:e -(WON_GOLD:w)-> Athlete:a
+    ACCUM
+      @@results += EventResult(
+        e.event_id,
+        e.name,
+        e.@venue_name,
+        e.@date_str,
+        a.athlete_id,
+        a.name,
+        a.noc,
+        e.win_value,
+        e.@source_doc_id,
+        e.@source_doc_title
+      );
+
+  PRINT @@results;
+}
+
+
+// ----------------------------------------------------------------------------
+// QUERY 2: PREVIOUS_OLYMPICS_GOLD
+// Temporal retrieval: Games (year, season) -> PRECEDED_BY -> Event -> Gold Winner
+// ----------------------------------------------------------------------------
+DROP QUERY previous_olympics_gold
+
+CREATE QUERY previous_olympics_gold(INT games_year, STRING season, STRING event_search) FOR GRAPH OLYMPIC_BENCHMARK {
+  TYPEDEF TUPLE<
+    STRING current_games_id,
+    STRING current_games_name,
+    STRING previous_games_id,
+    STRING previous_games_name,
+    INT previous_year,
+    STRING event_id,
+    STRING event_name,
+    STRING gold_winner_name,
+    STRING gold_winner_noc,
+    STRING win_value,
+    STRING source_doc_id,
+    STRING source_doc_title
+  > TemporalResult;
+
+  ListAccum<TemporalResult> @@results;
+  SumAccum<STRING> @source_doc_id;
+  SumAccum<STRING> @source_doc_title;
+  SumAccum<STRING> @cur_gid;
+  SumAccum<STRING> @cur_gname;
+  SumAccum<STRING> @prev_gid;
+  SumAccum<STRING> @prev_gname;
+  SumAccum<INT> @prev_year;
+  SumAccum<INT> @is_target_prev = 0;
+
+  // Step 1: Pre-populate source document details onto events
+  Docs =
+    SELECT d
+    FROM Document:d -(DESCRIBES:rel)-> Event:e
+    ACCUM
+      e.@source_doc_id += d.doc_id,
+      e.@source_doc_title += d.title;
+
+  // Step 2: Start at the specified Olympic Games
+  StartGames =
+    SELECT g
+    FROM OlympicGames:g
+    WHERE g.year == games_year
+      AND (season == "" OR g.season == season OR g.season LIKE ("%" + season + "%"));
+
+  // Step 3: Traverse PRECEDED_BY to immediately preceding Olympic Games
+  PrevGames =
+    SELECT pg
+    FROM StartGames:g -(PRECEDED_BY:p)-> OlympicGames:pg
+    WHERE g != pg
+    ACCUM
+      pg.@is_target_prev += 1,
+      pg.@cur_gid += g.games_id,
+      pg.@cur_gname += g.name,
+      pg.@prev_gid += pg.games_id,
+      pg.@prev_gname += pg.name,
+      pg.@prev_year += pg.year;
+
+  // Step 4: Find events belonging to previous games
+  PrevEvents =
+    SELECT e
+    FROM Event:e -(PART_OF_GAMES:pog)-> OlympicGames:pg
+    WHERE pg.@is_target_prev > 0
+      AND (event_search == "" OR e.name LIKE ("%" + event_search + "%"))
+    ACCUM
+      e.@cur_gid += pg.@cur_gid,
+      e.@cur_gname += pg.@cur_gname,
+      e.@prev_gid += pg.@prev_gid,
+      e.@prev_gname += pg.@prev_gname,
+      e.@prev_year += pg.@prev_year;
+
+  // Step 5: Find Gold Medalist and collect results
+  WithWinners =
+    SELECT a
+    FROM PrevEvents:e -(WON_GOLD:w)-> Athlete:a
+    ACCUM
+      @@results += TemporalResult(
+        e.@cur_gid,
+        e.@cur_gname,
+        e.@prev_gid,
+        e.@prev_gname,
+        e.@prev_year,
+        e.event_id,
+        e.name,
+        a.name,
+        a.noc,
+        e.win_value,
+        e.@source_doc_id,
+        e.@source_doc_title
+      );
+
+  PRINT @@results;
+}
+
+
+// ----------------------------------------------------------------------------
+// QUERY 3: COUNT_EVENTS_ABOVE_COMPETITORS
+// Aggregation retrieval: Count events with competitors_count > threshold
+// ----------------------------------------------------------------------------
+DROP QUERY count_events_above_competitors
+
+CREATE QUERY count_events_above_competitors(STRING games_search, STRING sport_search, INT threshold) FOR GRAPH OLYMPIC_BENCHMARK {
+  TYPEDEF TUPLE<
+    STRING event_id,
+    STRING event_name,
+    INT competitors_count,
+    STRING games_name,
+    STRING sport_name,
+    STRING source_doc_id,
+    STRING source_doc_title
+  > MatchedEvent;
+
+  ListAccum<MatchedEvent> @@matched_events;
+  SumAccum<INT> @@event_count = 0;
+  SumAccum<STRING> @games_name;
+  SumAccum<STRING> @source_doc_id;
+  SumAccum<STRING> @source_doc_title;
+
+  // Step 1: Pre-populate document info
+  Docs =
+    SELECT d
+    FROM Document:d -(DESCRIBES:rel)-> Event:e
+    ACCUM
+      e.@source_doc_id += d.doc_id,
+      e.@source_doc_title += d.title;
+
+  // Step 2: Events in target games
+  EventsInGames =
+    SELECT e
+    FROM Event:e -(PART_OF_GAMES:p)-> OlympicGames:g
+    WHERE games_search == "" OR g.name LIKE ("%" + games_search + "%") OR g.games_id == games_search
+    ACCUM
+      e.@games_name += g.name;
+
+  // Step 3: Events also in target sports with competitors_count > threshold
+  FilteredEvents =
+    SELECT e
+    FROM EventsInGames:e -(BELONGS_TO_SPORT:b)-> Sport:s
+    WHERE (sport_search == "" OR s.name LIKE ("%" + sport_search + "%") OR s.sport_id == sport_search)
+      AND e.competitors_count > threshold
+    ACCUM
+      @@event_count += 1,
+      @@matched_events += MatchedEvent(
+        e.event_id,
+        e.name,
+        e.competitors_count,
+        e.@games_name,
+        s.name,
+        e.@source_doc_id,
+        e.@source_doc_title
+      );
+
+  PRINT @@event_count AS event_count;
+  PRINT @@matched_events AS matching_events;
+}
+
+
+// ----------------------------------------------------------------------------
+// QUERY 4: MAX_COMPETITOR_EVENT
+// Superlative retrieval: Find event with max competitors_count
+// ----------------------------------------------------------------------------
+DROP QUERY max_competitor_event
+
+CREATE QUERY max_competitor_event(STRING games_search, STRING sport_search) FOR GRAPH OLYMPIC_BENCHMARK {
+  TYPEDEF TUPLE<
+    STRING event_id,
+    STRING event_name,
+    INT competitors_count,
+    STRING games_name,
+    STRING sport_name,
+    STRING source_doc_id,
+    STRING source_doc_title
+  > TopEvent;
+
+  ListAccum<TopEvent> @@top_event;
+  SumAccum<STRING> @games_name;
+  SumAccum<STRING> @sport_name;
+  SumAccum<STRING> @source_doc_id;
+  SumAccum<STRING> @source_doc_title;
+
+  // Step 1: Pre-populate document info
+  Docs =
+    SELECT d
+    FROM Document:d -(DESCRIBES:rel)-> Event:e
+    ACCUM
+      e.@source_doc_id += d.doc_id,
+      e.@source_doc_title += d.title;
+
+  // Step 2: Candidate events in games
+  EventsInGames =
+    SELECT e
+    FROM Event:e -(PART_OF_GAMES:p)-> OlympicGames:g
+    WHERE games_search == "" OR g.name LIKE ("%" + games_search + "%") OR g.games_id == games_search
+    ACCUM
+      e.@games_name += g.name;
+
+  // Step 3: Events in sports ordered by competitors_count DESC
+  RankedEvents =
+    SELECT e
+    FROM EventsInGames:e -(BELONGS_TO_SPORT:b)-> Sport:s
+    WHERE sport_search == "" OR s.name LIKE ("%" + sport_search + "%") OR s.sport_id == sport_search
+    ACCUM
+      e.@sport_name += s.name
+    ORDER BY e.competitors_count DESC
+    LIMIT 1;
+
+  RankedWithDocs =
+    SELECT e
+    FROM RankedEvents:e
+    POST-ACCUM
+      @@top_event += TopEvent(
+        e.event_id,
+        e.name,
+        e.competitors_count,
+        e.@games_name,
+        e.@sport_name,
+        e.@source_doc_id,
+        e.@source_doc_title
+      );
+
+  PRINT @@top_event;
+}
+
+
+// ----------------------------------------------------------------------------
+// QUERY 5: EVENT_NATIONS
+// Direct lookup: Retrieve nations_count and source documentation for event
+// ----------------------------------------------------------------------------
+DROP QUERY event_nations
+
+CREATE QUERY event_nations(STRING event_search) FOR GRAPH OLYMPIC_BENCHMARK {
+  TYPEDEF TUPLE<
+    STRING event_id,
+    STRING event_name,
+    INT nations_count,
+    INT competitors_count,
+    STRING date_str,
+    STRING venue_name,
+    STRING source_doc_id,
+    STRING source_doc_title
+  > EventDetail;
+
+  ListAccum<EventDetail> @@details;
+  SumAccum<STRING> @venue_name;
+  SumAccum<STRING> @source_doc_id;
+  SumAccum<STRING> @source_doc_title;
+
+  // Step 1: Pre-populate document info
+  Docs =
+    SELECT d
+    FROM Document:d -(DESCRIBES:rel)-> Event:e
+    ACCUM
+      e.@source_doc_id += d.doc_id,
+      e.@source_doc_title += d.title;
+
+  // Step 2: Target events
+  TargetEvents =
+    SELECT e
+    FROM Event:e
+    WHERE e.event_id == event_search
+       OR e.name == event_search
+       OR e.name LIKE ("%" + event_search + "%");
+
+  // Step 3: Venue details
+  Venues =
+    SELECT v
+    FROM TargetEvents:e -(HELD_AT:h)-> Venue:v
+    ACCUM
+      e.@venue_name += v.name;
+
+  // Step 4: Emit details
+  Emit =
+    SELECT e
+    FROM TargetEvents:e
+    POST-ACCUM
+      @@details += EventDetail(
+        e.event_id,
+        e.name,
+        e.nations_count,
+        e.competitors_count,
+        e.date_str,
+        e.@venue_name,
+        e.@source_doc_id,
+        e.@source_doc_title
+      );
+
+  PRINT @@details;
+}

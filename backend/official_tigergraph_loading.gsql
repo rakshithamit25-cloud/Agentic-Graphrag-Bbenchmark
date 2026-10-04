@@ -1,0 +1,50 @@
+// ============================================================================
+// Official TigerGraph Loading Job: OLYMPIC_BENCHMARK
+// Created for Hackathon Official Olympic Benchmark Evaluation Graph
+// Loads generated CSV data from official_data/tigergraph/
+// IMPORTANT: Completely isolated from AGRI_EVIDENCE
+// ============================================================================
+
+USE GRAPH OLYMPIC_BENCHMARK
+
+DROP JOB load_olympic_sample
+
+CREATE LOADING JOB load_olympic_sample FOR GRAPH OLYMPIC_BENCHMARK {
+  DEFINE FILENAME f_documents;
+  DEFINE FILENAME f_events;
+  DEFINE FILENAME f_games;
+  DEFINE FILENAME f_sports;
+  DEFINE FILENAME f_venues;
+  DEFINE FILENAME f_athletes;
+  DEFINE FILENAME f_countries;
+
+  DEFINE FILENAME f_describes;
+  DEFINE FILENAME f_part_of_games;
+  DEFINE FILENAME f_belongs_to_sport;
+  DEFINE FILENAME f_held_at;
+  DEFINE FILENAME f_won_gold;
+  DEFINE FILENAME f_won_silver;
+  DEFINE FILENAME f_won_bronze;
+  DEFINE FILENAME f_represents;
+  DEFINE FILENAME f_preceded_by;
+
+  // Load Vertices
+  LOAD f_documents TO VERTEX Document VALUES ($0, $1, $2, $3, $4, $5) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_events TO VERTEX Event VALUES ($0, $1, $2, $3, $4, $5, $6) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_games TO VERTEX OlympicGames VALUES ($0, $1, $2, $3) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_sports TO VERTEX Sport VALUES ($0, $1) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_venues TO VERTEX Venue VALUES ($0, $1) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_athletes TO VERTEX Athlete VALUES ($0, $1, $2) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_countries TO VERTEX Country VALUES ($0, $1) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+
+  // Load Edges
+  LOAD f_describes TO EDGE DESCRIBES VALUES ($0, $1) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_part_of_games TO EDGE PART_OF_GAMES VALUES ($0, $1, $2) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_belongs_to_sport TO EDGE BELONGS_TO_SPORT VALUES ($0, $1) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_held_at TO EDGE HELD_AT VALUES ($0, $1, $2) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_won_gold TO EDGE WON_GOLD VALUES ($0, $1, $2, $3) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_won_silver TO EDGE WON_SILVER VALUES ($0, $1, $2) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_won_bronze TO EDGE WON_BRONZE VALUES ($0, $1, $2) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_represents TO EDGE REPRESENTS VALUES ($0, $1) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+  LOAD f_preceded_by TO EDGE PRECEDED_BY VALUES ($0, $1, $2) USING SEPARATOR=",", HEADER="true", EOL="\n", QUOTE="double";
+}
