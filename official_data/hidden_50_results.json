@@ -1,0 +1,3541 @@
+{
+  "benchmark": "Official Hidden 50-Question Benchmark",
+  "dataset": "official_data/eval_hidden.jsonl",
+  "total_questions": 50,
+  "question_distribution": {
+    "multi_hop": 10,
+    "lookup": 7,
+    "aggregation": 15,
+    "superlative": 10,
+    "temporal": 8
+  },
+  "summary": {
+    "llm_model": "openai/gpt-oss-120b",
+    "has_ground_truth": false,
+    "rag": {
+      "correct": null,
+      "total": 50,
+      "accuracy": null,
+      "avg_latency": 0.23194108963012694,
+      "avg_tokens": 227.44
+    },
+    "graphrag": {
+      "correct": null,
+      "total": 50,
+      "accuracy": null,
+      "avg_latency": 0.0,
+      "avg_tokens": 0.0
+    },
+    "agentic_graphrag": {
+      "correct": null,
+      "total": 50,
+      "accuracy": null,
+      "avg_latency": 0.0,
+      "avg_tokens": 0.0
+    }
+  },
+  "results": [
+    {
+      "qid": "eval-001",
+      "qtype": "multi_hop",
+      "question": "Who won the gold medal in the event held at Olympic Tennis Centre on 15 to 22 August 2004?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [
+          "Nicolás Massú"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 21139,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 2133,
+        "llm_latency": 1.3980216979980469
+      },
+      "graphrag": {
+        "answer": [
+          "Li TingSun Tiantian"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 44,
+        "query": "event_by_venue_date",
+        "parameters": {
+          "venue_search": "",
+          "date_search": "15 to 22 August 2004"
+        },
+        "results": [
+          {
+            "event_id": "event_Q942805",
+            "event_name": "Tennis at the 2004 Summer Olympics – Women's doubles",
+            "venue_name": "Olympic Tennis Centre",
+            "date_str": "15 to 22 August 2004",
+            "gold_winner_id": "athlete_li_tingsun_tiantian",
+            "gold_winner_name": "Li TingSun Tiantian",
+            "gold_winner_noc": "CHN",
+            "win_value": "",
+            "source_doc_id": "Q942805",
+            "source_doc_title": "Tennis at the 2004 Summer Olympics – Women's doubles"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Li TingSun Tiantian"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 44,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-002",
+      "qtype": "lookup",
+      "question": "How many nations competed in Fencing at the 1988 Summer Olympics – Men's foil?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 15385,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "29"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 36,
+        "query": "event_nations",
+        "parameters": {
+          "event_search": "Fencing at the 1988 Summer Olympics – Men's foil"
+        },
+        "results": [
+          {
+            "event_id": "event_Q5443136",
+            "event_name": "Fencing at the 1988 Summer Olympics – Men's foil",
+            "nations_count": 29,
+            "competitors_count": 68,
+            "date_str": "20–21 September 1988",
+            "venue_name": "Olympic Fencing Gymnasium",
+            "source_doc_id": "Q5443136",
+            "source_doc_title": "Fencing at the 1988 Summer Olympics – Men's foil"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "29"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 36,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-003",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many cycling events at the 2008 Summer Olympics had more than 30 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 57700,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "8"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 272,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "2008 Summer",
+          "sport_search": "Cycling",
+          "threshold": 30
+        },
+        "results": [
+          {
+            "event_id": "event_Q635304",
+            "event_name": "Cycling at the 2008 Summer Olympics – Men's team pursuit",
+            "competitors_count": 44,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q635304",
+            "source_doc_title": "Cycling at the 2008 Summer Olympics – Men's team pursuit"
+          },
+          {
+            "event_id": "event_Q727488",
+            "event_name": "Cycling at the 2008 Summer Olympics – Men's road time trial",
+            "competitors_count": 39,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q727488",
+            "source_doc_title": "Cycling at the 2008 Summer Olympics – Men's road time trial"
+          },
+          {
+            "event_id": "event_Q938833",
+            "event_name": "Cycling at the 2008 Summer Olympics – Men's cross-country",
+            "competitors_count": 50,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q938833",
+            "source_doc_title": "Cycling at the 2008 Summer Olympics – Men's cross-country"
+          },
+          {
+            "event_id": "event_Q1063589",
+            "event_name": "Cycling at the 2008 Summer Olympics – Men's individual road race",
+            "competitors_count": 143,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q1063589",
+            "source_doc_title": "Cycling at the 2008 Summer Olympics – Men's individual road race"
+          },
+          {
+            "event_id": "event_Q1005614",
+            "event_name": "Cycling at the 2008 Summer Olympics – Men's Madison",
+            "competitors_count": 32,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q1005614",
+            "source_doc_title": "Cycling at the 2008 Summer Olympics – Men's Madison"
+          },
+          {
+            "event_id": "event_Q1064728",
+            "event_name": "Cycling at the 2008 Summer Olympics – Women's individual road race",
+            "competitors_count": 66,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q1064728",
+            "source_doc_title": "Cycling at the 2008 Summer Olympics – Women's individual road race"
+          },
+          {
+            "event_id": "event_Q1005322",
+            "event_name": "Cycling at the 2008 Summer Olympics – Men's team sprint",
+            "competitors_count": 39,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q1005322",
+            "source_doc_title": "Cycling at the 2008 Summer Olympics – Men's team sprint"
+          },
+          {
+            "event_id": "event_Q628945",
+            "event_name": "Cycling at the 2008 Summer Olympics – Men's BMX",
+            "competitors_count": 32,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q628945",
+            "source_doc_title": "Cycling at the 2008 Summer Olympics – Men's BMX"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "8"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 272,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-004",
+      "qtype": "multi_hop",
+      "question": "Who won the gold medal in the event held at Sydney International Shooting Centre on 22 September 2000?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 16555,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 1,
+        "query": null,
+        "parameters": {},
+        "results": [],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "VECTOR_SEARCH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 12861,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-005",
+      "qtype": "superlative",
+      "question": "According to the provided corpus, which sailing event at the 2016 Summer Olympics had the highest number of competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 22770,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 1,
+        "query": null,
+        "parameters": {},
+        "results": [],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "VECTOR_SEARCH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 20109,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-006",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many cross-country skiing events at the 2010 Winter Olympics had more than 62 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 46963,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 1,
+        "query": null,
+        "parameters": {},
+        "results": [],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "VECTOR_SEARCH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 35909,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-007",
+      "qtype": "temporal",
+      "question": "Who won the gold medal in the men's heavyweight boxing event at the Summer Olympics held immediately before 2016?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [
+          "Oleksandr Usyk"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 5452,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 1588,
+        "llm_latency": 1.2060656547546387
+      },
+      "graphrag": {
+        "answer": [
+          "Oleksandr Usyk",
+          "Egor Mekhontsev",
+          "Anthony Joshua"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 139,
+        "query": "previous_olympics_gold",
+        "parameters": {
+          "games_year": 2016,
+          "season": "Summer",
+          "event_search": "Boxing"
+        },
+        "results": [
+          {
+            "current_games_id": "games_2016_summer",
+            "current_games_name": "2016 Summer Olympics",
+            "previous_games_id": "games_2012_summer",
+            "previous_games_name": "2012 Summer Olympics",
+            "previous_year": 2012,
+            "event_id": "event_Q326384",
+            "event_name": "Boxing at the 2012 Summer Olympics – Men's heavyweight",
+            "gold_winner_name": "Oleksandr Usyk",
+            "gold_winner_noc": "UKR",
+            "win_value": "",
+            "source_doc_id": "Q326384",
+            "source_doc_title": "Boxing at the 2012 Summer Olympics – Men's heavyweight"
+          },
+          {
+            "current_games_id": "games_2016_summer",
+            "current_games_name": "2016 Summer Olympics",
+            "previous_games_id": "games_2012_summer",
+            "previous_games_name": "2012 Summer Olympics",
+            "previous_year": 2012,
+            "event_id": "event_Q348720",
+            "event_name": "Boxing at the 2012 Summer Olympics – Men's light heavyweight",
+            "gold_winner_name": "Egor Mekhontsev",
+            "gold_winner_noc": "RUS",
+            "win_value": "",
+            "source_doc_id": "Q348720",
+            "source_doc_title": "Boxing at the 2012 Summer Olympics – Men's light heavyweight"
+          },
+          {
+            "current_games_id": "games_2016_summer",
+            "current_games_name": "2016 Summer Olympics",
+            "previous_games_id": "games_2012_summer",
+            "previous_games_name": "2012 Summer Olympics",
+            "previous_year": 2012,
+            "event_id": "event_Q326382",
+            "event_name": "Boxing at the 2012 Summer Olympics – Men's super heavyweight",
+            "gold_winner_name": "Anthony Joshua",
+            "gold_winner_noc": "GBR",
+            "win_value": "",
+            "source_doc_id": "Q326382",
+            "source_doc_title": "Boxing at the 2012 Summer Olympics – Men's super heavyweight"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Oleksandr Usyk",
+          "Egor Mekhontsev",
+          "Anthony Joshua"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 139,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-008",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many sailing events at the 1996 Summer Olympics had more than 46 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [
+          "4"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 32917,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 1235,
+        "llm_latency": 1.3365049362182617
+      },
+      "graphrag": {
+        "answer": [
+          "4"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 122,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "1996 Summer",
+          "sport_search": "Sailing",
+          "threshold": 46
+        },
+        "results": [
+          {
+            "event_id": "event_Q7400318",
+            "event_name": "Sailing at the 1996 Summer Olympics – Laser",
+            "competitors_count": 56,
+            "games_name": "1996 Summer Olympics",
+            "sport_name": "Sailing",
+            "source_doc_id": "Q7400318",
+            "source_doc_title": "Sailing at the 1996 Summer Olympics – Laser"
+          },
+          {
+            "event_id": "event_Q7400322",
+            "event_name": "Sailing at the 1996 Summer Olympics – Soling",
+            "competitors_count": 66,
+            "games_name": "1996 Summer Olympics",
+            "sport_name": "Sailing",
+            "source_doc_id": "Q7400322",
+            "source_doc_title": "Sailing at the 1996 Summer Olympics – Soling"
+          },
+          {
+            "event_id": "event_Q7400319",
+            "event_name": "Sailing at the 1996 Summer Olympics – Men's 470",
+            "competitors_count": 72,
+            "games_name": "1996 Summer Olympics",
+            "sport_name": "Sailing",
+            "source_doc_id": "Q7400319",
+            "source_doc_title": "Sailing at the 1996 Summer Olympics – Men's 470"
+          },
+          {
+            "event_id": "event_Q7400323",
+            "event_name": "Sailing at the 1996 Summer Olympics – Star",
+            "competitors_count": 50,
+            "games_name": "1996 Summer Olympics",
+            "sport_name": "Sailing",
+            "source_doc_id": "Q7400323",
+            "source_doc_title": "Sailing at the 1996 Summer Olympics – Star"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "4"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 122,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-009",
+      "qtype": "superlative",
+      "question": "According to the provided corpus, which sailing event at the 2004 Summer Olympics had the highest number of competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 14672,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Sailing at the 2004 Summer Olympics – Men's 470"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 32,
+        "query": "max_competitor_event",
+        "parameters": {
+          "games_search": "2004 Summer",
+          "sport_search": "Sailing"
+        },
+        "results": [
+          {
+            "event_id": "event_Q7400344",
+            "event_name": "Sailing at the 2004 Summer Olympics – Men's 470",
+            "competitors_count": 54,
+            "games_name": "2004 Summer Olympics",
+            "sport_name": "Sailing",
+            "source_doc_id": "Q7400344",
+            "source_doc_title": "Sailing at the 2004 Summer Olympics – Men's 470"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Sailing at the 2004 Summer Olympics – Men's 470"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 32,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-010",
+      "qtype": "lookup",
+      "question": "How many nations competed in Boxing at the 1996 Summer Olympics – Flyweight?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 4073,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "32"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 37,
+        "query": "event_nations",
+        "parameters": {
+          "event_search": "Boxing at the 1996 Summer Olympics – Flyweight"
+        },
+        "results": [
+          {
+            "event_id": "event_Q10497009",
+            "event_name": "Boxing at the 1996 Summer Olympics – Flyweight",
+            "nations_count": 32,
+            "competitors_count": 32,
+            "date_str": "23 July – 4 August 1996",
+            "venue_name": "Alexander Memorial Coliseum",
+            "source_doc_id": "Q10497009",
+            "source_doc_title": "Boxing at the 1996 Summer Olympics – Flyweight"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "32"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 37,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-011",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many weightlifting events at the 1992 Summer Olympics had more than 24 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 41112,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "4"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 136,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "1992 Summer",
+          "sport_search": "Weightlifting",
+          "threshold": 24
+        },
+        "results": [
+          {
+            "event_id": "event_Q7979968",
+            "event_name": "Weightlifting at the 1992 Summer Olympics – Men's 100 kg",
+            "competitors_count": 25,
+            "games_name": "1992 Summer Olympics",
+            "sport_name": "Weightlifting",
+            "source_doc_id": "Q7979968",
+            "source_doc_title": "Weightlifting at the 1992 Summer Olympics – Men's 100 kg"
+          },
+          {
+            "event_id": "event_Q7979977",
+            "event_name": "Weightlifting at the 1992 Summer Olympics – Men's 82.5 kg",
+            "competitors_count": 31,
+            "games_name": "1992 Summer Olympics",
+            "sport_name": "Weightlifting",
+            "source_doc_id": "Q7979977",
+            "source_doc_title": "Weightlifting at the 1992 Summer Olympics – Men's 82.5 kg"
+          },
+          {
+            "event_id": "event_Q7979975",
+            "event_name": "Weightlifting at the 1992 Summer Olympics – Men's 75 kg",
+            "competitors_count": 34,
+            "games_name": "1992 Summer Olympics",
+            "sport_name": "Weightlifting",
+            "source_doc_id": "Q7979975",
+            "source_doc_title": "Weightlifting at the 1992 Summer Olympics – Men's 75 kg"
+          },
+          {
+            "event_id": "event_Q7979973",
+            "event_name": "Weightlifting at the 1992 Summer Olympics – Men's 60 kg",
+            "competitors_count": 31,
+            "games_name": "1992 Summer Olympics",
+            "sport_name": "Weightlifting",
+            "source_doc_id": "Q7979973",
+            "source_doc_title": "Weightlifting at the 1992 Summer Olympics – Men's 60 kg"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "4"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 136,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-012",
+      "qtype": "lookup",
+      "question": "How many nations competed in Swimming at the 2016 Summer Olympics – Men's 100 metre butterfly?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 17199,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "32"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 45,
+        "query": "event_nations",
+        "parameters": {
+          "event_search": "Swimming at the 2016 Summer Olympics – Men's 100 metre butterfly"
+        },
+        "results": [
+          {
+            "event_id": "event_Q25991452",
+            "event_name": "Swimming at the 2016 Summer Olympics – Men's 100 metre butterfly",
+            "nations_count": 32,
+            "competitors_count": 43,
+            "date_str": "11 August 2016 (heats &semifinals)12 August 2016 (final)",
+            "venue_name": "Olympic Aquatics Stadium",
+            "source_doc_id": "Q25991452",
+            "source_doc_title": "Swimming at the 2016 Summer Olympics – Men's 100 metre butterfly"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "32"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 45,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-013",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many cycling events at the 2016 Summer Olympics had more than 27 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 54429,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "6"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 204,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "2016 Summer",
+          "sport_search": "Cycling",
+          "threshold": 27
+        },
+        "results": [
+          {
+            "event_id": "event_Q25476835",
+            "event_name": "Cycling at the 2016 Summer Olympics – Women's cross-country",
+            "competitors_count": 29,
+            "games_name": "2016 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q25476835",
+            "source_doc_title": "Cycling at the 2016 Summer Olympics – Women's cross-country"
+          },
+          {
+            "event_id": "event_Q24760634",
+            "event_name": "Cycling at the 2016 Summer Olympics – Men's individual road race",
+            "competitors_count": 144,
+            "games_name": "2016 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q24760634",
+            "source_doc_title": "Cycling at the 2016 Summer Olympics – Men's individual road race"
+          },
+          {
+            "event_id": "event_Q24761058",
+            "event_name": "Cycling at the 2016 Summer Olympics – Women's individual road race",
+            "competitors_count": 68,
+            "games_name": "2016 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q24761058",
+            "source_doc_title": "Cycling at the 2016 Summer Olympics – Women's individual road race"
+          },
+          {
+            "event_id": "event_Q26260943",
+            "event_name": "Cycling at the 2016 Summer Olympics – Men's team pursuit",
+            "competitors_count": 40,
+            "games_name": "2016 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q26260943",
+            "source_doc_title": "Cycling at the 2016 Summer Olympics – Men's team pursuit"
+          },
+          {
+            "event_id": "event_Q25476845",
+            "event_name": "Cycling at the 2016 Summer Olympics – Men's cross-country",
+            "competitors_count": 49,
+            "games_name": "2016 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q25476845",
+            "source_doc_title": "Cycling at the 2016 Summer Olympics – Men's cross-country"
+          },
+          {
+            "event_id": "event_Q26260960",
+            "event_name": "Cycling at the 2016 Summer Olympics – Women's team pursuit",
+            "competitors_count": 39,
+            "games_name": "2016 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q26260960",
+            "source_doc_title": "Cycling at the 2016 Summer Olympics – Women's team pursuit"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "6"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 204,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-014",
+      "qtype": "multi_hop",
+      "question": "Who won the gold medal in the event held at San Sicario on February 15, 2006?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 20330,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Michaela Dorfmeister"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 42,
+        "query": "event_by_venue_date",
+        "parameters": {
+          "venue_search": "San Sicario",
+          "date_search": "February 15, 2006"
+        },
+        "results": [
+          {
+            "event_id": "event_Q771123",
+            "event_name": "Alpine skiing at the 2006 Winter Olympics – Women's downhill",
+            "venue_name": "San Sicario",
+            "date_str": "February 15, 2006",
+            "gold_winner_id": "athlete_michaela_dorfmeister",
+            "gold_winner_name": "Michaela Dorfmeister",
+            "gold_winner_noc": "AUT",
+            "win_value": "1:56.49",
+            "source_doc_id": "Q771123",
+            "source_doc_title": "Alpine skiing at the 2006 Winter Olympics – Women's downhill"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Michaela Dorfmeister"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 42,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-015",
+      "qtype": "lookup",
+      "question": "How many nations competed in Athletics at the 2016 Summer Olympics – Men's 400 metres?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [
+          "35"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 30744,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 1377,
+        "llm_latency": 1.1133975982666016
+      },
+      "graphrag": {
+        "answer": [
+          "35"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 44,
+        "query": "event_nations",
+        "parameters": {
+          "event_search": "Athletics at the 2016 Summer Olympics – Men's 400 metres"
+        },
+        "results": [
+          {
+            "event_id": "event_Q26219858",
+            "event_name": "Athletics at the 2016 Summer Olympics – Men's 400 metres",
+            "nations_count": 35,
+            "competitors_count": 53,
+            "date_str": "12 August 2016 (Heats)13 August 2016 (semi-final)14 August 2016 (final)",
+            "venue_name": "Olympic Stadium",
+            "source_doc_id": "Q26219858",
+            "source_doc_title": "Athletics at the 2016 Summer Olympics – Men's 400 metres"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "35"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 44,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-016",
+      "qtype": "lookup",
+      "question": "How many nations competed in Athletics at the 2008 Summer Olympics – Women's shot put?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 13757,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "22"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 38,
+        "query": "event_nations",
+        "parameters": {
+          "event_search": "Athletics at the 2008 Summer Olympics – Women's shot put"
+        },
+        "results": [
+          {
+            "event_id": "event_Q848278",
+            "event_name": "Athletics at the 2008 Summer Olympics – Women's shot put",
+            "nations_count": 22,
+            "competitors_count": 35,
+            "date_str": "16 August 2008",
+            "venue_name": "Beijing National Stadium",
+            "source_doc_id": "Q848278",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Women's shot put"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "22"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 38,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-017",
+      "qtype": "multi_hop",
+      "question": "Who won the gold medal in the event held at Eton Dorney on 28 July – 4 August 2012?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 29931,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Bob BryanMike Bryan",
+          "Miroslava Knapková"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 91,
+        "query": "event_by_venue_date",
+        "parameters": {
+          "venue_search": "",
+          "date_search": "28 July – 4 August 2012"
+        },
+        "results": [
+          {
+            "event_id": "event_Q374383",
+            "event_name": "Tennis at the 2012 Summer Olympics – Men's doubles",
+            "venue_name": "All England Club, Wimbledon",
+            "date_str": "28 July – 4 August 2012",
+            "gold_winner_id": "athlete_bob_bryanmike_bryan",
+            "gold_winner_name": "Bob BryanMike Bryan",
+            "gold_winner_noc": "USA",
+            "win_value": "",
+            "source_doc_id": "Q374383",
+            "source_doc_title": "Tennis at the 2012 Summer Olympics – Men's doubles"
+          },
+          {
+            "event_id": "event_Q1222270",
+            "event_name": "Rowing at the 2012 Summer Olympics – Women's single sculls",
+            "venue_name": "Eton Dorney",
+            "date_str": "28 July – 4 August 2012",
+            "gold_winner_id": "athlete_miroslava_knapková",
+            "gold_winner_name": "Miroslava Knapková",
+            "gold_winner_noc": "CZE",
+            "win_value": "7:54.37",
+            "source_doc_id": "Q1222270",
+            "source_doc_title": "Rowing at the 2012 Summer Olympics – Women's single sculls"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Bob BryanMike Bryan",
+          "Miroslava Knapková"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 91,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-018",
+      "qtype": "multi_hop",
+      "question": "Who won the gold medal in the event held at Olympic Stadium on 16–18 August 2016?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 26163,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Sara Kolak"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 44,
+        "query": "event_by_venue_date",
+        "parameters": {
+          "venue_search": "Olympic Stadium",
+          "date_search": "16–18 August 2016"
+        },
+        "results": [
+          {
+            "event_id": "event_Q26234144",
+            "event_name": "Athletics at the 2016 Summer Olympics – Women's javelin throw",
+            "venue_name": "Olympic Stadium",
+            "date_str": "16–18 August 2016",
+            "gold_winner_id": "athlete_sara_kolak",
+            "gold_winner_name": "Sara Kolak",
+            "gold_winner_noc": "CRO",
+            "win_value": "66.18 m NR",
+            "source_doc_id": "Q26234144",
+            "source_doc_title": "Athletics at the 2016 Summer Olympics – Women's javelin throw"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Sara Kolak"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 44,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-019",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many alpine skiing events at the 1998 Winter Olympics had more than 45 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 29938,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "4"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 144,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "1998 Winter",
+          "sport_search": "Alpine skiing",
+          "threshold": 45
+        },
+        "results": [
+          {
+            "event_id": "event_Q1222717",
+            "event_name": "Alpine skiing at the 1998 Winter Olympics – Women's giant slalom",
+            "competitors_count": 56,
+            "games_name": "1998 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q1222717",
+            "source_doc_title": "Alpine skiing at the 1998 Winter Olympics – Women's giant slalom"
+          },
+          {
+            "event_id": "event_Q1222533",
+            "event_name": "Alpine skiing at the 1998 Winter Olympics – Women's slalom",
+            "competitors_count": 57,
+            "games_name": "1998 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q1222533",
+            "source_doc_title": "Alpine skiing at the 1998 Winter Olympics – Women's slalom"
+          },
+          {
+            "event_id": "event_Q1005643",
+            "event_name": "Alpine skiing at the 1998 Winter Olympics – Men's slalom",
+            "competitors_count": 65,
+            "games_name": "1998 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q1005643",
+            "source_doc_title": "Alpine skiing at the 1998 Winter Olympics – Men's slalom"
+          },
+          {
+            "event_id": "event_Q1005810",
+            "event_name": "Alpine skiing at the 1998 Winter Olympics – Men's giant slalom",
+            "competitors_count": 62,
+            "games_name": "1998 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q1005810",
+            "source_doc_title": "Alpine skiing at the 1998 Winter Olympics – Men's giant slalom"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "4"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 144,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-020",
+      "qtype": "multi_hop",
+      "question": "Who won the gold medal in the event held at Royal Artillery Barracks on 5 August 2012?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 23573,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Jin Jong-oh"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 45,
+        "query": "event_by_venue_date",
+        "parameters": {
+          "venue_search": "Royal Artillery Barracks",
+          "date_search": "5 August 2012"
+        },
+        "results": [
+          {
+            "event_id": "event_Q2353475",
+            "event_name": "Shooting at the 2012 Summer Olympics – Men's 50 metre pistol",
+            "venue_name": "Royal Artillery Barracks",
+            "date_str": "5 August 2012",
+            "gold_winner_id": "athlete_jin_jong_oh",
+            "gold_winner_name": "Jin Jong-oh",
+            "gold_winner_noc": "KOR",
+            "win_value": "662.0",
+            "source_doc_id": "Q2353475",
+            "source_doc_title": "Shooting at the 2012 Summer Olympics – Men's 50 metre pistol"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Jin Jong-oh"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 45,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-021",
+      "qtype": "temporal",
+      "question": "Who won the gold medal in the men's 200 metre backstroke swimming event at the Summer Olympics held immediately before 2016?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 21901,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 1,
+        "query": null,
+        "parameters": {},
+        "results": [],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "VECTOR_SEARCH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 16998,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-022",
+      "qtype": "lookup",
+      "question": "How many nations competed in Cross-country skiing at the 2014 Winter Olympics – Men's sprint?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 13131,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "40"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 40,
+        "query": "event_nations",
+        "parameters": {
+          "event_search": "Cross-country skiing at the 2014 Winter Olympics – Men's sprint"
+        },
+        "results": [
+          {
+            "event_id": "event_Q15055036",
+            "event_name": "Cross-country skiing at the 2014 Winter Olympics – Men's sprint",
+            "nations_count": 40,
+            "competitors_count": 86,
+            "date_str": "11 February 2014",
+            "venue_name": "Laura Biathlon & Ski Complex",
+            "source_doc_id": "Q15055036",
+            "source_doc_title": "Cross-country skiing at the 2014 Winter Olympics – Men's sprint"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "40"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 40,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-023",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many shooting events at the 2000 Summer Olympics had more than 42 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 37624,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "7"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 262,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "2000 Summer",
+          "sport_search": "Shooting",
+          "threshold": 42
+        },
+        "results": [
+          {
+            "event_id": "event_Q7500816",
+            "event_name": "Shooting at the 2000 Summer Olympics – Men's skeet",
+            "competitors_count": 49,
+            "games_name": "2000 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q7500816",
+            "source_doc_title": "Shooting at the 2000 Summer Olympics – Men's skeet"
+          },
+          {
+            "event_id": "event_Q4443764",
+            "event_name": "Shooting at the 2000 Summer Olympics – Women's 10 metre air pistol",
+            "competitors_count": 45,
+            "games_name": "2000 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q4443764",
+            "source_doc_title": "Shooting at the 2000 Summer Olympics – Women's 10 metre air pistol"
+          },
+          {
+            "event_id": "event_Q7500812",
+            "event_name": "Shooting at the 2000 Summer Olympics – Men's 50 metre rifle prone",
+            "competitors_count": 53,
+            "games_name": "2000 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q7500812",
+            "source_doc_title": "Shooting at the 2000 Summer Olympics – Men's 50 metre rifle prone"
+          },
+          {
+            "event_id": "event_Q7500813",
+            "event_name": "Shooting at the 2000 Summer Olympics – Men's 50 metre rifle three positions",
+            "competitors_count": 44,
+            "games_name": "2000 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q7500813",
+            "source_doc_title": "Shooting at the 2000 Summer Olympics – Men's 50 metre rifle three positions"
+          },
+          {
+            "event_id": "event_Q4443765",
+            "event_name": "Shooting at the 2000 Summer Olympics – Men's 10 metre air pistol",
+            "competitors_count": 43,
+            "games_name": "2000 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q4443765",
+            "source_doc_title": "Shooting at the 2000 Summer Olympics – Men's 10 metre air pistol"
+          },
+          {
+            "event_id": "event_Q4443763",
+            "event_name": "Shooting at the 2000 Summer Olympics – Men's 10 metre air rifle",
+            "competitors_count": 46,
+            "games_name": "2000 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q4443763",
+            "source_doc_title": "Shooting at the 2000 Summer Olympics – Men's 10 metre air rifle"
+          },
+          {
+            "event_id": "event_Q4354069",
+            "event_name": "Shooting at the 2000 Summer Olympics – Women's 10 metre air rifle",
+            "competitors_count": 49,
+            "games_name": "2000 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q4354069",
+            "source_doc_title": "Shooting at the 2000 Summer Olympics – Women's 10 metre air rifle"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "7"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 262,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-024",
+      "qtype": "superlative",
+      "question": "According to the provided corpus, which cross-country skiing event at the 1998 Winter Olympics had the highest number of competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [
+          "Cross-country skiing at the 1998 Winter Olympics – Men's 10 kilometre classical"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 24986,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 1388,
+        "llm_latency": 1.716496229171753
+      },
+      "graphrag": {
+        "answer": [
+          "Cross-country skiing at the 1998 Winter Olympics – Men's 10 kilometre classical"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 39,
+        "query": "max_competitor_event",
+        "parameters": {
+          "games_search": "1998 Winter",
+          "sport_search": "Cross-country skiing"
+        },
+        "results": [
+          {
+            "event_id": "event_Q1004937",
+            "event_name": "Cross-country skiing at the 1998 Winter Olympics – Men's 10 kilometre classical",
+            "competitors_count": 97,
+            "games_name": "1998 Winter Olympics",
+            "sport_name": "Cross-country skiing",
+            "source_doc_id": "Q1004937",
+            "source_doc_title": "Cross-country skiing at the 1998 Winter Olympics – Men's 10 kilometre classical"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Cross-country skiing at the 1998 Winter Olympics – Men's 10 kilometre classical"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 39,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-025",
+      "qtype": "superlative",
+      "question": "According to the provided corpus, which rowing event at the 2016 Summer Olympics had the highest number of competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 32186,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Rowing at the 2016 Summer Olympics – Women's eight"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 32,
+        "query": "max_competitor_event",
+        "parameters": {
+          "games_search": "2016 Summer",
+          "sport_search": "Rowing"
+        },
+        "results": [
+          {
+            "event_id": "event_Q22968979",
+            "event_name": "Rowing at the 2016 Summer Olympics – Women's eight",
+            "competitors_count": 56,
+            "games_name": "2016 Summer Olympics",
+            "sport_name": "Rowing",
+            "source_doc_id": "Q22968979",
+            "source_doc_title": "Rowing at the 2016 Summer Olympics – Women's eight"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Rowing at the 2016 Summer Olympics – Women's eight"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 32,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-026",
+      "qtype": "lookup",
+      "question": "How many nations competed in Fencing at the 2000 Summer Olympics – Men's foil?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 12938,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "22"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 36,
+        "query": "event_nations",
+        "parameters": {
+          "event_search": "Fencing at the 2000 Summer Olympics – Men's foil"
+        },
+        "results": [
+          {
+            "event_id": "event_Q632472",
+            "event_name": "Fencing at the 2000 Summer Olympics – Men's foil",
+            "nations_count": 22,
+            "competitors_count": 40,
+            "date_str": "20 September 2000",
+            "venue_name": "Sydney Exhibition Centre",
+            "source_doc_id": "Q632472",
+            "source_doc_title": "Fencing at the 2000 Summer Olympics – Men's foil"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "22"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 36,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-027",
+      "qtype": "superlative",
+      "question": "According to the provided corpus, which cycling event at the 2012 Summer Olympics had the highest number of competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 40721,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Cycling at the 2012 Summer Olympics – Men's individual road race"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 36,
+        "query": "max_competitor_event",
+        "parameters": {
+          "games_search": "2012 Summer",
+          "sport_search": "Cycling"
+        },
+        "results": [
+          {
+            "event_id": "event_Q754412",
+            "event_name": "Cycling at the 2012 Summer Olympics – Men's individual road race",
+            "competitors_count": 144,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q754412",
+            "source_doc_title": "Cycling at the 2012 Summer Olympics – Men's individual road race"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Cycling at the 2012 Summer Olympics – Men's individual road race"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 36,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-028",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many wrestling events at the 2012 Summer Olympics had more than 19 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 27059,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "3"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 108,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "2012 Summer",
+          "sport_search": "Wrestling",
+          "threshold": 19
+        },
+        "results": [
+          {
+            "event_id": "event_Q2521962",
+            "event_name": "Wrestling at the 2012 Summer Olympics – Women's freestyle 63 kg",
+            "competitors_count": 20,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Wrestling",
+            "source_doc_id": "Q2521962",
+            "source_doc_title": "Wrestling at the 2012 Summer Olympics – Women's freestyle 63 kg"
+          },
+          {
+            "event_id": "event_Q2550697",
+            "event_name": "Wrestling at the 2012 Summer Olympics – Men's Greco-Roman 120 kg",
+            "competitors_count": 20,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Wrestling",
+            "source_doc_id": "Q2550697",
+            "source_doc_title": "Wrestling at the 2012 Summer Olympics – Men's Greco-Roman 120 kg"
+          },
+          {
+            "event_id": "event_Q305439",
+            "event_name": "Wrestling at the 2012 Summer Olympics – Men's Greco-Roman 84 kg",
+            "competitors_count": 20,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Wrestling",
+            "source_doc_id": "Q305439",
+            "source_doc_title": "Wrestling at the 2012 Summer Olympics – Men's Greco-Roman 84 kg"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "3"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 108,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-029",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many boxing events at the 2012 Summer Olympics had more than 26 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 29740,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "3"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 98,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "2012 Summer",
+          "sport_search": "Boxing",
+          "threshold": 26
+        },
+        "results": [
+          {
+            "event_id": "event_Q31844",
+            "event_name": "Boxing at the 2012 Summer Olympics – Men's lightweight",
+            "competitors_count": 28,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Boxing",
+            "source_doc_id": "Q31844",
+            "source_doc_title": "Boxing at the 2012 Summer Olympics – Men's lightweight"
+          },
+          {
+            "event_id": "event_Q31850",
+            "event_name": "Boxing at the 2012 Summer Olympics – Men's light welterweight",
+            "competitors_count": 28,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Boxing",
+            "source_doc_id": "Q31850",
+            "source_doc_title": "Boxing at the 2012 Summer Olympics – Men's light welterweight"
+          },
+          {
+            "event_id": "event_Q348714",
+            "event_name": "Boxing at the 2012 Summer Olympics – Men's welterweight",
+            "competitors_count": 28,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Boxing",
+            "source_doc_id": "Q348714",
+            "source_doc_title": "Boxing at the 2012 Summer Olympics – Men's welterweight"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "3"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 98,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-030",
+      "qtype": "superlative",
+      "question": "According to the provided corpus, which alpine skiing event at the 1994 Winter Olympics had the highest number of competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [
+          "Alpine skiing at the 1994 Winter Olympics – Men's combined"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 32287,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 844,
+        "llm_latency": 1.5108165740966797
+      },
+      "graphrag": {
+        "answer": [
+          "Alpine skiing at the 1994 Winter Olympics – Men's super-G"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 35,
+        "query": "max_competitor_event",
+        "parameters": {
+          "games_search": "1994 Winter",
+          "sport_search": "Alpine skiing"
+        },
+        "results": [
+          {
+            "event_id": "event_Q1005746",
+            "event_name": "Alpine skiing at the 1994 Winter Olympics – Men's super-G",
+            "competitors_count": 69,
+            "games_name": "1994 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q1005746",
+            "source_doc_title": "Alpine skiing at the 1994 Winter Olympics – Men's super-G"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Alpine skiing at the 1994 Winter Olympics – Men's super-G"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 35,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-031",
+      "qtype": "temporal",
+      "question": "Who won the gold medal in the men's 62 kg weightlifting event at the Summer Olympics held immediately before 2016?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 10424,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Kim Un-guk"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 47,
+        "query": "previous_olympics_gold",
+        "parameters": {
+          "games_year": 2016,
+          "season": "Summer",
+          "event_search": "Weightlifting"
+        },
+        "results": [
+          {
+            "current_games_id": "games_2016_summer",
+            "current_games_name": "2016 Summer Olympics",
+            "previous_games_id": "games_2012_summer",
+            "previous_games_name": "2012 Summer Olympics",
+            "previous_year": 2012,
+            "event_id": "event_Q1139399",
+            "event_name": "Weightlifting at the 2012 Summer Olympics – Men's 62 kg",
+            "gold_winner_name": "Kim Un-guk",
+            "gold_winner_noc": "PRK",
+            "win_value": "",
+            "source_doc_id": "Q1139399",
+            "source_doc_title": "Weightlifting at the 2012 Summer Olympics – Men's 62 kg"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Kim Un-guk"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 47,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-032",
+      "qtype": "multi_hop",
+      "question": "Who won the gold medal in the event held at Pacific Coliseum on February 20, 2010?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 35051,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Lee Jung-su",
+          "Zhou Yang"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 92,
+        "query": "event_by_venue_date",
+        "parameters": {
+          "venue_search": "Pacific Coliseum",
+          "date_search": "February 20, 2010"
+        },
+        "results": [
+          {
+            "event_id": "event_Q938791",
+            "event_name": "Short-track speed skating at the 2010 Winter Olympics – Men's 1000 metres",
+            "venue_name": "Pacific Coliseum",
+            "date_str": "February 20, 2010",
+            "gold_winner_id": "athlete_lee_jung_su",
+            "gold_winner_name": "Lee Jung-su",
+            "gold_winner_noc": "KOR",
+            "win_value": "1:23.747",
+            "source_doc_id": "Q938791",
+            "source_doc_title": "Short-track speed skating at the 2010 Winter Olympics – Men's 1000 metres"
+          },
+          {
+            "event_id": "event_Q916747",
+            "event_name": "Short-track speed skating at the 2010 Winter Olympics – Women's 1500 metres",
+            "venue_name": "Pacific Coliseum",
+            "date_str": "February 20, 2010",
+            "gold_winner_id": "athlete_zhou_yang",
+            "gold_winner_name": "Zhou Yang",
+            "gold_winner_noc": "CHN",
+            "win_value": "2:16.993",
+            "source_doc_id": "Q916747",
+            "source_doc_title": "Short-track speed skating at the 2010 Winter Olympics – Women's 1500 metres"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Lee Jung-su",
+          "Zhou Yang"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 92,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-033",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many alpine skiing events at the 1988 Winter Olympics had more than 57 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 35264,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "4"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 144,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "1988 Winter",
+          "sport_search": "Alpine skiing",
+          "threshold": 57
+        },
+        "results": [
+          {
+            "event_id": "event_Q1005639",
+            "event_name": "Alpine skiing at the 1988 Winter Olympics – Men's slalom",
+            "competitors_count": 109,
+            "games_name": "1988 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q1005639",
+            "source_doc_title": "Alpine skiing at the 1988 Winter Olympics – Men's slalom"
+          },
+          {
+            "event_id": "event_Q1005744",
+            "event_name": "Alpine skiing at the 1988 Winter Olympics – Men's super-G",
+            "competitors_count": 94,
+            "games_name": "1988 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q1005744",
+            "source_doc_title": "Alpine skiing at the 1988 Winter Olympics – Men's super-G"
+          },
+          {
+            "event_id": "event_Q1222713",
+            "event_name": "Alpine skiing at the 1988 Winter Olympics – Women's giant slalom",
+            "competitors_count": 64,
+            "games_name": "1988 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q1222713",
+            "source_doc_title": "Alpine skiing at the 1988 Winter Olympics – Women's giant slalom"
+          },
+          {
+            "event_id": "event_Q1005804",
+            "event_name": "Alpine skiing at the 1988 Winter Olympics – Men's giant slalom",
+            "competitors_count": 117,
+            "games_name": "1988 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q1005804",
+            "source_doc_title": "Alpine skiing at the 1988 Winter Olympics – Men's giant slalom"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "4"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 144,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-034",
+      "qtype": "temporal",
+      "question": "Who won the gold medal in the men's freestyle 120 kg wrestling event at the Summer Olympics held immediately before 2012?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 9368,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Bakhtiyar Akhmedov"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 49,
+        "query": "previous_olympics_gold",
+        "parameters": {
+          "games_year": 2012,
+          "season": "Summer",
+          "event_search": "Wrestling"
+        },
+        "results": [
+          {
+            "current_games_id": "games_2012_summer",
+            "current_games_name": "2012 Summer Olympics",
+            "previous_games_id": "games_2008_summer",
+            "previous_games_name": "2008 Summer Olympics",
+            "previous_year": 2008,
+            "event_id": "event_Q581364",
+            "event_name": "Wrestling at the 2008 Summer Olympics – Men's freestyle 120 kg",
+            "gold_winner_name": "Bakhtiyar Akhmedov",
+            "gold_winner_noc": "RUS",
+            "win_value": "",
+            "source_doc_id": "Q581364",
+            "source_doc_title": "Wrestling at the 2008 Summer Olympics – Men's freestyle 120 kg"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Bakhtiyar Akhmedov"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 49,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-035",
+      "qtype": "superlative",
+      "question": "According to the provided corpus, which rowing event at the 2012 Summer Olympics had the highest number of competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 36922,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Rowing at the 2012 Summer Olympics – Women's eight"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 32,
+        "query": "max_competitor_event",
+        "parameters": {
+          "games_search": "2012 Summer",
+          "sport_search": "Rowing"
+        },
+        "results": [
+          {
+            "event_id": "event_Q370500",
+            "event_name": "Rowing at the 2012 Summer Olympics – Women's eight",
+            "competitors_count": 56,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Rowing",
+            "source_doc_id": "Q370500",
+            "source_doc_title": "Rowing at the 2012 Summer Olympics – Women's eight"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Rowing at the 2012 Summer Olympics – Women's eight"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 32,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-036",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many short-track speed skating events at the 2018 Winter Olympics had more than 34 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 61082,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "0"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 1,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "2018 Winter",
+          "sport_search": "Speed skating",
+          "threshold": 34
+        },
+        "results": [],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "0"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 1,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-037",
+      "qtype": "superlative",
+      "question": "According to the provided corpus, which sailing event at the 1996 Summer Olympics had the highest number of competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [
+          "Sailing at the 1996 Summer Olympics – Men's 470"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 29010,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 1242,
+        "llm_latency": 1.8015780448913574
+      },
+      "graphrag": {
+        "answer": [
+          "Sailing at the 1996 Summer Olympics – Men's 470"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 32,
+        "query": "max_competitor_event",
+        "parameters": {
+          "games_search": "1996 Summer",
+          "sport_search": "Sailing"
+        },
+        "results": [
+          {
+            "event_id": "event_Q7400319",
+            "event_name": "Sailing at the 1996 Summer Olympics – Men's 470",
+            "competitors_count": 72,
+            "games_name": "1996 Summer Olympics",
+            "sport_name": "Sailing",
+            "source_doc_id": "Q7400319",
+            "source_doc_title": "Sailing at the 1996 Summer Olympics – Men's 470"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Sailing at the 1996 Summer Olympics – Men's 470"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 32,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-038",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many athletics events at the 2008 Summer Olympics had more than 40 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 65570,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "21"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 718,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "2008 Summer",
+          "sport_search": "Athletics",
+          "threshold": 40
+        },
+        "results": [
+          {
+            "event_id": "event_Q853003",
+            "event_name": "Athletics at the 2008 Summer Olympics – Men's 200 metres",
+            "competitors_count": 63,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q853003",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Men's 200 metres"
+          },
+          {
+            "event_id": "event_Q947691",
+            "event_name": "Athletics at the 2008 Summer Olympics – Women's marathon",
+            "competitors_count": 82,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q947691",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Women's marathon"
+          },
+          {
+            "event_id": "event_Q848291",
+            "event_name": "Athletics at the 2008 Summer Olympics – Men's shot put",
+            "competitors_count": 44,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q848291",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Men's shot put"
+          },
+          {
+            "event_id": "event_Q693595",
+            "event_name": "Athletics at the 2008 Summer Olympics – Men's marathon",
+            "competitors_count": 95,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q693595",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Men's marathon"
+          },
+          {
+            "event_id": "event_Q677027",
+            "event_name": "Athletics at the 2008 Summer Olympics – Men's 800 metres",
+            "competitors_count": 58,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q677027",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Men's 800 metres"
+          },
+          {
+            "event_id": "event_Q917328",
+            "event_name": "Athletics at the 2008 Summer Olympics – Men's 1500 metres",
+            "competitors_count": 48,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q917328",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Men's 1500 metres"
+          },
+          {
+            "event_id": "event_Q922361",
+            "event_name": "Athletics at the 2008 Summer Olympics – Women's hammer throw",
+            "competitors_count": 50,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q922361",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Women's hammer throw"
+          },
+          {
+            "event_id": "event_Q853072",
+            "event_name": "Athletics at the 2008 Summer Olympics – Men's 5000 metres",
+            "competitors_count": 43,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q853072",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Men's 5000 metres"
+          },
+          {
+            "event_id": "event_Q932865",
+            "event_name": "Athletics at the 2008 Summer Olympics – Women's 400 metres",
+            "competitors_count": 50,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q932865",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Women's 400 metres"
+          },
+          {
+            "event_id": "event_Q754844",
+            "event_name": "Athletics at the 2008 Summer Olympics – Men's 100 metres",
+            "competitors_count": 80,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q754844",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Men's 100 metres"
+          },
+          {
+            "event_id": "event_Q947750",
+            "event_name": "Athletics at the 2008 Summer Olympics – Women's 3000 metres steeplechase",
+            "competitors_count": 50,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q947750",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Women's 3000 metres steeplechase"
+          },
+          {
+            "event_id": "event_Q288549",
+            "event_name": "Athletics at the 2008 Summer Olympics – Women's javelin throw",
+            "competitors_count": 54,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q288549",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Women's javelin throw"
+          },
+          {
+            "event_id": "event_Q257545",
+            "event_name": "Athletics at the 2008 Summer Olympics – Men's 400 metres",
+            "competitors_count": 55,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q257545",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Men's 400 metres"
+          },
+          {
+            "event_id": "event_Q743905",
+            "event_name": "Athletics at the 2008 Summer Olympics – Men's 110 metres hurdles",
+            "competitors_count": 43,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q743905",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Men's 110 metres hurdles"
+          },
+          {
+            "event_id": "event_Q917348",
+            "event_name": "Athletics at the 2008 Summer Olympics – Women's 200 metres",
+            "competitors_count": 46,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q917348",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Women's 200 metres"
+          },
+          {
+            "event_id": "event_Q853023",
+            "event_name": "Athletics at the 2008 Summer Olympics – Men's 20 kilometres walk",
+            "competitors_count": 51,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q853023",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Men's 20 kilometres walk"
+          },
+          {
+            "event_id": "event_Q853040",
+            "event_name": "Athletics at the 2008 Summer Olympics – Women's 100 metres",
+            "competitors_count": 85,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q853040",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Women's 100 metres"
+          },
+          {
+            "event_id": "event_Q917333",
+            "event_name": "Athletics at the 2008 Summer Olympics – Women's long jump",
+            "competitors_count": 42,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q917333",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Women's long jump"
+          },
+          {
+            "event_id": "event_Q1066390",
+            "event_name": "Athletics at the 2008 Summer Olympics – Women's heptathlon",
+            "competitors_count": 43,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q1066390",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Women's heptathlon"
+          },
+          {
+            "event_id": "event_Q247070",
+            "event_name": "Athletics at the 2008 Summer Olympics – Men's 50 kilometres walk",
+            "competitors_count": 61,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q247070",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Men's 50 kilometres walk"
+          },
+          {
+            "event_id": "event_Q947678",
+            "event_name": "Athletics at the 2008 Summer Olympics – Women's 20 kilometres walk",
+            "competitors_count": 48,
+            "games_name": "2008 Summer Olympics",
+            "sport_name": "Athletics",
+            "source_doc_id": "Q947678",
+            "source_doc_title": "Athletics at the 2008 Summer Olympics – Women's 20 kilometres walk"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "21"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 718,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-039",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many boxing events at the 1992 Summer Olympics had more than 30 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 40551,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "3"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 90,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "1992 Summer",
+          "sport_search": "Boxing",
+          "threshold": 30
+        },
+        "results": [
+          {
+            "event_id": "event_Q10497008",
+            "event_name": "Boxing at the 1992 Summer Olympics – Flyweight",
+            "competitors_count": 31,
+            "games_name": "1992 Summer Olympics",
+            "sport_name": "Boxing",
+            "source_doc_id": "Q10497008",
+            "source_doc_title": "Boxing at the 1992 Summer Olympics – Flyweight"
+          },
+          {
+            "event_id": "event_Q10426127",
+            "event_name": "Boxing at the 1992 Summer Olympics – Bantamweight",
+            "competitors_count": 31,
+            "games_name": "1992 Summer Olympics",
+            "sport_name": "Boxing",
+            "source_doc_id": "Q10426127",
+            "source_doc_title": "Boxing at the 1992 Summer Olympics – Bantamweight"
+          },
+          {
+            "event_id": "event_Q10495989",
+            "event_name": "Boxing at the 1992 Summer Olympics – Featherweight",
+            "competitors_count": 31,
+            "games_name": "1992 Summer Olympics",
+            "sport_name": "Boxing",
+            "source_doc_id": "Q10495989",
+            "source_doc_title": "Boxing at the 1992 Summer Olympics – Featherweight"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "3"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 90,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-040",
+      "qtype": "multi_hop",
+      "question": "Who won the gold medal in the event held at Stadium Australia on 27 September 2000 (heats)29 September 2000 (semi-finals)30 September 2000 (final)?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 39787,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Nouria Mérah-Benida"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 49,
+        "query": "event_by_venue_date",
+        "parameters": {
+          "venue_search": "Stadium Australia",
+          "date_search": "27 September 2000 (heats)29 September 2000 (semi-finals)30 September 2000 (final)"
+        },
+        "results": [
+          {
+            "event_id": "event_Q3628760",
+            "event_name": "Athletics at the 2000 Summer Olympics – Women's 1500 metres",
+            "venue_name": "Stadium Australia",
+            "date_str": "27 September 2000 (heats)29 September 2000 (semi-finals)30 September 2000 (final)",
+            "gold_winner_id": "athlete_nouria_mérah_benida",
+            "gold_winner_name": "Nouria Mérah-Benida",
+            "gold_winner_noc": "ALG",
+            "win_value": "4:05.10",
+            "source_doc_id": "Q3628760",
+            "source_doc_title": "Athletics at the 2000 Summer Olympics – Women's 1500 metres"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Nouria Mérah-Benida"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 49,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-041",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many alpine skiing events at the 2006 Winter Olympics had more than 63 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 37715,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "4"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 144,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "2006 Winter",
+          "sport_search": "Alpine skiing",
+          "threshold": 63
+        },
+        "results": [
+          {
+            "event_id": "event_Q1005801",
+            "event_name": "Alpine skiing at the 2006 Winter Olympics – Men's giant slalom",
+            "competitors_count": 82,
+            "games_name": "2006 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q1005801",
+            "source_doc_title": "Alpine skiing at the 2006 Winter Olympics – Men's giant slalom"
+          },
+          {
+            "event_id": "event_Q1042644",
+            "event_name": "Alpine skiing at the 2006 Winter Olympics – Women's slalom",
+            "competitors_count": 64,
+            "games_name": "2006 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q1042644",
+            "source_doc_title": "Alpine skiing at the 2006 Winter Olympics – Women's slalom"
+          },
+          {
+            "event_id": "event_Q917743",
+            "event_name": "Alpine skiing at the 2006 Winter Olympics – Men's slalom",
+            "competitors_count": 97,
+            "games_name": "2006 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q917743",
+            "source_doc_title": "Alpine skiing at the 2006 Winter Olympics – Men's slalom"
+          },
+          {
+            "event_id": "event_Q2574045",
+            "event_name": "Alpine skiing at the 2006 Winter Olympics – Women's giant slalom",
+            "competitors_count": 65,
+            "games_name": "2006 Winter Olympics",
+            "sport_name": "Alpine skiing",
+            "source_doc_id": "Q2574045",
+            "source_doc_title": "Alpine skiing at the 2006 Winter Olympics – Women's giant slalom"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "4"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 144,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-042",
+      "qtype": "temporal",
+      "question": "Who won the gold medal in the mixed trap shooting event at the Summer Olympics held immediately before 1992?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 16178,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Dmitry Monakov"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 46,
+        "query": "previous_olympics_gold",
+        "parameters": {
+          "games_year": 1992,
+          "season": "Summer",
+          "event_search": "Shooting"
+        },
+        "results": [
+          {
+            "current_games_id": "games_1992_summer",
+            "current_games_name": "1992 Summer Olympics",
+            "previous_games_id": "games_1988_summer",
+            "previous_games_name": "1988 Summer Olympics",
+            "previous_year": 1988,
+            "event_id": "event_Q7500750",
+            "event_name": "Shooting at the 1988 Summer Olympics – Mixed trap",
+            "gold_winner_name": "Dmitry Monakov",
+            "gold_winner_noc": "URS",
+            "win_value": "222 shooting",
+            "source_doc_id": "Q7500750",
+            "source_doc_title": "Shooting at the 1988 Summer Olympics – Mixed trap"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Dmitry Monakov"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 46,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-043",
+      "qtype": "multi_hop",
+      "question": "Who won the gold medal in the event held at Carioca Arena 3 on 11 August 2016?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 11661,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Loredana DinuSimona GhermanSimona PopAna Maria Popescu"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 47,
+        "query": "event_by_venue_date",
+        "parameters": {
+          "venue_search": "Carioca Arena 3",
+          "date_search": "11 August 2016"
+        },
+        "results": [
+          {
+            "event_id": "event_Q25384917",
+            "event_name": "Fencing at the 2016 Summer Olympics – Women's team épée",
+            "venue_name": "Carioca Arena 3",
+            "date_str": "11 August 2016",
+            "gold_winner_id": "athlete_loredana_dinusimona_ghermansimona_popana_maria_popescu",
+            "gold_winner_name": "Loredana DinuSimona GhermanSimona PopAna Maria Popescu",
+            "gold_winner_noc": "ROM",
+            "win_value": "",
+            "source_doc_id": "Q25384917",
+            "source_doc_title": "Fencing at the 2016 Summer Olympics – Women's team épée"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Loredana DinuSimona GhermanSimona PopAna Maria Popescu"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 47,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-044",
+      "qtype": "temporal",
+      "question": "Who won the gold medal in the women's 75 kg weightlifting event at the Summer Olympics held immediately before 2016?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 9137,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Lydia Valentín"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 47,
+        "query": "previous_olympics_gold",
+        "parameters": {
+          "games_year": 2016,
+          "season": "Summer",
+          "event_search": "Weightlifting"
+        },
+        "results": [
+          {
+            "current_games_id": "games_2016_summer",
+            "current_games_name": "2016 Summer Olympics",
+            "previous_games_id": "games_2012_summer",
+            "previous_games_name": "2012 Summer Olympics",
+            "previous_year": 2012,
+            "event_id": "event_Q1997032",
+            "event_name": "Weightlifting at the 2012 Summer Olympics – Women's 75 kg",
+            "gold_winner_name": "Lydia Valentín",
+            "gold_winner_noc": "ESP",
+            "win_value": "",
+            "source_doc_id": "Q1997032",
+            "source_doc_title": "Weightlifting at the 2012 Summer Olympics – Women's 75 kg"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Lydia Valentín"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 47,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-045",
+      "qtype": "temporal",
+      "question": "Who won the gold medal in the women's moguls freestyle skiing event at the Winter Olympics held immediately before 2014?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 14967,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 1,
+        "query": "previous_olympics_gold",
+        "parameters": {
+          "games_year": 2014,
+          "season": "Winter",
+          "event_search": "Skiing"
+        },
+        "results": [],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "VECTOR_SEARCH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 12707,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-046",
+      "qtype": "temporal",
+      "question": "Who won the gold medal in the light flyweight boxing event at the Summer Olympics held immediately before 2004?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [
+          "Brahim Asloum"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 8690,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 1565,
+        "llm_latency": 1.5141737461090088
+      },
+      "graphrag": {
+        "answer": [
+          "Brahim Asloum"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 45,
+        "query": "previous_olympics_gold",
+        "parameters": {
+          "games_year": 2004,
+          "season": "Summer",
+          "event_search": "Boxing"
+        },
+        "results": [
+          {
+            "current_games_id": "games_2004_summer",
+            "current_games_name": "2004 Summer Olympics",
+            "previous_games_id": "games_2000_summer",
+            "previous_games_name": "2000 Summer Olympics",
+            "previous_year": 2000,
+            "event_id": "event_Q4951841",
+            "event_name": "Boxing at the 2000 Summer Olympics – Light flyweight",
+            "gold_winner_name": "Brahim Asloum",
+            "gold_winner_noc": "FRA",
+            "win_value": "",
+            "source_doc_id": "Q4951841",
+            "source_doc_title": "Boxing at the 2000 Summer Olympics – Light flyweight"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Brahim Asloum"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 45,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-047",
+      "qtype": "superlative",
+      "question": "According to the provided corpus, which cycling event at the 2004 Summer Olympics had the highest number of competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 33617,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Cycling at the 2004 Summer Olympics – Men's individual road race"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 36,
+        "query": "max_competitor_event",
+        "parameters": {
+          "games_search": "2004 Summer",
+          "sport_search": "Cycling"
+        },
+        "results": [
+          {
+            "event_id": "event_Q2445057",
+            "event_name": "Cycling at the 2004 Summer Olympics – Men's individual road race",
+            "competitors_count": 144,
+            "games_name": "2004 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q2445057",
+            "source_doc_title": "Cycling at the 2004 Summer Olympics – Men's individual road race"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Cycling at the 2004 Summer Olympics – Men's individual road race"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 36,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-048",
+      "qtype": "aggregation",
+      "question": "According to the provided corpus, how many cycling events at the 2012 Summer Olympics had more than 30 competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 48727,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "7"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 240,
+        "query": "count_events_above_competitors",
+        "parameters": {
+          "games_search": "2012 Summer",
+          "sport_search": "Cycling",
+          "threshold": 30
+        },
+        "results": [
+          {
+            "event_id": "event_Q1005298",
+            "event_name": "Cycling at the 2012 Summer Olympics – Men's BMX",
+            "competitors_count": 32,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q1005298",
+            "source_doc_title": "Cycling at the 2012 Summer Olympics – Men's BMX"
+          },
+          {
+            "event_id": "event_Q2036655",
+            "event_name": "Cycling at the 2012 Summer Olympics – Men's cross-country",
+            "competitors_count": 47,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q2036655",
+            "source_doc_title": "Cycling at the 2012 Summer Olympics – Men's cross-country"
+          },
+          {
+            "event_id": "event_Q2297621",
+            "event_name": "Cycling at the 2012 Summer Olympics – Men's team pursuit",
+            "competitors_count": 44,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q2297621",
+            "source_doc_title": "Cycling at the 2012 Summer Olympics – Men's team pursuit"
+          },
+          {
+            "event_id": "event_Q2297633",
+            "event_name": "Cycling at the 2012 Summer Olympics – Women's team pursuit",
+            "competitors_count": 32,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q2297633",
+            "source_doc_title": "Cycling at the 2012 Summer Olympics – Women's team pursuit"
+          },
+          {
+            "event_id": "event_Q754412",
+            "event_name": "Cycling at the 2012 Summer Olympics – Men's individual road race",
+            "competitors_count": 144,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q754412",
+            "source_doc_title": "Cycling at the 2012 Summer Olympics – Men's individual road race"
+          },
+          {
+            "event_id": "event_Q916174",
+            "event_name": "Cycling at the 2012 Summer Olympics – Men's road time trial",
+            "competitors_count": 37,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q916174",
+            "source_doc_title": "Cycling at the 2012 Summer Olympics – Men's road time trial"
+          },
+          {
+            "event_id": "event_Q843287",
+            "event_name": "Cycling at the 2012 Summer Olympics – Women's individual road race",
+            "competitors_count": 66,
+            "games_name": "2012 Summer Olympics",
+            "sport_name": "Cycling",
+            "source_doc_id": "Q843287",
+            "source_doc_title": "Cycling at the 2012 Summer Olympics – Women's individual road race"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "7"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 240,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-049",
+      "qtype": "superlative",
+      "question": "According to the provided corpus, which shooting event at the 1988 Summer Olympics had the highest number of competitors?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 32239,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "Shooting at the 1988 Summer Olympics – Men's 50 metre rifle prone"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 38,
+        "query": "max_competitor_event",
+        "parameters": {
+          "games_search": "1988 Summer",
+          "sport_search": "Shooting"
+        },
+        "results": [
+          {
+            "event_id": "event_Q7500747",
+            "event_name": "Shooting at the 1988 Summer Olympics – Men's 50 metre rifle prone",
+            "competitors_count": 55,
+            "games_name": "1988 Summer Olympics",
+            "sport_name": "Shooting",
+            "source_doc_id": "Q7500747",
+            "source_doc_title": "Shooting at the 1988 Summer Olympics – Men's 50 metre rifle prone"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "Shooting at the 1988 Summer Olympics – Men's 50 metre rifle prone"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 38,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    },
+    {
+      "qid": "eval-050",
+      "qtype": "multi_hop",
+      "question": "Who won the gold medal in the event held at Olympic Stadium on 6–9 August at the 2012 Summer Olympics?",
+      "gold_answer": null,
+      "rag": {
+        "answer": [],
+        "correct": null,
+        "estimated_evidence_tokens": 28921,
+        "gold_doc_coverage": 0.0,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "graphrag": {
+        "answer": [
+          "David Rudisha"
+        ],
+        "correct": null,
+        "estimated_evidence_tokens": 42,
+        "query": "event_by_venue_date",
+        "parameters": {
+          "venue_search": "Olympic Stadium",
+          "date_search": "6–9 August"
+        },
+        "results": [
+          {
+            "event_id": "event_Q1049551",
+            "event_name": "Athletics at the 2012 Summer Olympics – Men's 800 metres",
+            "venue_name": "Olympic Stadium",
+            "date_str": "6–9 August",
+            "gold_winner_id": "athlete_david_rudisha",
+            "gold_winner_name": "David Rudisha",
+            "gold_winner_noc": "KEN",
+            "win_value": "1:40.91 athletics",
+            "source_doc_id": "Q1049551",
+            "source_doc_title": "Athletics at the 2012 Summer Olympics – Men's 800 metres"
+          }
+        ],
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      },
+      "agentic_graphrag": {
+        "answer": [
+          "David Rudisha"
+        ],
+        "correct": null,
+        "actions": [
+          "UNDERSTAND",
+          "GRAPH",
+          "EVALUATE_EVIDENCE",
+          "STOP"
+        ],
+        "estimated_evidence_tokens": 42,
+        "llm_model": "openai/gpt-oss-120b",
+        "llm_tokens": 0,
+        "llm_latency": 0.0
+      }
+    }
+  ]
+}
