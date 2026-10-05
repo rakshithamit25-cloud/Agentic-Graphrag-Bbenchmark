@@ -12,7 +12,7 @@ import streamlit as st
 # ============================================================
 
 st.set_page_config(
-    page_title="EVIDENCE GRAPH — Agentic GraphRAG",
+    page_title="AGRI EVIDENCE",
     page_icon="◆",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -783,7 +783,7 @@ h1, h2, h3, h4, p {{
    BUTTON
    ======================================================== */
 
-[data-testid="stButton"] button {{
+.stButton > button {{
 
     background:
         linear-gradient(
@@ -815,7 +815,7 @@ h1, h2, h3, h4, p {{
         rgba(56,189,248,0.18);
 }}
 
-[data-testid="stButton"] button:hover {{
+.stButton > button:hover {{
 
     box-shadow:
         0 10px 30px
@@ -941,7 +941,7 @@ with st.sidebar:
                     ◆
                 </span>
 
-                EVIDENCE GRAPH
+                AGRI EVIDENCE
 
             </div>
 
@@ -980,7 +980,7 @@ with st.sidebar:
                 padding:8px 0;
                 font-size:12px;
             ">
-                ◦ Olympics Evidence Intelligence
+                ◦ Disease Intelligence
             </div>
 
 
@@ -989,7 +989,7 @@ with st.sidebar:
                 padding:8px 0;
                 font-size:12px;
             ">
-                ◦ System Architecture
+                ◦ Market Intelligence
             </div>
 
 
@@ -1075,7 +1075,7 @@ with st.sidebar:
 
                 <br>
 
-                Olympics Benchmark
+                Custom demonstration dataset
 
             </div>
 
@@ -1093,21 +1093,22 @@ st.html(
     <div class="hero">
 
         <div class="hero-small">
-            ● THREE-WAY RETRIEVAL & REASONING BENCHMARK
+            ● AI EVIDENCE INTELLIGENCE
         </div>
 
 
         <div class="hero-title">
 
-            EVIDENCE GRAPH
-            <span>— Agentic GraphRAG</span>
+            Livestock
+            <span>Intelligence</span>
 
         </div>
 
 
         <div class="hero-text">
 
-            Agentic GraphRAG — Olympics Benchmark
+            Autonomous investigation across livestock
+            diseases, treatments, outbreaks and markets.
 
             <br><br>
 
@@ -1748,62 +1749,120 @@ else:
 
 
 # ============================================================
-# LIVE AGENT INVESTIGATION INPUT
+# LIVE AGENT INVESTIGATION
 # ============================================================
 
-question = st.selectbox(
-    "SELECT AN OLYMPICS QUESTION",
-    question_options,
-    key="olympics_question_select",
+st.html(
+    """
+    <div class="section-title">
+        Live Agent Investigation
+    </div>
+
+    <div class="section-sub">
+        Ask the Agentic GraphRAG system a question
+        and inspect its investigation process
+    </div>
+    """
 )
+
+
+default_question = (
+    "Which disease is associated with "
+    "the Tamil Nadu livestock market?"
+)
+
+
+question_options = [
+
+    default_question,
+
+    "Which disease is associated with the Karnataka livestock market?",
+
+    "Which outbreak is connected to Foot and Mouth Disease?",
+
+    "Which market is affected by the Tamil Nadu FMD outbreak?",
+
+    "Which treatment is associated with Foot and Mouth Disease?",
+
+    "Which outbreak is connected to Pneumonia?",
+
+    "Which market is affected by the Karnataka Pneumonia outbreak?",
+
+    "Which treatment is associated with Pneumonia?",
+]
+
+
+question = st.selectbox(
+    "Select an investigation question",
+    question_options,
+)
+
 
 custom_question = st.text_input(
     "Or enter your own question",
-    placeholder="Ask an Olympic question...",
-    key="custom_olympics_question",
+
+    placeholder=(
+        "Ask something about disease, treatment, "
+        "outbreak or market..."
+    ),
 )
+
+
+if custom_question.strip():
+
+    active_question = (
+        custom_question.strip()
+    )
+
+else:
+
+    active_question = question
+
 
 investigate = st.button(
-    "🔎 INVESTIGATE",
+    "🔎  INVESTIGATE",
     type="primary",
     use_container_width=True,
-    key="investigate_button",
 )
 
-# ============================================================
-# PROCESS INVESTIGATION
-# ============================================================
 
 if investigate:
 
-    # Capture submitted question.
-    if custom_question.strip():
-        active_question = custom_question.strip()
-    else:
-        active_question = question.strip()
-
-    # Clear previous result.
-    st.session_state.pop("agent_result", None)
-    st.session_state.pop("agent_question", None)
-
-    st.session_state["agent_question"] = active_question
-
     if not BACKEND_AVAILABLE:
-        st.error("❌ Backend could not be imported.")
-        st.code(BACKEND_ERROR)
-    else:
-        with st.spinner("Agent is investigating the evidence..."):
-            try:
-                new_agent_result = run_agent(active_question)
 
-                st.session_state["agent_result"] = new_agent_result
-                st.session_state["agent_question"] = active_question
+        st.error(
+            "Backend could not be imported."
+        )
+
+        st.code(
+            BACKEND_ERROR
+        )
+
+    else:
+
+        with st.spinner(
+            "Agent is investigating the evidence..."
+        ):
+
+            try:
+
+                agent_result = run_agent(
+                    active_question
+                )
+
+                st.session_state[
+                    "agent_result"
+                ] = agent_result
+
+                st.session_state[
+                    "agent_question"
+                ] = active_question
 
             except Exception as e:
-                st.session_state.pop("agent_result", None)
-                st.error(f"❌ Investigation failed: {e}")
-                st.exception(e)
 
+                st.error(
+                    f"Investigation failed: {e}"
+                )
 
 
 # ============================================================
@@ -1997,11 +2056,12 @@ if "agent_result" in st.session_state:
     st.html(
         """
         <div class="section-title">
-            EVIDENCE GRAPH — OLYMPICS QUESTION ORCHESTRATOR
+            Live Agent Trace
         </div>
 
         <div class="section-sub">
-            The orchestrator identifies the question type and selects the appropriate retrieval and reasoning path.
+            The orchestrator's investigation state, selected tools,
+            evidence agreement and stopping decision
         </div>
         """
     )
@@ -2157,12 +2217,12 @@ if "agent_result" in st.session_state:
 
     action_descriptions = {
         "MARKET_GRAPH": (
-            "Used the reverse graph path to resolve target entities "
-            "through multi-hop graph relationships."
+            "Used the reverse graph path to find the disease connected "
+            "to the market through outbreak relationships."
         ),
         "GRAPH": (
-            "Traversed TigerGraph relationships to collect multi-hop "
-            "evidence across entities."
+            "Traversed TigerGraph relationships to collect disease, "
+            "treatment, outbreak and market evidence."
         ),
         "VECTOR": (
             "Retrieved supporting document evidence using semantic "
@@ -2316,7 +2376,7 @@ with graph_col1:
             ">
 
                 <div class="node node-main">
-                    🏅 Athlete
+                    🐄 Disease
                 </div>
 
                 <span class="arrow">
@@ -2324,7 +2384,7 @@ with graph_col1:
                 </span>
 
                 <div class="node">
-                    🥇 Medal
+                    🦠 Outbreak
                 </div>
 
                 <span class="arrow">
@@ -2332,13 +2392,13 @@ with graph_col1:
                 </span>
 
                 <div class="node node-main">
-                    🏟️ Event
+                    📍 Market
                 </div>
 
                 <br>
 
                 <div class="node">
-                    🏛️ Venue
+                    💊 Treatment
                 </div>
 
                 <span class="arrow">
@@ -2357,11 +2417,11 @@ with graph_col1:
                 line-height:1.7;
             ">
 
-                Athlete → Medal → Event
+                Disease → Outbreak → Market
 
                 <br>
 
-                Event → Venue / Host Year
+                Disease → Treatment
 
                 <br>
 
@@ -2387,7 +2447,7 @@ with graph_col2:
             <div class="info-text">
 
                 <b style="color:{CYAN};">
-                    8
+                    7
                 </b>
 
                 vertex types
@@ -2395,7 +2455,7 @@ with graph_col2:
                 <br><br>
 
                 <b style="color:{TEAL};">
-                    10
+                    5
                 </b>
 
                 relationship types
@@ -2424,17 +2484,17 @@ with graph_col2:
 
 
 # ============================================================
-# OLYMPICS EVIDENCE INTELLIGENCE
+# DISEASE INTELLIGENCE
 # ============================================================
 
 st.html(
     """
     <div class="section-title">
-        OLYMPICS EVIDENCE INTELLIGENCE
+        Disease Intelligence
     </div>
 
     <div class="section-sub">
-        Evidence-backed intelligence from Olympic documents and structured graph relationships.
+        Connected livestock evidence entities
     </div>
     """
 )
@@ -2453,16 +2513,17 @@ with d1:
                 font-size:25px;
                 margin-bottom:12px;
             ">
-                🏅
+                🐄
             </div>
 
             <div class="info-title">
-                Olympic Events & Sports
+                Foot and Mouth Disease
             </div>
 
             <div class="info-text">
 
-                Connected competition events and sports in the structured evidence graph.
+                Connected disease entity in
+                the demonstration evidence graph.
 
             </div>
 
@@ -2481,16 +2542,17 @@ with d2:
                 font-size:25px;
                 margin-bottom:12px;
             ">
-                🥇
+                💊
             </div>
 
             <div class="info-title">
-                Athletes & Medals
+                Treatment
             </div>
 
             <div class="info-text">
 
-                Medal winners, competitors, and representing nations linked through graph relationships.
+                Supportive care and vaccination
+                connected through HAS_TREATMENT.
 
             </div>
 
@@ -2509,16 +2571,17 @@ with d3:
                 font-size:25px;
                 margin-bottom:12px;
             ">
-                🏛️
+                📍
             </div>
 
             <div class="info-title">
-                Venues & Host Editions
+                Livestock Market
             </div>
 
             <div class="info-text">
 
-                Olympic host cities, stadiums, and competition dates connected across multi-hop paths.
+                Market reached through the
+                outbreak relationship.
 
             </div>
 
@@ -2538,34 +2601,22 @@ st.html(
     </div>
 
     <div class="section-sub">
-        Questions evaluated by the Olympics benchmark
+        Questions evaluated by the custom demonstration benchmark
     </div>
     """
 )
 
 
-olympics_history_questions = [
-    "Who won the gold medal in the event held at Olympic Aquatic Centre on August 14, 2004?",
-    "Who won the gold medal in the men's 100m freestyle at the 2008 Summer Olympics?",
-    "Which country won the most gold medals at the 2008 Summer Olympics?",
-    "Who won the gold medal in the men's 400m individual medley at the 2004 Summer Olympics?",
-    "Which athlete won the most medals at the 2008 Summer Olympics?",
-    "Which event was held at Olympic Aquatic Centre on August 14, 2004?",
-    "Who won the gold medal in the men's 470 sailing event at the 2016 Summer Olympics?",
-    "What was the previous Olympic Games before the 2008 Summer Olympics, and who won the gold medal in the specified event?",
-]
-
-
-for index, question_text in enumerate(
-    olympics_history_questions,
+for index, item in enumerate(
+    benchmark_rows,
     start=1,
 ):
 
-    item = (
-        benchmark_rows[index - 1]
-        if index - 1 < len(benchmark_rows)
-        else {}
+    question_text = item.get(
+        "question",
+        "",
     )
+
 
     correct_status = item.get(
         "correct",
@@ -2599,7 +2650,54 @@ for index, question_text in enumerate(
     )
 
 
-       
+    with st.expander(
+        f"Q{index}  •  {question_text}"
+    ):
+
+        c1, c2, c3 = st.columns(3)
+
+
+        with c1:
+
+            st.html(
+                f"""
+                <div style="
+                    color:{status_color};
+                    font-weight:900;
+                    font-size:13px;
+                ">
+                    {status}
+                </div>
+                """
+            )
+
+
+        with c2:
+
+            try:
+
+                confidence_percent = (
+                    float(confidence) * 100
+                )
+
+            except Exception:
+
+                confidence_percent = 0
+
+
+            st.metric(
+                "Confidence",
+                f"{confidence_percent:.0f}%",
+            )
+
+
+        with c3:
+
+            st.metric(
+                "Estimated Tokens",
+                tokens,
+            )
+
 
 # ============================================================
 # AGENTIC ARCHITECTURE
@@ -2608,11 +2706,11 @@ for index, question_text in enumerate(
 st.html(
     f"""
     <div class="section-title">
-        EVIDENCE GRAPH — OLYMPICS SYSTEM ARCHITECTURE
+        Agentic Architecture
     </div>
 
     <div class="section-sub">
-        A three-way retrieval architecture comparing RAG, GraphRAG, and Agentic GraphRAG on Olympic benchmark questions.
+        Adaptive investigation flow used by the current implementation
     </div>
 
     <div class="info-card">
@@ -2731,16 +2829,22 @@ st.html(
     <div class="footer">
 
         <b style="color:{CYAN};">
-            EVIDENCE GRAPH
+            AGRI EVIDENCE
         </b>
 
         <br>
 
-        Agentic GraphRAG — Olympics Benchmark
+        Agentic GraphRAG •
+        Livestock Disease & Market Intelligence
 
         <br><br>
 
-        Three-Way Retrieval & Reasoning Benchmark
+        Benchmark:
+        Custom demonstration dataset
+
+        <br>
+
+        RAG • GraphRAG • Agentic GraphRAG
 
     </div>
     """
