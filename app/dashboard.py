@@ -1782,40 +1782,51 @@ question_options = [
 ]
 
 
-question = st.selectbox(
-    "SELECT AN OLYMPICS QUESTION",
-    question_options,
-)
+# ============================================================
+# LIVE AGENT INVESTIGATION INPUT
+# ============================================================
 
+with st.form("agent_investigation_form", clear_on_submit=False):
 
-custom_question = st.text_input(
-    "Or enter your own question",
-
-    placeholder=(
-        "Ask an Olympic question..."
-    ),
-)
-
-
-if custom_question.strip():
-
-    active_question = (
-        custom_question.strip()
+    question = st.selectbox(
+        "SELECT AN OLYMPICS QUESTION",
+        question_options,
+        key="olympics_question_select",
     )
 
-else:
+    custom_question = st.text_input(
+        "Or enter your own question",
+        placeholder="Ask an Olympic question...",
+        key="custom_olympics_question",
+    )
 
-    active_question = question
-
-
-investigate = st.button(
-    "🔎  INVESTIGATE",
-    type="primary",
-    use_container_width=True,
-)
-
+    investigate = st.form_submit_button(
+        "INVESTIGATE",
+        type="primary",
+        width="stretch",
+    )
 
 if investigate:
+    st.success("BUTTON CLICK RECEIVED")
+
+# ============================================================
+# PROCESS INVESTIGATION
+# ============================================================
+st.write("DEBUG: investigate =", investigate)
+if investigate:
+
+    # Take the NEWLY SUBMITTED question
+    if custom_question.strip():
+        active_question = custom_question.strip()
+    else:
+        active_question = question.strip()
+
+    # Prevent the old answer from remaining on screen
+    st.session_state.pop("agent_result", None)
+    st.session_state.pop("agent_question", None)
+
+    # Save the exact question being investigated
+    st.session_state["agent_question"] = active_question
 
     if not BACKEND_AVAILABLE:
 
@@ -1829,29 +1840,35 @@ if investigate:
 
     else:
 
-        with st.spinner(
-            "Agent is investigating the evidence..."
-        ):
+       with st.spinner(
+       "Agent is investigating the evidence..."
+                      ):
+    try:
+        new_agent_result = run_agent(
+            active_question
+        )
 
-            try:
+        st.session_state[
+            "agent_result"
+        ] = new_agent_result
 
-                agent_result = run_agent(
-                    active_question
-                )
+        st.session_state[
+            "agent_question"
+        ] = active_question
 
-                st.session_state[
-                    "agent_result"
-                ] = agent_result
+    except Exception as e:
+        st.session_state.pop(
+            "agent_result",
+            None
+        )
 
-                st.session_state[
-                    "agent_question"
-                ] = active_question
+        st.error(
+            f"Investigation failed: {e}"
+        )
 
-            except Exception as e:
+        st.exception(e)
 
-                st.error(
-                    f"Investigation failed: {e}"
-                )
+   
 
 
 # ============================================================
