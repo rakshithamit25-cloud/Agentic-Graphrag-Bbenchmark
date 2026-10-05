@@ -783,7 +783,7 @@ h1, h2, h3, h4, p {{
    BUTTON
    ======================================================== */
 
-.stButton > button {{
+[data-testid="stButton"] button {{
 
     background:
         linear-gradient(
@@ -815,7 +815,7 @@ h1, h2, h3, h4, p {{
         rgba(56,189,248,0.18);
 }}
 
-.stButton > button:hover {{
+[data-testid="stButton"] button:hover {{
 
     box-shadow:
         0 10px 30px
@@ -1748,127 +1748,62 @@ else:
 
 
 # ============================================================
-# LIVE AGENT INVESTIGATION
-# ============================================================
-
-st.html(
-    """
-    <div class="section-title">
-        SELECT AN OLYMPICS QUESTION
-    </div>
-
-    <div class="section-sub">
-        Ask the Agentic GraphRAG system an Olympic question
-        and inspect its investigation process
-    </div>
-    """
-)
-
-
-default_question = (
-    "Who won the gold medal in the event held at Olympic Aquatic Centre on August 14, 2004?"
-)
-
-
-question_options = [
-    default_question,
-    "Who won the gold medal in the men's 100m freestyle at the 2008 Summer Olympics?",
-    "Which country won the most gold medals at the 2008 Summer Olympics?",
-    "Who won the gold medal in the men's 400m individual medley at the 2004 Summer Olympics?",
-    "Which athlete won the most medals at the 2008 Summer Olympics?",
-    "Which event was held at Olympic Aquatic Centre on August 14, 2004?",
-    "Who won the gold medal in the men's 470 sailing event at the 2016 Summer Olympics?",
-    "What was the previous Olympic Games before the 2008 Summer Olympics, and who won the gold medal in the specified event?",
-]
-
-
-# ============================================================
 # LIVE AGENT INVESTIGATION INPUT
 # ============================================================
 
-with st.form("agent_investigation_form", clear_on_submit=False):
+question = st.selectbox(
+    "SELECT AN OLYMPICS QUESTION",
+    question_options,
+    key="olympics_question_select",
+)
 
-    question = st.selectbox(
-        "SELECT AN OLYMPICS QUESTION",
-        question_options,
-        key="olympics_question_select",
-    )
+custom_question = st.text_input(
+    "Or enter your own question",
+    placeholder="Ask an Olympic question...",
+    key="custom_olympics_question",
+)
 
-    custom_question = st.text_input(
-        "Or enter your own question",
-        placeholder="Ask an Olympic question...",
-        key="custom_olympics_question",
-    )
-
-    investigate = st.form_submit_button(
-        "INVESTIGATE",
-        type="primary",
-        width="stretch",
-    )
-
-if investigate:
-    st.success("BUTTON CLICK RECEIVED")
+investigate = st.button(
+    "🔎 INVESTIGATE",
+    type="primary",
+    use_container_width=True,
+    key="investigate_button",
+)
 
 # ============================================================
 # PROCESS INVESTIGATION
 # ============================================================
-st.write("DEBUG: investigate =", investigate)
+
 if investigate:
 
-    # Take the NEWLY SUBMITTED question
+    # Capture submitted question.
     if custom_question.strip():
         active_question = custom_question.strip()
     else:
         active_question = question.strip()
 
-    # Prevent the old answer from remaining on screen
+    # Clear previous result.
     st.session_state.pop("agent_result", None)
     st.session_state.pop("agent_question", None)
 
-    # Save the exact question being investigated
     st.session_state["agent_question"] = active_question
 
     if not BACKEND_AVAILABLE:
-
-        st.error(
-            "Backend could not be imported."
-        )
-
-        st.code(
-            BACKEND_ERROR
-        )
-
+        st.error("❌ Backend could not be imported.")
+        st.code(BACKEND_ERROR)
     else:
+        with st.spinner("Agent is investigating the evidence..."):
+            try:
+                new_agent_result = run_agent(active_question)
 
-       with st.spinner(
-       "Agent is investigating the evidence..."
-                      ):
-    try:
-        new_agent_result = run_agent(
-            active_question
-        )
+                st.session_state["agent_result"] = new_agent_result
+                st.session_state["agent_question"] = active_question
 
-        st.session_state[
-            "agent_result"
-        ] = new_agent_result
+            except Exception as e:
+                st.session_state.pop("agent_result", None)
+                st.error(f"❌ Investigation failed: {e}")
+                st.exception(e)
 
-        st.session_state[
-            "agent_question"
-        ] = active_question
-
-    except Exception as e:
-        st.session_state.pop(
-            "agent_result",
-            None
-        )
-
-        st.error(
-            f"Investigation failed: {e}"
-        )
-
-        st.exception(e)
-
-   
 
 
 # ============================================================
@@ -2664,54 +2599,7 @@ for index, question_text in enumerate(
     )
 
 
-    with st.expander(
-        f"Q{index}  •  {question_text}"
-    ):
-
-        c1, c2, c3 = st.columns(3)
-
-
-        with c1:
-
-            st.html(
-                f"""
-                <div style="
-                    color:{status_color};
-                    font-weight:900;
-                    font-size:13px;
-                ">
-                    {status}
-                </div>
-                """
-            )
-
-
-        with c2:
-
-            try:
-
-                confidence_percent = (
-                    float(confidence) * 100
-                )
-
-            except Exception:
-
-                confidence_percent = 0
-
-
-            st.metric(
-                "Confidence",
-                f"{confidence_percent:.0f}%",
-            )
-
-
-        with c3:
-
-            st.metric(
-                "Estimated Tokens",
-                tokens,
-            )
-
+       
 
 # ============================================================
 # AGENTIC ARCHITECTURE
