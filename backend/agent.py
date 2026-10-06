@@ -1,524 +1,505 @@
-from agent_state import AgentState
-from agent_router import (
-    decide_next_action,
-    understand_question,
-    graph_has_required_information
+"""
+Live Olympic investigation backend.
+
+Reuses the official three-way benchmark retrieval (TigerGraph, vector RAG,
+and Groq) without fabricating answers or benchmark metrics.
+
+Live-query path bypasses the batch-benchmark's mandatory time.sleep(10)
+throttle to give fast dashboard responses.
+"""
+
+from __future__ import annotations
+
+import importlib.util
+import json
+import os
+import re
+import sys
+import time
+from pathlib import Path
+
+PROJECT_ROOT = Path(__file__).resolve().parent.parent
+if str(PROJECT_ROOT) not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT))
+if str(PROJECT_ROOT / "backend") not in sys.path:
+    sys.path.insert(0, str(PROJECT_ROOT / "backend"))
+
+BENCHMARK_PATH = (
+    PROJECT_ROOT / "benchmark" / "run_official_three_way_benchmark.py"
 )
+CORPUS_FILE = PROJECT_ROOT / "official_data" / "corpus.jsonl"
 
-from graph_tool import (
-    get_livestock_graph,
-    get_disease_by_market
+INSUFFICIENT_MESSAGE = (
+    "Investigation could not be completed with the available evidence sources."
 )
+NOT_AVAILABLE = "Not available"
 
-from vector_tool import vector_search
-from entity_linker import link_entities
+_benchmark = None
+_corpus_by_id = None
 
 
-def get_name(item):
+def _load_benchmark_module():
+    global _benchmark
+    if _benchmark is not None:
+        return _benchmark
 
+    spec = importlib.util.spec_from_file_location(
+        "official_three_way_benchmark",
+        BENCHMARK_PATH,
+    )
+    module = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(module)
+    _benchmark = module
+    return _benchmark
+
+
+def _load_corpus_by_id():
+    global _corpus_by_id
+    if _corpus_by_id is not None:
+        return _corpus_by_id
+
+    bench = _load_benchmark_module()
+    corpus = bench.load_jsonl(CORPUS_FILE)
+    _corpus_by_id = {doc["doc_id"]: doc for doc in corpus}
+    return _corpus_by_id
+
+
+# ============================================================
+# QUESTION CLASSIFIER
+# ============================================================
+
+def classify_question(question: str) -> str:
     """
-    Safely extract a vertex name from
-    TigerGraph evidence.
-    """
+    Map a live question onto benchmark query types.
 
-    if not item:
+    Types: aggregation | temporal | superlative | multi_hop | lookup | event_winner
+    """
+    q = (question or "").lower()
+
+    # Aggregation: "how many X events had more than N competitors"
+    if re.search(
+        r"(more than|greater than|above)\s+\d+\s+(competitors|participants)",
+        q,
+    ):
+        return "aggregation"
+
+    # Superlative: highest/most competitors
+    if "highest number of competitors" in q or "most competitors" in q:
+        return "superlative"
+
+    # Temporal: "held immediately before <year>"
+    if "immediately before" in q:
+        return "temporal"
+
+    # Multi-hop: event at a specific venue on a specific date
+    if re.search(r"event held at\s+.+\son\s+", q) or (
+        "held at" in q and re.search(r"\bon\s+", q)
+    ):
+        return "multi_hop"
+
+    # Lookup: "how many nations competed in X"
+    if "how many nations" in q:
+        return "lookup"
+
+    # Winner questions
+    if "who won" in q:
+        # Try to detect if it can be answered via the temporal graph path:
+        # "who won ... immediately before <year>" already caught above.
+        # For direct "who won ... at the <year> Olympics" questions,
+        # we first attempt TigerGraph lookup, then fall back to vector RAG.
+        return "event_winner"
+
+    return "lookup"
+
+
+# ============================================================
+# LIVE RAG — bypasses the 10s batch sleep in bench.rag_answer()
+# ============================================================
+
+def _live_rag_answer(question: str, corpus_by_id: dict, qtype: str) -> dict:
+    """
+    Perform vector search + Groq answer generation for a live query.
+
+    Identical logic to benchmark rag_answer() but without time.sleep(10).
+    """
+    from official_vector_search import official_vector_search
+    from groq_client import groq_generate_with_metadata, GROQ_MODEL
+
+    bench = _load_benchmark_module()
+
+    # Use the same adaptive retrieval settings as the benchmark
+    settings = bench.get_rag_retrieval_settings(question, qtype or "lookup")
+    top_k = settings["initial_top_k"]
+    max_chars = settings["max_chars_per_doc"]
+
+    retrieved = official_vector_search(question, top_k=top_k)
+
+    retrieved_docs = []
+    for item in retrieved:
+        doc_id = item.get("doc_id")
+        doc = corpus_by_id.get(doc_id)
+        if doc:
+            retrieved_docs.append({
+                "doc_id": doc_id,
+                "score": item.get("score"),
+                "title": doc.get("title", ""),
+                "text": doc.get("text", ""),
+                "approx_tokens": doc.get("approx_tokens", 0),
+            })
+
+    if not retrieved_docs:
+        return {
+            "answer": [],
+            "documents": [],
+            "llm_tokens": 0,
+            "llm_latency": 0.0,
+            "llm_model": GROQ_MODEL,
+            "error": "No documents retrieved from vector index.",
+        }
+
+    # Apply the same filtering logic as the benchmark
+    if settings.get("apply_entity_filter"):
+        selected_docs = bench.filter_rag_candidates(
+            question,
+            retrieved_docs,
+            max_docs=settings.get("max_filtered_docs", 25),
+        )
+    else:
+        selected_docs = retrieved_docs[:top_k]
+
+    # Build evidence context using the same extraction logic
+    evidence_blocks = []
+    for i, doc in enumerate(selected_docs, start=1):
+        title = doc.get("title", "").strip()
+        text = (doc.get("text", "") or "").strip()
+        snippet = bench.extract_relevant_rag_fields(title, text, max_chars=max_chars)
+        evidence_blocks.append(f"[Document {i}] {title}\n{snippet}")
+
+    evidence_text = "\n\n".join(evidence_blocks)
+
+    prompt = (
+        "You are an answer extractor for an Olympic-history question-answering benchmark.\n"
+        "\n"
+        "STRICT RULES:\n"
+        "- Answer ONLY using the supplied retrieved documents below.\n"
+        "- Do NOT use prior knowledge or outside information of any kind.\n"
+        "- If the documents do not contain enough information to answer, "
+        "reply with exactly: INSUFFICIENT_EVIDENCE\n"
+        "\n"
+        "OUTPUT FORMAT:\n"
+        "- Reply with the answer value only — no explanation, no preamble, no JSON.\n"
+        "- For a person or event name: write only the name (e.g. Michael Phelps).\n"
+        "- For a number: write only the digit(s) (e.g. 5).\n"
+        "- For an event title: write only the full event title.\n"
+        "- Do not add country names, parentheses, or extra context.\n"
+        "\n"
+        f"QUESTION: {question}\n"
+        "\n"
+        "RETRIEVED DOCUMENTS:\n"
+        f"{evidence_text}\n"
+        "\n"
+        "ANSWER:"
+    )
+
+    llm_tokens = 0
+    llm_latency = 0.0
+    llm_model = GROQ_MODEL
+
+    try:
+        res = groq_generate_with_metadata(
+            prompt,
+            max_retries=3,
+            initial_backoff=1.0,
+        )
+        llm_tokens = res.get("total_tokens", 0)
+        llm_latency = res.get("latency", 0.0)
+        llm_model = res.get("model", GROQ_MODEL)
+        raw = res.get("content", "").strip()
+    except Exception as exc:
+        return {
+            "answer": [],
+            "documents": retrieved_docs,
+            "llm_tokens": 0,
+            "llm_latency": 0.0,
+            "llm_model": GROQ_MODEL,
+            "error": str(exc),
+        }
+
+    if not raw or raw.upper() == "INSUFFICIENT_EVIDENCE":
+        return {
+            "answer": [],
+            "documents": retrieved_docs,
+            "llm_tokens": llm_tokens,
+            "llm_latency": llm_latency,
+            "llm_model": llm_model,
+        }
+
+    answer_text = raw.strip().strip('"').strip("'").strip()
+    return {
+        "answer": [answer_text],
+        "documents": retrieved_docs,
+        "llm_tokens": llm_tokens,
+        "llm_latency": llm_latency,
+        "llm_model": llm_model,
+    }
+
+
+# ============================================================
+# HELPERS
+# ============================================================
+
+def _format_answer(answers) -> str | None:
+    if answers is None:
         return None
+    if isinstance(answers, str):
+        text = answers.strip()
+        return text or None
+    if isinstance(answers, list):
+        parts = [str(item).strip() for item in answers if str(item).strip()]
+        if not parts:
+            return None
+        return ", ".join(parts)
+    text = str(answers).strip()
+    return text or None
 
-    return (
-        item.get("attributes", {})
-        .get("name")
-    )
+
+def _present(value):
+    if value is None:
+        return NOT_AVAILABLE
+    if isinstance(value, str) and not value.strip():
+        return NOT_AVAILABLE
+    if isinstance(value, (int, float)) and value == 0:
+        return NOT_AVAILABLE
+    return value
 
 
-def build_final_answer(state):
+def _evidence_items(evidence) -> list:
+    if not evidence:
+        return []
+    if isinstance(evidence, list):
+        return evidence
+    return [evidence]
 
-    graph = state.graph_evidence
 
-    question = state.question.lower()
+def _empty_result(question: str, **overrides) -> dict:
+    result = {
+        "question": question,
+        "final_answer": INSUFFICIENT_MESSAGE,
+        "status": "failed",
+        "question_type": NOT_AVAILABLE,
+        "graph_supported": False,
+        "actions_taken": [],
+        "evidence_items": 0,
+        "evidence": [],
+        "evidence_agrees": NOT_AVAILABLE,
+        "confidence": NOT_AVAILABLE,
+        "estimated_tokens": NOT_AVAILABLE,
+        "llm_tokens": NOT_AVAILABLE,
+        "llm_latency": NOT_AVAILABLE,
+        "llm_model": NOT_AVAILABLE,
+        "response_time": NOT_AVAILABLE,
+        "graph_result": None,
+        "vector_result": None,
+        "errors": [],
+        "route_used": NOT_AVAILABLE,
+        "graph_query": NOT_AVAILABLE,
+    }
+    result.update(overrides)
+    return result
 
-    diseases = graph.get("diseases", [])
-    treatments = graph.get("treatments", [])
-    outbreaks = graph.get("outbreaks", [])
-    markets = graph.get("markets", [])
 
-    disease_name = (
-        get_name(diseases[0])
-        if diseases
-        else None
-    )
+# ============================================================
+# MAIN ENTRY POINT
+# ============================================================
 
-    treatment_name = (
-        get_name(treatments[0])
-        if treatments
-        else None
-    )
+def run_agent(question: str) -> dict:
+    """
+    Run one live investigation using official Olympic retrieval.
 
-    outbreak_name = (
-        get_name(outbreaks[0])
-        if outbreaks
-        else None
-    )
+    Pipeline:
+      UNDERSTAND → GRAPH (TigerGraph) → [VECTOR_SEARCH if graph empty] → EVALUATE → STOP
 
-    market_name = (
-        get_name(markets[0])
-        if markets
-        else None
-    )
+    Returns a structured dict for the dashboard. Does not invent answers
+    or confidence scores.
+    """
+    question = (question or "").strip()
+    started = time.time()
 
-    # ----------------------------------------------
-    # Treatment
-    # ----------------------------------------------
-
-    if (
-        "treatment" in question
-        and treatment_name
-        and disease_name
-    ):
-
-        state.final_answer = (
-            f"The treatment associated with "
-            f"{disease_name} is "
-            f"{treatment_name}."
+    if not question:
+        return _empty_result(
+            question,
+            final_answer="Please enter a question.",
+            status="error",
+            errors=["Empty question"],
         )
 
-        state.final_answer += (
-            "\n\nEvidence path:"
-            f"\n{disease_name}"
-            f" → {treatment_name}"
-        )
+    # ── 1. UNDERSTAND ──────────────────────────────────────────
+    qtype = classify_question(question)
+    actions = ["UNDERSTAND"]
+    errors = []
+    graph_result = None
+    vector_result = None
+    graph_answer = []
+    final_answers = []
+    evidence = []
+    route_used = NOT_AVAILABLE
+    graph_supported = False
+    llm_tokens = None
+    llm_latency = None
+    llm_model = None
+    estimated_tokens = None
 
-    # ----------------------------------------------
-    # Outbreak
-    # ----------------------------------------------
+    bench = _load_benchmark_module()
+    corpus_by_id = _load_corpus_by_id()
 
-    elif (
-        "which outbreak" in question
-        and outbreak_name
-        and disease_name
-    ):
+    # ── 2. GRAPH ───────────────────────────────────────────────
+    actions.append("GRAPH")
 
-        state.final_answer = (
-            f"The outbreak associated with "
-            f"{disease_name} is "
-            f"{outbreak_name}."
-        )
+    conn = None
+    try:
+        conn = bench.get_connection()
+    except Exception as exc:
+        errors.append(f"TigerGraph unavailable: {exc}")
 
-        state.final_answer += (
-            "\n\nEvidence path:"
-            f"\n{disease_name}"
-            f" → {outbreak_name}"
-        )
+    # Determine which graph query type to attempt.
+    # event_winner questions are not natively supported by any graph query,
+    # but we attempt a lookup pass (event_nations) first — it may return
+    # an empty result, which is fine; vector RAG will take over.
+    graph_qtype = qtype
+    if qtype == "event_winner":
+        # Sailing / specific event winner: try lookup graph query first.
+        # The lookup query (event_nations) searches by event title.
+        # If TigerGraph has no matching record (winner questions have no
+        # graph query), it returns an empty answer and we fall to vector.
+        graph_qtype = "lookup"
 
-    # ----------------------------------------------
-    # Market
-    # ----------------------------------------------
+    if conn is not None:
+        try:
+            graph_result = bench.run_graph_query(conn, graph_qtype, question)
+            graph_answer = (graph_result or {}).get("answer") or []
+        except Exception as exc:
+            errors.append(f"TigerGraph query failed: {exc}")
+            graph_result = {"answer": [], "results": [], "error": str(exc)}
+    else:
+        graph_result = {
+            "answer": [],
+            "results": [],
+            "error": errors[-1] if errors else "TigerGraph unavailable",
+        }
 
-    elif (
-        "which market" in question
-        and market_name
-    ):
-
-        state.final_answer = (
-            f"The market affected by "
-            f"{outbreak_name} is "
-            f"{market_name}."
-        )
-
-        state.final_answer += (
-            "\n\nEvidence path:"
-            f"\n{disease_name}"
-            f" → {outbreak_name}"
-            f" → {market_name}"
-        )
-
-    # ----------------------------------------------
-    # Disease associated with market
-    # ----------------------------------------------
-
-    elif (
-        "which disease" in question
-        and disease_name
-        and market_name
-    ):
-
-        state.final_answer = (
-            f"The disease associated with "
-            f"{market_name} is "
-            f"{disease_name}."
-        )
-
-        state.final_answer += (
-            "\n\nEvidence path:"
-            f"\n{disease_name}"
-            f" → {outbreak_name}"
-            f" → {market_name}"
-        )
-
-    # ----------------------------------------------
-    # Insufficient evidence
-    # ----------------------------------------------
+    # If TigerGraph returned an answer, synthesize it with the LLM
+    if graph_answer:
+        graph_supported = True
+        route_used = "GRAPH"
+        final_answers = graph_answer
+        evidence = (graph_result or {}).get("results") or []
+        try:
+            synthesized, llm_meta = bench.synthesize_graph_answer(
+                question,
+                graph_result,
+                pipeline_name="LiveAgent",
+            )
+            if synthesized:
+                final_answers = synthesized
+            llm_tokens = llm_meta.get("llm_tokens")
+            llm_latency = llm_meta.get("llm_latency")
+            llm_model = llm_meta.get("llm_model")
+        except Exception as exc:
+            errors.append(f"Graph answer synthesis failed: {exc}")
 
     else:
+        # ── 3. VECTOR SEARCH ───────────────────────────────────
+        actions.append("VECTOR_SEARCH")
 
-        state.final_answer = (
-            "The available evidence was not "
-            "sufficient to determine the answer."
-        )
+        # For event_winner questions (e.g. "Who won the men's 100m at 2016 Olympics?"),
+        # use lookup qtype for the RAG settings (conservative top_k, good for factoid).
+        rag_qtype = qtype if qtype in {
+            "aggregation", "temporal", "superlative", "multi_hop", "lookup",
+        } else "lookup"
 
+        try:
+            # Use the live RAG path (no 10-second sleep) for fast dashboard response
+            vector_result = _live_rag_answer(question, corpus_by_id, rag_qtype)
+            final_answers = (vector_result or {}).get("answer") or []
+            evidence = (vector_result or {}).get("documents") or []
+            llm_tokens = (vector_result or {}).get("llm_tokens")
+            llm_latency = (vector_result or {}).get("llm_latency")
+            llm_model = (vector_result or {}).get("llm_model")
 
-def evaluate_evidence(state):
+            try:
+                estimated_tokens = bench.estimate_tokens_from_docs(evidence)
+            except Exception:
+                estimated_tokens = None
 
-    """
-    Evaluate graph and vector evidence.
+            if final_answers:
+                route_used = "VECTOR"
+            else:
+                vector_error = (vector_result or {}).get("error")
+                if vector_error:
+                    errors.append(str(vector_error))
+        except Exception as exc:
+            errors.append(f"Vector retrieval failed: {exc}")
+            vector_result = {"answer": [], "documents": [], "error": str(exc)}
 
-    This is intentionally deterministic for the
-    current benchmark dataset.
-    """
+    # ── 4. EVALUATE EVIDENCE ──────────────────────────────────
+    actions.append("EVALUATE_EVIDENCE")
+    actions.append("STOP")
 
-    graph_available = bool(
-        state.graph_evidence
-    )
+    evidence_list = _evidence_items(evidence)
+    final_answer = _format_answer(final_answers)
 
-    vector_available = bool(
-        state.vector_evidence
-    )
-
-    required_found = graph_has_required_information(
-        state
-    )
-
-    # Both sources support the investigation
-    if (
-        graph_available
-        and vector_available
-        and required_found
-    ):
-
-        state.evidence_agrees = True
-        state.update_confidence(0.85)
-
-    # Graph alone contains the required answer
-    elif (
-        graph_available
-        and required_found
-    ):
-
-        state.evidence_agrees = False
-        state.update_confidence(0.70)
-
-        state.add_missing_information(
-            "independent document confirmation"
-        )
-
-    # Vector evidence exists but graph does not
-    elif vector_available:
-
-        state.evidence_agrees = False
-        state.update_confidence(0.40)
-
-        state.add_missing_information(
-            "graph confirmation"
-        )
-
+    if graph_supported and final_answer:
+        status = "completed"
+        evidence_agrees = True
+    elif final_answer:
+        status = "completed"
+        evidence_agrees = NOT_AVAILABLE
     else:
-
-        state.evidence_agrees = False
-        state.update_confidence(0.20)
-
-        state.add_missing_information(
-            "supporting evidence"
-        )
-
-    state.evidence_evaluated = True
-
-
-def run_agent(question):
-
-    state = AgentState(question)
-
-    # ==================================================
-    # 1. UNDERSTAND QUESTION
-    # ==================================================
-
-    entities = link_entities(question)
-
-    understand_question(state)
-
-    print("\n[AGENT] Entity Linking:")
-    print(entities)
-
-    print("\n[AGENT] Required Information:")
-    print(state.required_information)
-
-    # ==================================================
-    # 2. ENTITY INFORMATION
-    # ==================================================
-
-    disease_id = entities.get(
-        "disease_id"
-    )
-
-    market = entities.get(
-        "market"
-    )
-
-    # ==================================================
-    # 3. MARKET → TIGERGRAPH ID
-    # ==================================================
-
-    market_id = None
-
-    if market == "Tamil Nadu Livestock Market":
-
-        market_id = "market_001"
-
-    elif market == "Karnataka Livestock Market":
-
-        market_id = "market_002"
-
-    # ==================================================
-    # 4. AGENTIC INVESTIGATION LOOP
-    # ==================================================
-
-    while not state.should_stop():
-
-        action = decide_next_action(state)
-
-        # ------------------------------------------------
-        # Special case:
-        # Market question requires reverse graph search.
-        # ------------------------------------------------
-
-        if (
-            action == "GRAPH"
-            and not disease_id
-            and market_id
-            and not state.graph_evidence
-        ):
-
-            action = "MARKET_GRAPH"
-
-        state.record_action(action)
-
-        print(
-            f"\n[AGENT] Action: {action}"
-        )
-
-        # ==================================================
-        # GRAPH SEARCH
-        # ==================================================
-
-        if action == "GRAPH":
-
-            print(
-                "[TOOL] Querying TigerGraph..."
-            )
-
-            if disease_id:
-
-                state.graph_evidence = (
-                    get_livestock_graph(
-                        disease_id
-                    )
-                )
-
-            else:
-
-                print(
-                    "[AGENT] Disease entity "
-                    "was not identified."
-                )
-
-                state.add_missing_information(
-                    "disease"
-                )
-
-        # ==================================================
-        # MARKET GRAPH SEARCH
-        # ==================================================
-
-        elif action == "MARKET_GRAPH":
-
-            print(
-                "[TOOL] Finding disease from market "
-                "using TigerGraph..."
-            )
-
-            diseases = (
-                get_disease_by_market(
-                    market_id
-                )
-            )
-
-            if diseases:
-
-                disease = diseases[0]
-
-                disease_id = disease.get(
-                    "v_id"
-                )
-
-                print(
-                    "[AGENT] Disease found:",
-                    disease.get(
-                        "attributes",
-                        {}
-                    ).get(
-                        "name"
-                    )
-                )
-
-                state.graph_evidence = (
-                    get_livestock_graph(
-                        disease_id
-                    )
-                )
-
-                state.remove_missing_information(
-                    "disease"
-                )
-
-            else:
-
-                print(
-                    "[AGENT] No disease found "
-                    "for this market."
-                )
-
-                state.add_missing_information(
-                    "disease"
-                )
-
-        # ==================================================
-        # VECTOR / DOCUMENT SEARCH
-        # ==================================================
-
-        elif action == "VECTOR":
-
-            print(
-                "[TOOL] Searching documents..."
-            )
-
-            state.vector_evidence = (
-                vector_search(
-                    question,
-                    top_k=3
-                )
-            )
-
-            if state.vector_evidence:
-
-                print(
-                    "[AGENT] Document evidence found."
-                )
-
-            else:
-
-                state.add_missing_information(
-                    "document evidence"
-                )
-
-        # ==================================================
-        # EVIDENCE EVALUATION
-        # ==================================================
-
-        elif action == "EVALUATE":
-
-            print(
-                "[AGENT] Evaluating evidence..."
-            )
-
-            evaluate_evidence(state)
-
-            print(
-                "[AGENT] Confidence:",
-                state.confidence
-            )
-
-            print(
-                "[AGENT] Evidence agrees:",
-                state.evidence_agrees
-            )
-
-        # ==================================================
-        # STOP
-        # ==================================================
-
-        elif action == "STOP":
-
-            print(
-                "[AGENT] Investigation stopped."
-            )
-
-            break
-
-    # ==================================================
-    # 5. BUILD FINAL ANSWER
-    # ==================================================
-
-    build_final_answer(state)
-
-    state.stopped = True
-
-    return state
+        status = "failed"
+        final_answer = INSUFFICIENT_MESSAGE
+        evidence_agrees = False
+        if not errors:
+            errors.append(INSUFFICIENT_MESSAGE)
+
+    elapsed = round(time.time() - started, 3)
+
+    return {
+        "question": question,
+        "final_answer": final_answer,
+        "status": status,
+        "question_type": qtype,
+        "graph_supported": graph_supported,
+        "actions_taken": actions,
+        "evidence_items": len(evidence_list),
+        "evidence": evidence_list,
+        "evidence_agrees": evidence_agrees,
+        "confidence": NOT_AVAILABLE,
+        "estimated_tokens": _present(estimated_tokens),
+        "llm_tokens": _present(llm_tokens),
+        "llm_latency": _present(llm_latency),
+        "llm_model": _present(llm_model),
+        "response_time": elapsed,
+        "graph_result": graph_result,
+        "vector_result": vector_result,
+        "errors": errors,
+        "route_used": route_used,
+        "graph_query": (graph_result or {}).get("query") or NOT_AVAILABLE,
+    }
 
 
 if __name__ == "__main__":
-
-    question = (
-        "Which disease is associated with "
-        "the Karnataka livestock market?"
-    )
-
-    result = run_agent(question)
-
-    print(
-        "\n=============================="
-    )
-
-    print(
-        "       AGENTIC GRAPHRAG"
-    )
-
-    print(
-        "=============================="
-    )
-
-    print("\nQuestion:")
-    print(result.question)
-
-    print("\nRequired Information:")
-
-    for item in result.required_information:
-
-        print("-", item)
-
-    print("\nActions Taken:")
-
-    for action in result.actions_taken:
-
-        print("-", action)
-
-    print("\nConfidence:")
-    print(result.confidence)
-
-    print("\nEvidence Agreement:")
-    print(result.evidence_agrees)
-
-    print("\nMissing Information:")
-
-    if result.missing_information:
-
-        for item in result.missing_information:
-
-            print("-", item)
-
-    else:
-
-        print("None")
-
-    print("\nFinal Answer:")
-    print(result.final_answer)
-
-    print("\nStopped:")
-    print(result.stopped)
+    questions = [
+        "Who won the men's 100m at the 2016 Olympics?",
+        "Who won the men's 470 sailing event at the 2016 Summer Olympics?",
+    ]
+    for demo in questions:
+        print(f"\n{'='*60}")
+        result = run_agent(demo)
+        print("Question:", result["question"])
+        print("Status:  ", result["status"])
+        print("Type:    ", result["question_type"])
+        print("Route:   ", result["route_used"])
+        print("Answer:  ", result["final_answer"])
+        print("Time:    ", result["response_time"], "s")
+        if result["errors"]:
+            print("Errors:  ", result["errors"])

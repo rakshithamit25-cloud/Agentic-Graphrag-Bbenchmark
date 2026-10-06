@@ -8,3 +8,5 @@ env/
 .DS_Store
 
 official_data/eval_hidden.jsonl
+
+official_data/official_three_way_results_98percent_backup.json
