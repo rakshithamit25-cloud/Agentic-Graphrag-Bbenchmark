@@ -53,7 +53,7 @@ NOT_AVAILABLE = "Not available"
 EXAMPLE_QUESTIONS = [
     "Who won the men's 100m at the 2016 Olympics?",
     "Who won the men's 470 sailing event at the 2016 Summer Olympics?",
-    "How many nations competed in Sailing at the 2016 Summer Olympics – Women's RS:X?",
+    "How many nations competed in Sailing at the 2016 Summer Olympics \u2013 Women's RS:X?",
     "According to the provided corpus, how many biathlon events at the 2018 Winter Olympics had more than 73 competitors?",
 ]
 
@@ -540,6 +540,7 @@ investigate = st.button(
     use_container_width=True,
 )
 
+# ── When INVESTIGATE is clicked: clear old state, run fresh query ──────────
 if investigate:
     submitted = (st.session_state.question_draft or "").strip()
     st.session_state.current_question = submitted
@@ -556,26 +557,38 @@ if investigate:
         with st.spinner("Investigating Olympic evidence..."):
             try:
                 st.session_state.current_result = run_agent(submitted)
-            if hasattr(st.session_state.current_result, "__dict__"):
-                st.session_state.current_result = vars(st.session_state.current_result)
+                # Normalise in case backend returns a SimpleNamespace or other object
+                if hasattr(st.session_state.current_result, "__dict__"):
+                    st.session_state.current_result = vars(
+                        st.session_state.current_result
+                    )
             except Exception as exc:
                 st.session_state.current_error = str(exc)
 
+# ── Read current state (reflects the just-submitted question) ──────────────
 current_question = st.session_state.current_question
 current_result = st.session_state.current_result
 current_error = st.session_state.current_error
 
+# Show error banner only when there is no result to display
 if current_error and current_result is None:
     st.error(current_error)
 
+# ── Display result (only when a result exists) ─────────────────────────────
 if current_result is not None:
     result = current_result
+
+    # query_text: always use the stored current question so switching
+    # questions never shows a stale query.
+    query_text = current_question or result.get("question") or ""
+
     answer_text = result.get("final_answer") or NOT_AVAILABLE
     status = result.get("status") or NOT_AVAILABLE
     actions = result.get("actions_taken") or []
     evidence = result.get("evidence") or []
     errors = result.get("errors") or []
 
+    # ── Query ──────────────────────────────────────────────────────────────
     st.markdown("### Query")
     st.html(
         f"""
@@ -585,6 +598,7 @@ if current_result is not None:
         """
     )
 
+    # ── Answer ─────────────────────────────────────────────────────────────
     st.markdown("### Answer")
     st.html(
         f"""
@@ -609,6 +623,7 @@ if current_result is not None:
     elif errors:
         st.warning("Retrieval notes: " + " ".join(str(item) for item in errors))
 
+    # ── Investigation metrics ──────────────────────────────────────────────
     st.markdown("### Investigation")
     response_time = result.get("response_time")
     if isinstance(response_time, (int, float)):
@@ -714,6 +729,7 @@ if current_result is not None:
             """
         )
 
+    # ── Evidence ───────────────────────────────────────────────────────────
     st.markdown("### Evidence")
     if not evidence:
         st.info("No evidence items were returned for this investigation.")
@@ -739,6 +755,7 @@ if current_result is not None:
             with st.expander(f"{index}. {title}"):
                 st.text(body)
 
+    # ── Trace ──────────────────────────────────────────────────────────────
     st.markdown("### Trace")
     descriptions = {
         "UNDERSTAND": "Classified the submitted question before retrieval.",
@@ -765,6 +782,7 @@ if current_result is not None:
                 """
             )
 
+# ── Agentic Architecture diagram ───────────────────────────────────────────
 st.html(
     f"""
     <div class="section-title">Agentic Architecture</div>
