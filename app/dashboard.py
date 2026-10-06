@@ -568,7 +568,7 @@ if current_error and current_result is None:
 
 if current_result is not None:
     result = current_result
-    query_text = result.get("question") or current_question or ""
+    query_text = getattr(result, "question", None) or current_question or ""
     answer_text = result.get("final_answer") or NOT_AVAILABLE
     status = result.get("status") or NOT_AVAILABLE
     actions = result.get("actions_taken") or []
