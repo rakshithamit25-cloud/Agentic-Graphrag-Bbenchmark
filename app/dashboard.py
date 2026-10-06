@@ -556,6 +556,8 @@ if investigate:
         with st.spinner("Investigating Olympic evidence..."):
             try:
                 st.session_state.current_result = run_agent(submitted)
+            if hasattr(st.session_state.current_result, "__dict__"):
+                st.session_state.current_result = vars(st.session_state.current_result)
             except Exception as exc:
                 st.session_state.current_error = str(exc)
 
@@ -568,7 +570,6 @@ if current_error and current_result is None:
 
 if current_result is not None:
     result = current_result
-    query_text = getattr(result, "question", None) or current_question or ""
     answer_text = result.get("final_answer") or NOT_AVAILABLE
     status = result.get("status") or NOT_AVAILABLE
     actions = result.get("actions_taken") or []
