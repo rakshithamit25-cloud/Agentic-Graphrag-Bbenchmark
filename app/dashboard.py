@@ -517,6 +517,10 @@ st.html(
     """
 )
 
+def set_example_question(text: str) -> None:
+    st.session_state.question_draft = text
+
+
 st.text_area(
     "Olympic history question",
     key="question_draft",
@@ -526,13 +530,14 @@ st.text_area(
 
 example_cols = st.columns(len(EXAMPLE_QUESTIONS))
 for index, example in enumerate(EXAMPLE_QUESTIONS):
-    if example_cols[index].button(
+    example_cols[index].button(
         f"Example {index + 1}",
         use_container_width=True,
         key=f"example_{index}",
-    ):
-        st.session_state.question_draft = example
-        st.rerun()
+        on_click=set_example_question,
+        args=(example,),
+    )
+
 
 investigate = st.button(
     "INVESTIGATE",
